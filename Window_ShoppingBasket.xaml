@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
         Title="Window_ShoppingBasket" Height="700" Width="600">
-    <Grid>
+    <StackPanel>
         <Grid  Height="400" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
@@ -23,48 +23,55 @@
             <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100"/>
-                        <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60"/>
-                        <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220"/>
-                        <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115"/>
-                        <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80"/>
+                        <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100" x:Name="artnum"/>
+                        <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60" x:Name="quantity"/>
+                        <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220" x:Name="name"/>
+                        <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115" x:Name="price"/>
+                        <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80" x:Name="deliverytime"/>
 
 
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock Grid.Row="2" Text="Lieferkosten:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-            <TextBlock Grid.Row="3" Text="Gesamtpreis:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="2" Text="Lieferkosten: {deliverycost}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="deliverycost"/>
+            <TextBlock Grid.Row="3" Text="Gesamtpreis: {preis}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="fullprice"/>
             <TextBlock Grid.Row="5" Text="Lieferadresse:" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontWeight="Bold"/>
 
         </Grid>
 
-        <Grid Height="280" VerticalAlignment="Bottom" >
-            <Border Grid.Row="0" Grid.RowSpan="5" BorderThickness="2" BorderBrush="Black" />
+        <Border BorderThickness="2" BorderBrush="Black" Margin="10">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="8*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="7*"/>
+            <Grid Height="280" VerticalAlignment="Bottom" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Straße:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+
+                <TextBox Grid.Row="0"  FontSize="22" VerticalAlignment="Center" Width="400" x:Name="street"/>
+
+                <TextBlock Grid.Row="1" Text="Vorname:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="1" Text="" FontSize="18" VerticalAlignment="Center" Width="100" Margin="108,0,392,0" x:Name="firstname" />
+
+                <TextBlock Grid.Row="1" Text="Nachname: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
+                <TextBox Grid.Row="1"  FontSize="18"  VerticalAlignment="Center" Width="130" Margin="240,0,0,0" x:Name="lastname" />
+
+                <TextBlock Grid.Row="2" Text="Stadt:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="2"  FontSize="18"  VerticalAlignment="Center" Width="100" Margin="108,0,392,0" x:Name="city"/>
+
+                <TextBlock Grid.Row="2" Text="PLZ:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
+                <TextBox Grid.Row="2"  FontSize="18"  VerticalAlignment="Center" Width="100" Margin="240,0,0,0" x:Name="plz" />
+
+                <TextBlock Grid.Row="3" Text="Land:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="4"  FontSize="18"  VerticalAlignment="Center" Width="400" x:Name="country"/>
 
 
-
-
-            </Grid.RowDefinitions>
-
-            <TextBlock Grid.Row="0" Text="Straße:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"  />
-            <TextBox Grid.Row="0"  FontSize="22" VerticalAlignment="Center" Width="400" />
-
-            <TextBlock Grid.Row="1" Text="Vorname:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
-            <TextBox Grid.Row="1"  FontSize="22" VerticalAlignment="Center" Width="100" Margin="108,0,392,0"  />
-
-            <TextBlock Grid.Row="1" Text="Nachname:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
-            <TextBlock Grid.Row="2" Text="Stadt:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
-            <TextBlock Grid.Row="2" Text="PLZ:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
-            <TextBlock Grid.Row="3" Text="Land:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
-
-
-        </Grid>
-    </Grid>
+            </Grid>
+        </Border>
+    </StackPanel>
 </Window>
