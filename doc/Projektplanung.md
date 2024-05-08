@@ -5,6 +5,7 @@
 - [ ] Produktauswahl window
 - [ ] Warenkorb(Bestell) window
 - [ ] Serialisierung(Produktdaten und Rechnung(Bestellung))
+- [ ] grafik
 
 
 
