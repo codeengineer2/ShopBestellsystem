@@ -42,7 +42,7 @@ namespace Shop_bestellsystem
 
         public void AddItem()
         {
-            _liste.Add("0", "2", "Mercedes CLA Coupe 220d");
+            _liste.Add("Hallo");
         }
         
 
