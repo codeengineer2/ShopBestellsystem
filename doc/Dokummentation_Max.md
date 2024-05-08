@@ -15,3 +15,8 @@
 
 ## Tag 3 - 08.05.2024
 ### Heute haben wir das GO von Ihnen erhalten.
+### Dann habe ich das Window_ShoppingBasket erstellt
+### designed und verlinkt und.
+### Als letztens habe ich noch die ShoppingBasket.cs Klasse begonnen
+### zu erstellen und habe vorerst nur die Properties und Feldvariablen
+### erstellt und die List ausprobiert.
