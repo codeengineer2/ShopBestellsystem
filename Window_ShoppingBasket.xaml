@@ -7,39 +7,64 @@
         mc:Ignorable="d"
         Title="Window_ShoppingBasket" Height="700" Width="600">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="12*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
-
-        </Grid.RowDefinitions>
-        <TextBlock Text="Warenkorb" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-        <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100"/>
-                    <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60"/>
-                    <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220"/>
-                    <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115"/>
-                    <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80"/>
-
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBlock Grid.Row="2" Text="Lieferkosten:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-
-        <TextBlock Grid.Row="3" Text="Gesamtpreis:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBlock HorizontalAlignment="Left" Margin="140,0,0,0"  Grid.Row="2" TextWrapping="Wrap" Text="asd" VerticalAlignment="Center" Width="120" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" Margin="140,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="asd" VerticalAlignment="Center" Width="120" FontSize="20"/>
+        <Grid  Height="400" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
 
 
 
 
+            </Grid.RowDefinitions>
+            <TextBlock Text="Warenkorb" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+            <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100"/>
+                        <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60"/>
+                        <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220"/>
+                        <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115"/>
+                        <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80"/>
+
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBlock Grid.Row="2" Text="Lieferkosten:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="3" Text="Gesamtpreis:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            <TextBlock Grid.Row="5" Text="Lieferadresse:" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontWeight="Bold"/>
+
+        </Grid>
+
+        <Grid Height="280" VerticalAlignment="Bottom" >
+            <Border Grid.Row="0" Grid.RowSpan="5" BorderThickness="2" BorderBrush="Black" />
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="7*"/>
+
+
+
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Straße:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"  />
+            <TextBox Grid.Row="0"  FontSize="22" VerticalAlignment="Center" Width="400" />
+
+            <TextBlock Grid.Row="1" Text="Vorname:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+            <TextBox Grid.Row="1"  FontSize="22" VerticalAlignment="Center" Width="100" Margin="108,0,392,0"  />
+
+            <TextBlock Grid.Row="1" Text="Nachname:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
+            <TextBlock Grid.Row="2" Text="Stadt:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+            <TextBlock Grid.Row="2" Text="PLZ:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
+            <TextBlock Grid.Row="3" Text="Land:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+
+
+        </Grid>
     </Grid>
 </Window>
