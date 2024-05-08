@@ -5,28 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="Window_ShoppingBasket" Height="600" Width="400">
+        Title="Window_ShoppingBasket" Height="700" Width="600">
     <Grid>
         <Grid.RowDefinitions>
-
-
-            <RowDefinition Height="3*"/>
-            
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
 
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+        <TextBlock Text="Warenkorb" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+        <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100"/>
+                    <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60"/>
+                    <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220"/>
+                    <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115"/>
+                    <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80"/>
 
 
-            <ColumnDefinition Width="3*"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock Grid.Row="2" Text="Lieferkosten:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="10*"/>
+        <TextBlock Grid.Row="3" Text="Gesamtpreis:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,0,0,0"  Grid.Row="2" TextWrapping="Wrap" Text="asd" VerticalAlignment="Center" Width="120" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="asd" VerticalAlignment="Center" Width="120" FontSize="20"/>
 
 
-        </Grid.ColumnDefinitions>
+
 
     </Grid>
 </Window>
