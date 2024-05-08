@@ -16,9 +16,12 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        ShoppingBasket basket;
         public MainWindow()
         {
             InitializeComponent();
+            basket = new ShoppingBasket();
+
         }
     }
 }

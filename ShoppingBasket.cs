@@ -11,7 +11,7 @@ namespace Shop_bestellsystem
     public class ShoppingBasket
     {
         public double fullprice;
-        public string deliverycost;
+        public double deliverycost;
         public string deliverytime;
         public string street;
         public string country;
@@ -22,7 +22,7 @@ namespace Shop_bestellsystem
         public int artnum;
 
         public double Fullprice { get; set; }
-        public string Deliverycost { get; set; }
+        public double Deliverycost { get; set; }
         public string Deliverytime { get; set; }
 
         public string Street { get; set; }
@@ -38,14 +38,15 @@ namespace Shop_bestellsystem
 
 
 
-        private List<string> _liste = new List<string>();
+        private List<string> _liste = new List<string>()
+        {
+            "0", "2", "Mercedes CLA Coupe 220d", "99000", "15"
+        };
 
         public void AddItem()
         {
-            _liste.Add("0", "2", "Mercedes CLA Coupe 220d");
+            _liste.Add("Hallo");
         }
-        
-
 
     }
 }
