@@ -62,5 +62,11 @@ namespace Shop_bestellsystem
             this.Close();
 		}
 
+		private void MenuItemBasket_Click(object sender, RoutedEventArgs e)
+		{
+			var basketWindow = new Window_ShoppingBasket();
+			basketWindow.ShowDialog();
+		}
+
 	}
 }

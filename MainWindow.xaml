@@ -67,7 +67,7 @@
                 </MenuItem.Icon>
             </MenuItem>
 
-            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22" >
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22" Click="MenuItemBasket_Click">
                 <MenuItem.Header>
                     <TextBlock Text="B A S K E T" HorizontalAlignment="Center" Margin="35,0,0,0"/>
                 </MenuItem.Header>
