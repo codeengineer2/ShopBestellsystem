@@ -87,7 +87,7 @@
 
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="2" Grid.Row="1" Content="Zahlungspflichtig Bestellen">
+            <Button Grid.Column="2" Grid.Row="1" Content="Zahlungspflichtig Bestellen" Click="Button_Click">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="15" Background="LightBlue">

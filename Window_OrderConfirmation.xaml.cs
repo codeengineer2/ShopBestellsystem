@@ -15,22 +15,26 @@ using System.Windows.Shapes;
 namespace Shop_bestellsystem
 {
     /// <summary>
-    /// Interaktionslogik für Window_ShoppingBasket.xaml
+    /// Interaktionslogik für Window_OrderConfirmation.xaml
     /// </summary>
-    public partial class Window_ShoppingBasket : Window
+    public partial class Window_OrderConfirmation : Window
     {
-        public Window_ShoppingBasket()
+        public Window_OrderConfirmation()
         {
-            InitializeComponent();
-            
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Initialisieren der Window_OrderConfirmation: {ex.Message}");
+            }
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            var Window_OrderConfirmation = new Window_OrderConfirmation();
-            Window_OrderConfirmation.ShowDialog();
-            
+
         }
     }
 }
