@@ -20,3 +20,10 @@
 ### Als letztens habe ich noch die ShoppingBasket.cs Klasse begonnen
 ### zu erstellen und habe vorerst nur die Properties und Feldvariablen
 ### erstellt und die List ausprobiert.
+
+## Tag 4 - 09.05.2024
+### Heute habe ich Die Verlinkung vom Warenkorb Window zum Bestellbestätigungs
+### Window hergestellt
+### Bestellbestätigungs Window Designt
+### Probleme: Bestellbestätigung: Backround Image wurde nicht dargestellt (Error)
+
