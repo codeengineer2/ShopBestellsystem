@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="Window_ShoppingBasket" Height="700" Width="600">
+        Title="Window_ShoppingBasket" Height="800" Width="600">
     <StackPanel>
         <Grid  Height="400" VerticalAlignment="Top">
             <Grid.RowDefinitions>
@@ -73,5 +73,31 @@
 
             </Grid>
         </Border>
+        <Grid Height="80" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="5*"/>
+
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="2" Grid.Row="1" Content="Zahlungspflichtig Bestellen">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="LightBlue">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+               
+            </Button>
+                
+        </Grid>
     </StackPanel>
 </Window>

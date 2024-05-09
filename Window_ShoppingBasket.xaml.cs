@@ -22,6 +22,7 @@ namespace Shop_bestellsystem
         public Window_ShoppingBasket()
         {
             InitializeComponent();
+            
         }
 
     }
