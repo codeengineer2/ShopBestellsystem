@@ -62,11 +62,67 @@ namespace Shop_bestellsystem
             this.Close();
 		}
 
-		private void MenuItemBasket_Click(object sender, RoutedEventArgs e)
+		private void menuItemBasket_Click(object sender, RoutedEventArgs e)
 		{
+			ResetMenuItemsBackgroundColors();
+
+			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+			MenuItem clickedMenuItem = (MenuItem)sender;
+
+			clickedMenuItem.Background = menuItemBackgroundColor;
+
 			var basketWindow = new Window_ShoppingBasket();
 			basketWindow.ShowDialog();
+            
 		}
 
+
+        private void menuItemShop_Click(object sender, RoutedEventArgs e)
+        {
+			ResetMenuItemsBackgroundColors();
+
+			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+			MenuItem clickedMenuItem = (MenuItem)sender;
+
+			clickedMenuItem.Background = menuItemBackgroundColor;
+		}
+
+		private void menuItemAbout_Click(object sender, RoutedEventArgs e)
+		{
+			ResetMenuItemsBackgroundColors();
+
+			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+			MenuItem clickedMenuItem = (MenuItem)sender;
+
+            clickedMenuItem.Background = menuItemBackgroundColor;
+		}
+
+		private void menuItemContact_Click(object sender, RoutedEventArgs e)
+		{
+			ResetMenuItemsBackgroundColors();
+
+			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+			MenuItem clickedMenuItem = (MenuItem)sender;
+
+			clickedMenuItem.Background = menuItemBackgroundColor;
+		}
+
+		private void menuItemExit_Click(object sender, RoutedEventArgs e)
+		{
+			this.Close();
+		}
+
+		private void ResetMenuItemsBackgroundColors()
+		{
+			SolidColorBrush menuBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B8AEA6"));
+
+			foreach (var item in menu.Items)
+			{
+				if (item is MenuItem menuItem)
+				{
+					menuItem.Background = menuBackgroundColor;
+				}
+			}
+		}
 	}
 }
