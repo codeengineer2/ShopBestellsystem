@@ -18,4 +18,14 @@
 ### Anschließend habe ich eine Datenbank shop.db erstellt mithilfe von SQLite und diese mit ein paar Test Records befüllt.
 
 ### Tag 4 - 09.05.2024
-### Heute fane ich mit dem Design des MainWindows.xaml an.
+### Heute habe ich angefangen das MainWindow.xaml zu designen als erstes habe ich mir Bilder geholt die man frei ohne Bindung verwenden darf. 
+### Als nächstes habe ich folgende Dinge hinzugefügt:
+- Titelleiste
+	- Name der App
+	- Close und Minimize Buttons selber erstellt
+- Menü
+### Das Menü hat mir am meisten Zeit gekostet zuerst designen musste.
+### Anschließend habe ich es vereinfacht in dem ich einen benutzerdefinierte Style angewendet habe sowie ein eigenes ControlTemplate.
+### Dann habe ich dies Styles woanders hin verschoben in ein RessourcenDictionary.
+### Als vorletztes hab ich noch in der MainWindow.xaml.cs für die einzelnen Menüitems eine Funktion geschrieben die anzeigt welches Menüitem aktuell ausgewählt ist.
+### Zu guter Letzt habe ich noch 3 Pages erstellt und ein bisschen rumgespielt mit denen.
