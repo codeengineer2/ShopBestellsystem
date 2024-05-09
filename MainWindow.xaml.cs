@@ -19,6 +19,7 @@ namespace Shop_bestellsystem
         public MainWindow()
         {
             InitializeComponent();
+			Main.Content = new Shop();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -76,7 +77,6 @@ namespace Shop_bestellsystem
             
 		}
 
-
         private void menuItemShop_Click(object sender, RoutedEventArgs e)
         {
 			ResetMenuItemsBackgroundColors();
@@ -85,6 +85,8 @@ namespace Shop_bestellsystem
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
+
+			Main.Content = new Shop();
 		}
 
 		private void menuItemAbout_Click(object sender, RoutedEventArgs e)
@@ -95,6 +97,8 @@ namespace Shop_bestellsystem
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
             clickedMenuItem.Background = menuItemBackgroundColor;
+
+			Main.Content = new About();
 		}
 
 		private void menuItemContact_Click(object sender, RoutedEventArgs e)
@@ -105,6 +109,9 @@ namespace Shop_bestellsystem
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
+
+			Main.Content = new Contact();
+
 		}
 
 		private void menuItemExit_Click(object sender, RoutedEventArgs e)

@@ -51,5 +51,8 @@
             <MenuItem x:Name="menuItemExit" Style="{StaticResource MenuBar}" Header="E X I T" Tag="/src/assets/menu_icon_exit.png" Click="menuItemExit_Click"/>
 
         </Menu>
+
+        <Frame Grid.Row="1" Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Window>
