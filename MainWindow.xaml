@@ -12,50 +12,6 @@
         MouseDown="Window_MouseDown"
         Height="600" Width="1000">
 
-	<Window.Resources>
-        <!-- FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22" -->
-        <Style x:Key="MenuBar" TargetType="MenuItem">
-            <Setter Property="FontFamily" Value="/src/fonts/#Jaro"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="70"/>
-            <Setter Property="FontSize" Value="22"/>
-
-         
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="MenuItem">
-                        <Border x:Name="border"
-                            Background="{TemplateBinding Background}">
-
-                            <Grid x:Name="grid">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="10*"/>
-                                    <ColumnDefinition Width="20*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" Margin="15,15,15,15"/>
-                                <TextBlock Text="{TemplateBinding Header}" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                            </Grid>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#9A8F88"/>
-                            </Trigger>
-
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#A49E96  "/>
-                            </Trigger>                       
-                        </ControlTemplate.Triggers>
-                        
-                        
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-
-        </Style>
-    </Window.Resources>
-
-
 	<Grid Background="#E5E2E0">
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
