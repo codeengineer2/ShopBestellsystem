@@ -10,13 +10,16 @@
 
   <ItemGroup>
     <None Remove="src\assets\close_window.png" />
+    <None Remove="src\assets\close_window_new.png" />
     <None Remove="src\assets\copyright.png" />
     <None Remove="src\assets\maximize_window.png" />
     <None Remove="src\assets\menu_icon_about.png" />
+    <None Remove="src\assets\menu_icon_basket.png" />
     <None Remove="src\assets\menu_icon_contact.png" />
     <None Remove="src\assets\menu_icon_exit.png" />
     <None Remove="src\assets\menu_icon_shop.png" />
     <None Remove="src\assets\minimize_window.png" />
+    <None Remove="src\assets\minimize_window_new.png" />
     <None Remove="src\fonts\Jaro-Regular-VariableFont_opsz.ttf" />
   </ItemGroup>
 
@@ -34,8 +37,13 @@
     <Resource Include="src\assets\menu_icon_contact.png" />
     <Resource Include="src\assets\menu_icon_exit.png" />
     <Resource Include="src\assets\menu_icon_shop.png" />
+    <Resource Include="src\assets\menu_icon_basket.png" />
     <Resource Include="src\assets\minimize_window.png" />
     <Resource Include="src\fonts\Jaro-Regular-VariableFont_opsz.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\assets\main_window\" />
   </ItemGroup>
 
 </Project>

@@ -26,17 +26,65 @@
 
         <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1">
             <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <Image Source="/src/assets/minimize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MinimizeWindow_MouseDown"/>
+                <Image Source="/src/assets/minimize_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown"/>
 
                 <!-- <Image Source="/src/assets/maximize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MaximizeWindow_MouseDown"/> -->
 
-                <Image Source="/src/assets/close_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown"/>
+                <Image Source="/src/assets/close_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown"/>
             </StackPanel>
         </Border>
 
         <Border Background="#D05733" Grid.Row="0" Grid.Column="0">
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Andromedar" FontFamily="/src/fonts/#Jaro" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Andromedar" FontFamily="/src/fonts/#Jaro" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
         </Border>
 
-       </Grid>
+        <Menu Grid.Row="1" Grid.Column="0" Background="#9A8F88">
+
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22">
+                <MenuItem.Header>
+                    <TextBlock Text="S H O P" HorizontalAlignment="Center" Margin="35,0,0,0"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/src/assets/menu_icon_shop.png" Margin="-10,-10,-30,-10" HorizontalAlignment="Right"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22">
+                <MenuItem.Header>
+                    <TextBlock Text="A B O U T" HorizontalAlignment="Center" Margin="35,0,0,0"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/src/assets/menu_icon_about.png" Margin="-10,-10,-30,-10" HorizontalAlignment="Right"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22">
+                <MenuItem.Header>
+                    <TextBlock Text="C O N T A C T" HorizontalAlignment="Center" Margin="35,0,0,0"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/src/assets/menu_icon_contact.png" Margin="-10,-10,-30,-10" HorizontalAlignment="Right"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22" >
+                <MenuItem.Header>
+                    <TextBlock Text="B A S K E T" HorizontalAlignment="Center" Margin="35,0,0,0"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/src/assets/menu_icon_basket.png" Margin="-10,-10,-30,-10" HorizontalAlignment="Right"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem FontFamily="/src/fonts/#Jaro" Width="200" Height="70" FontSize="22">
+                <MenuItem.Header>
+                    <TextBlock Text="E X I T" HorizontalAlignment="Center" Margin="35,0,0,0"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="/src/assets/menu_icon_exit.png" Margin="-10,-10,-30,-10" HorizontalAlignment="Right"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+
+    </Grid>
 </Window>
