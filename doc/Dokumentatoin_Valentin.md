@@ -16,4 +16,6 @@
 ## Tag 3 - 08.05.2024
 ### Heute haben wir das GO von Ihnen erhalten.
 ### Anschließend habe ich eine Datenbank shop.db erstellt mithilfe von SQLite und diese mit ein paar Test Records befüllt.
-### Als letztes habe ich mich an das Design des MainWindow.xaml gemacht (rein optisch).
+
+### Tag 4 - 09.05.2024
+### Heute fane ich mit dem Design des MainWindows.xaml an.

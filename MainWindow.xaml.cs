@@ -16,12 +16,50 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        ShoppingBasket basket;
         public MainWindow()
         {
             InitializeComponent();
-            basket = new ShoppingBasket();
-
         }
-    }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+				if (e.ChangedButton == MouseButton.Left)
+				{
+					this.DragMove();
+				}
+			}catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            
+        }
+
+		private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+            WindowState = WindowState.Minimized;
+		}
+
+        /*
+         
+		private void MaximizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+            if (WindowState == WindowState.Maximized) 
+            {
+                WindowState = WindowState.Normal;
+            }
+            else
+            {
+				WindowState = WindowState.Maximized;
+			}
+		}
+
+        */
+
+		private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+		{
+            this.Close();
+		}
+	}
 }

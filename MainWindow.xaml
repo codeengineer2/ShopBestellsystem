@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        Height="600" Width="1000">
 
-    </Grid>
+
+    <Grid Background="#E5E2E0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1">
+            <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/src/assets/minimize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MinimizeWindow_MouseDown"/>
+
+                <!-- <Image Source="/src/assets/maximize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MaximizeWindow_MouseDown"/> -->
+
+                <Image Source="/src/assets/close_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown"/>
+            </StackPanel>
+        </Border>
+
+        <Border Background="#D05733" Grid.Row="0" Grid.Column="0">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Andromedar" FontFamily="/src/fonts/#Jaro" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,0,0,0"/>
+        </Border>
+
+       </Grid>
 </Window>
