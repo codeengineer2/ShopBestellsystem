@@ -38,14 +38,27 @@ namespace Shop_bestellsystem
 
 
 
-        private List<string> _liste = new List<string>()
-        {
-            "0", "2", "Mercedes CLA Coupe 220d", "99000", "15"
-        };
 
-        public void AddItem()
+        public void Serializetotxt()
         {
-            _liste.Add("Hallo");
+            /*Verkäufer*/
+            Console.WriteLine("MV Krypto Sales&Marketing GMBH & CO KG");
+            Console.WriteLine("Main Lumber Rd");
+            Console.WriteLine("Bahamas");
+            /*Käufer*/
+            Console.WriteLine("{Firstname} {Lastname}");
+            Console.WriteLine("{Street}, {Country}");
+            Console.WriteLine("{Plz} {Stadt}");
+            /*Rechnung*/
+            Console.WriteLine("Rechnungs-Nr:    {BestellundRechnungsnummer}");
+            Console.WriteLine("Rechnungsdatum:    {Datum}");
+            Console.WriteLine("Lieferdatum:    {Datum+Deliverytime}");
+            Console.WriteLine("E-Mail:    {email}");
+            Console.WriteLine("\nPositionen:");
+            Console.WriteLine("{0,-10} {1,-30} {2,10} {3,10} {4,10}", "Pos.", "Bezeichnung", "Menge", "E-Preis", "Gesamt");
+
+
+
         }
 
     }

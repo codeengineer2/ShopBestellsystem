@@ -30,7 +30,7 @@
 
         <TextBlock FontSize="40" Foreground="White"   Text="Bestellbestätigung" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <Button Grid.Column="1" Grid.Row="2" Width="150" Height="50" Content="Rechnung downloaden" Click="Button_Click">
+        <Button Grid.Column="1" Grid.Row="2" Width="150" Height="50" Content="Rechnung downloaden" Click="Rechnungdownload">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="15" Background="GhostWhite">

@@ -19,6 +19,7 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class Window_OrderConfirmation : Window
     {
+        ShoppingBasket shop;
         public Window_OrderConfirmation()
         {
             try
@@ -32,9 +33,10 @@ namespace Shop_bestellsystem
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Rechnungdownload(object sender, RoutedEventArgs e)
         {
-
+            shop = new ShoppingBasket();
+            shop.Serializetotxt();
         }
     }
 }
