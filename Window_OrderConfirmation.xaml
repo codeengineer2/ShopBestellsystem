@@ -46,14 +46,14 @@
 
 
     </Grid>
-    <!--    
+      
     <Window.Background>
-    <ImageBrush ImageSource="/src/assets/bestellbackpic.png" Stretch="UniformToFill"/>
+        <ImageBrush ImageSource="/src/assets/bestellbackpic.png" Stretch="UniformToFill"/>
 
     </Window.Background>
     
     
-    -->
+    
     
    
 </Window>
