@@ -20,8 +20,10 @@ namespace Shop_bestellsystem
     public partial class Window_OrderConfirmation : Window
     {
         ShoppingBasket shop;
+
         public Window_OrderConfirmation()
         {
+
             try
             {
                 InitializeComponent();
