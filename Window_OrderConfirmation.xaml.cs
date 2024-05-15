@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Aspose.Pdf;
+
 
 namespace Shop_bestellsystem
 {
@@ -20,6 +20,7 @@ namespace Shop_bestellsystem
     public partial class Window_OrderConfirmation : Window
     {
         ShoppingBasket shop;
+        
 
         public Window_OrderConfirmation()
         {
@@ -37,8 +38,10 @@ namespace Shop_bestellsystem
 
         public void Rechnungdownload(object sender, RoutedEventArgs e)
         {
+            // initialize document object
             shop = new ShoppingBasket();
-            shop.Serializetotxt();
+            shop.SerializetoPdf();
         }
+            
     }
 }

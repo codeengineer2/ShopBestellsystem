@@ -28,6 +28,11 @@
 ### Probleme: Bestellbestätigung: Backround Image wurde nicht dargestellt (Error)
 
 ## Tag 5 - 10.05.2024
-### Api: PDFsharp
 ### Rechnung begonnen zu erstellen und Formatieren
+
+## Tag 6 - 15.05.2024
+### Rechnung funktionsfähig und erstellt
+### NuGetpackage: Aspose.PDF (24.5.1)
+
+
 
