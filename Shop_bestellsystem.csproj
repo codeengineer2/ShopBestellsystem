@@ -53,7 +53,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PDFsharp" Version="6.0.0" />
+    <PackageReference Include="Aspose.PDF" Version="24.5.1" />
+    <PackageReference Include="QuestPDF" Version="2024.3.6" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.5" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
