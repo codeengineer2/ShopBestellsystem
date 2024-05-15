@@ -6,8 +6,7 @@
         <Setter Property="Width" Value="200"/>
         <Setter Property="Height" Value="70"/>
         <Setter Property="FontSize" Value="22"/>
-
-
+        <Setter Property="Cursor" Value="Hand"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -30,7 +29,7 @@
                         </Trigger>
 
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#A49E96  "/>
+                            <Setter TargetName="border" Property="Background" Value="#A49E96"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
 

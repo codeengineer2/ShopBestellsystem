@@ -21,7 +21,9 @@
     <None Remove="src\assets\menu_icon_shop.png" />
     <None Remove="src\assets\minimize_window.png" />
     <None Remove="src\assets\minimize_window_new.png" />
+    <None Remove="src\assets\product_tasche.png" />
     <None Remove="src\fonts\Jaro-Regular-VariableFont_opsz.ttf" />
+    <None Remove="src\fonts\Oswald-VariableFont_wght.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,7 +43,9 @@
     <Resource Include="src\assets\menu_icon_shop.png" />
     <Resource Include="src\assets\menu_icon_basket.png" />
     <Resource Include="src\assets\minimize_window.png" />
+    <Resource Include="src\assets\product_tasche.png" />
     <Resource Include="src\fonts\Jaro-Regular-VariableFont_opsz.ttf" />
+    <Resource Include="src\fonts\Oswald-VariableFont_wght.ttf" />
   </ItemGroup>
 
   <ItemGroup>

@@ -25,11 +25,11 @@
 
         <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1">
             <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <Image Source="/src/assets/minimize_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown"/>
+                <Image Source="/src/assets/minimize_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown" Cursor="Hand"/>
 
                 <!-- <Image Source="/src/assets/maximize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MaximizeWindow_MouseDown"/> -->
 
-                <Image Source="/src/assets/close_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown"/>
+                <Image Source="/src/assets/close_window.png" Width="40" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
             </StackPanel>
         </Border>
 

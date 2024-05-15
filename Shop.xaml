@@ -9,6 +9,35 @@
       Title="Shop">
 
     <Grid>
-        <TextBlock Text="Shop" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="87*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Fill="Aqua" Grid.Row="0"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
+            <WrapPanel>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
+
+
+
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
