@@ -8,13 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Shop">
 
-    <Grid>
+    <Grid Background="#E5E2E0">
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
             <RowDefinition Height="87*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Fill="Aqua" Grid.Row="0"/>
+        <local:SearchBar Grid.Row="0" Margin="222,19,222,19"/>
+
 
         <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
             <WrapPanel>

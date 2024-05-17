@@ -22,8 +22,13 @@
     <None Remove="src\assets\minimize_window.png" />
     <None Remove="src\assets\minimize_window_new.png" />
     <None Remove="src\assets\product_tasche.png" />
+    <None Remove="src\assets\searchbar_icon.png" />
     <None Remove="src\fonts\Jaro-Regular-VariableFont_opsz.ttf" />
     <None Remove="src\fonts\Oswald-VariableFont_wght.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="src\assets\searchbar_icon.png" />
   </ItemGroup>
 
   <ItemGroup>

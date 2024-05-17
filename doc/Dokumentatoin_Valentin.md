@@ -29,3 +29,12 @@
 ### Dann habe ich dies Styles woanders hin verschoben in ein RessourcenDictionary.
 ### Als vorletztes hab ich noch in der MainWindow.xaml.cs für die einzelnen Menüitems eine Funktion geschrieben die anzeigt welches Menüitem aktuell ausgewählt ist.
 ### Zu guter Letzt habe ich noch 3 Pages erstellt und ein bisschen rumgespielt mit denen.
+
+## Tag 5 - 15.05.2024
+### Heute habe ich mit der Gestaltung des Shopframes angefangen.
+### Dadurch habe ich ein Custom Component hinzugefügt für das Produkt.
+### Anschließend habe ich noch ein weiteres CUstom Component hinzugefügt nämlich für die Suchbar.
+### Als letztes habe ich dieses 2 Custom Components noch designt.
+
+## Tag 6 - 17.05.2024
+### 
