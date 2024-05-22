@@ -6,21 +6,17 @@
         <Setter Property="Width" Value="200"/>
         <Setter Property="Height" Value="70"/>
         <Setter Property="FontSize" Value="22"/>
-
-
-
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="MenuItem">
-                    <Border x:Name="border"
-                       Background="{TemplateBinding Background}">
-
+                    <Border x:Name="border" Background="{TemplateBinding Background}">
                         <Grid x:Name="grid">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10*"/>
                                 <ColumnDefinition Width="20*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" Margin="15,15,15,15"/>
+                            <Image Source="{Binding Path=Tag, RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" Margin="15"/>
                             <TextBlock Text="{TemplateBinding Header}" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
                     </Border>
@@ -28,17 +24,28 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="border" Property="Background" Value="#9A8F88"/>
                         </Trigger>
-
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#A49E96  "/>
+                            <Setter TargetName="border" Property="Background" Value="#A49E96"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
-
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
 
+    <Style x:Key="MenuStyle" TargetType="Menu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Menu">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="0,0,0,10">
+                        <ItemsPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>
