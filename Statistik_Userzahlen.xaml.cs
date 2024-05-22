@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Shop_bestellsystem
 {
     /// <summary>
-    /// Interaktionslogik für ProductTemplate.xaml
+    /// Interaktionslogik für Statistik_Userzahlen.xaml
     /// </summary>
-    public partial class ProductTemplate : UserControl
+    public partial class Statistik_Userzahlen : Window
     {
-        public ProductTemplate()
+        public Statistik_Userzahlen()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
