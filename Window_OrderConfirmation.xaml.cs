@@ -18,28 +18,30 @@ namespace Shop_bestellsystem
     /// Interaktionslogik für Window_OrderConfirmation.xaml
     /// </summary>
     public partial class Window_OrderConfirmation : Window
-    {
+    { 
         ShoppingBasket shop;
         
 
-        public Window_OrderConfirmation()
-        {
 
+        public Window_OrderConfirmation(ShoppingBasket shop)
+        {
             try
             {
                 InitializeComponent();
+                this.shop = shop;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Fehler beim Initialisieren der Window_OrderConfirmation: {ex.Message}");
             }
-
         }
+
 
         public void Rechnungdownload(object sender, RoutedEventArgs e)
         {
+            
             // initialize document object
-            shop = new ShoppingBasket();
+            
             shop.SerializetoPdf();
         }
             

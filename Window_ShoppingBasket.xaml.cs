@@ -19,6 +19,7 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class Window_ShoppingBasket : Window
     {
+        ShoppingBasket shop;
         public Window_ShoppingBasket()
         {
             InitializeComponent();
@@ -27,9 +28,20 @@ namespace Shop_bestellsystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string street1 = street.Text;
+            string firstname1 = firstname.Text;
+            string lastname1 = lastname.Text;
+            string city1 = city.Text;
+            int plz1 = Convert.ToInt32(plz.Text);
+            string country1 = country.Text;
+
+            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1);
+            shop.testing();
             this.Close();
-            var Window_OrderConfirmation = new Window_OrderConfirmation();
+            
+            var Window_OrderConfirmation = new Window_OrderConfirmation(shop);
             Window_OrderConfirmation.ShowDialog();
+
             
         }
     }
