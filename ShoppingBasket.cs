@@ -29,7 +29,8 @@ namespace Shop_bestellsystem
         public string city;
         public int plz;
         public string country;
-        
+        public string mail;
+        public string tel;
         
         public int Artnum { get; set; }
         public int Anz { get; set; }
@@ -124,8 +125,36 @@ namespace Shop_bestellsystem
                 }
             }
         }
+        public string Mail
+        {
+            get
+            {
+                return mail;
+            }
+            set
+            {
+                if (value.Length > 0 && value.Length <= 25)
+                {
+                    mail = value;
+                }
+            }
+        }
+        public string Tel
+        {
+            get
+            {
+                return tel;
+            }
+            set
+            {
+                if (value.Length > 0 && value.Length <= 18)
+                {
+                    lastname = value;
+                }
+            }
+        }
 
-        public ShoppingBasket(string street, string firstname, string lastname, string city, int plz, string country) 
+        public ShoppingBasket(string street, string firstname, string lastname, string city, int plz, string country, string mail, string tel) 
         {
          
             Street = street;
@@ -134,6 +163,8 @@ namespace Shop_bestellsystem
             City = city;
             Plz = plz;
             Country = country;
+            Mail = mail;
+            Tel = tel;
 
         }
         public ShoppingBasket(double deliverycost, double fullprice)
@@ -148,7 +179,7 @@ namespace Shop_bestellsystem
 
         public void testing()
         {
-            string message = $"Street: {Street}\nFirstname: {Firstname}\nLastname: {Lastname}\nCity: {City}\nPlz: {Plz}\nCountry: {Country}";
+            string message = $"Street: {Street}\nFirstname: {Firstname}\nLastname: {Lastname} \nE-mail: {Mail}\nTelefonnummer: {Tel}\nCity: {City}\nPlz: {Plz}\nCountry: {Country}";
             MessageBox.Show(message);
         }
 
@@ -164,7 +195,7 @@ namespace Shop_bestellsystem
             string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street},\n{Plz} {City}\n{Country}\n";
-            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Now}    \nLieferdatum: 24.05.2024   \nE-Mail: maxmusterman    \n";
+            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Now}    \nLieferdatum: 24.05.2024   \nE-Mail: maxmusterman \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
             string positions = "\nPositionen:";
 
 

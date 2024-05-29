@@ -41,7 +41,7 @@ Die Umsetzung erfolgt in folgenden Schritten:
 - **Valentin:** Liste: Artikel und Artikelliste.
 - **Valentin:** Mainwindow (Produktauswahl).
 - **Maximilian:** Warenkorb mit Bestellfunktion, Bestellbestätigung. 
-- **Maximilian:** Logging.
+- **Maximilian:** Datenbank,Statistik, Logging.
 
 ## Milestoneso
 - **Milestone 1 (11.Mai):** MainWindow und Bestellwindow  fertig, Basisfunktinalität implementiert.(Demoversion)
