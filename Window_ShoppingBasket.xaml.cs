@@ -34,8 +34,10 @@ namespace Shop_bestellsystem
             string city1 = city.Text;
             int plz1 = Convert.ToInt32(plz.Text);
             string country1 = country.Text;
+            string mail1 = mail.Text;
+            string tel1 = tel.Text;
 
-            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1);
+            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1);
             shop.testing();
             this.Close();
             
@@ -44,5 +46,7 @@ namespace Shop_bestellsystem
 
             
         }
+
+        
     }
 }

@@ -34,5 +34,21 @@
 ### Rechnung funktionsfähig und erstellt
 ### NuGetpackage: Aspose.PDF (24.5.1)
 
+## Tag 7 - 22.05.2024
+### Rechnung Kontaktdaten hinzugefügt (des Absenders und des Empfängers)
+### Übergabe Parameter erstellt
+### Datenbank auf Server Erstellt
+
+## Tag 8 - 25.05.2024
+### Datenbanktabelle Statistik erstellt
+### Datenbank eingebunden und 2 Fenster erstellt mit Statistiken
+				
 
 
+
+
+
+
+
+
+	

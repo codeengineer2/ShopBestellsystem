@@ -48,6 +48,9 @@
                     <RowDefinition Height="7*"/>
                     <RowDefinition Height="7*"/>
                     <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="7*"/>
+
 
                 </Grid.RowDefinitions>
 
@@ -57,19 +60,25 @@
                 <TextBlock Grid.Row="0" Text="Nachname: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0" />
                 <TextBox Grid.Row="0"  FontSize="18"  VerticalAlignment="Center" Width="110" Margin="240,0,0,0" x:Name="lastname" />
 
-                <TextBlock Grid.Row="1" Text="Straße:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBlock Grid.Row="1" Text="E-Mail:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="1"  FontSize="18"  VerticalAlignment="Center" Width="400" x:Name="mail" />
 
-                <TextBox Grid.Row="1"  FontSize="22" VerticalAlignment="Center" Text="" Width="400" x:Name="street"/>
+                <TextBlock Grid.Row="2" Text="Tel::" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="2"  FontSize="18"  VerticalAlignment="Center" Width="400" x:Name="tel"/>
 
-                <TextBlock Grid.Row="2" Text="PLZ:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"  />
-                <TextBox Grid.Row="2"  FontSize="18"  VerticalAlignment="Center" Width="110" Margin="90,0,334,0"  x:Name="plz" />
+                <TextBlock Grid.Row="3" Text="Straße:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
 
-                <TextBlock Grid.Row="2" Text="Stadt:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0"/>
-                <TextBox Grid.Row="2"  FontSize="18"  VerticalAlignment="Center" Width="110" Margin="240,0,0,0" x:Name="city"/>
+                <TextBox Grid.Row="3"  FontSize="22" VerticalAlignment="Center" Text="" Width="400" x:Name="street"/>
+
+                <TextBlock Grid.Row="4" Text="PLZ:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"  />
+                <TextBox Grid.Row="4"  FontSize="18"  VerticalAlignment="Center" Width="110" Margin="90,0,334,0"  x:Name="plz" />
+
+                <TextBlock Grid.Row="4" Text="Stadt:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="8,0,0,0"/>
+                <TextBox Grid.Row="4"  FontSize="18"  VerticalAlignment="Center" Width="110" Margin="240,0,0,0" x:Name="city"/>
 
                 
-                <TextBlock Grid.Row="3" Text="Land:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
-                <TextBox Grid.Row="4"  FontSize="18"  VerticalAlignment="Center" Width="400" x:Name="country"/>
+                <TextBlock Grid.Row="5" Text="Land:" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0" />
+                <TextBox Grid.Row="5"  FontSize="18"  VerticalAlignment="Center" Width="400" x:Name="country"/>
 
 
             </Grid>
