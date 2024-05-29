@@ -15,8 +15,8 @@
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox Grid.Column="0" Text="Bitte text eingeben" FontSize="22"/>
-            <Image Grid.Column="1" Source="/src/assets/searchbar_icon.png" Cursor="Hand"/>
+            <TextBox x:Name="searchContent" Grid.Column="0" Text="Bitte text eingeben" FontSize="22"/>
+            <Image x:Name="searchButton" Grid.Column="1" Source="/src/assets/searchbar_icon.png" Cursor="Hand" MouseDown="Searching"/>
 
         </Grid>
     </Border>

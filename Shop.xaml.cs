@@ -20,9 +20,14 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class Shop : Page
     {
-        public Shop()
+        public string searchPrompt;
+        ProductList productList;
+        public Shop(ProductList productList)
         {
             InitializeComponent();
+            this.productList = productList;
+            this.productList.Visualize(wrapper);
+            searchPrompt = miniSearchBar.Content;
         }
     }
 }

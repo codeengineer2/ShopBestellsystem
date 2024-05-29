@@ -33,7 +33,7 @@
 ## Tag 5 - 15.05.2024
 ### Heute habe ich mit der Gestaltung des Shopframes angefangen.
 ### Dadurch habe ich ein Custom Component hinzugefügt für das Produkt.
-### Anschließend habe ich noch ein weiteres CUstom Component hinzugefügt nämlich für die Suchbar.
+### Anschließend habe ich noch ein weiteres Custom Component hinzugefügt nämlich für die Suchbar.
 ### Als letztes habe ich dieses 2 Custom Components noch designt.
 
 ## Tag 6 - 17.05.2024

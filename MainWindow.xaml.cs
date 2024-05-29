@@ -16,11 +16,13 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        ProductList productList = new ProductList();
         public MainWindow()
         {
             InitializeComponent();
-			Main.Content = new Shop();
-        }
+			Main.Content = new Shop(productList);
+			
+		}
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -86,7 +88,7 @@ namespace Shop_bestellsystem
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
 
-			Main.Content = new Shop();
+			Main.Content = new Shop(productList);
 		}
 
 		private void menuItemAbout_Click(object sender, RoutedEventArgs e)

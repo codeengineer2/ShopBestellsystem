@@ -20,9 +20,15 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class SearchBar : UserControl
     {
+        public string Content;
         public SearchBar()
         {
             InitializeComponent();
+        }
+
+        private void Searching(object sender, MouseButtonEventArgs e)
+        {
+            this.Content = searchContent.Text;
         }
     }
 }
