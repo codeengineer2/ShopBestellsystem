@@ -17,7 +17,7 @@
         <local:SearchBar Grid.Row="0" Margin="222,19,222,19"/>
 
 
-        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
+        <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1" Style="{StaticResource ProductScrollBar}">
             <WrapPanel>
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
@@ -35,8 +35,6 @@
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
-
-
 
             </WrapPanel>
         </ScrollViewer>
