@@ -113,12 +113,14 @@ namespace Shop_bestellsystem
 			clickedMenuItem.Background = menuItemBackgroundColor;
 
 			Main.Content = new Contact();
+        }
+
+		private void menuItemInsights_Click(object sender, RoutedEventArgs e)
+		{
             var Statistik = new Statistik_Userzahlen();
             var Statistik_userdauer = new Statistik_userdauer();
             Statistik.ShowDialog();
-			Statistik_userdauer.ShowDialog();
-
-
+            Statistik_userdauer.ShowDialog();
         }
 
         private void menuItemExit_Click(object sender, RoutedEventArgs e)

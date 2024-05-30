@@ -18,6 +18,7 @@
     <None Remove="src\assets\menu_icon_basket.png" />
     <None Remove="src\assets\menu_icon_contact.png" />
     <None Remove="src\assets\menu_icon_exit.png" />
+    <None Remove="src\assets\menu_icon_insights.png" />
     <None Remove="src\assets\menu_icon_shop.png" />
     <None Remove="src\assets\minimize_window.png" />
     <None Remove="src\assets\minimize_window_new.png" />
@@ -32,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="src\assets\menu_icon_insights.png" />
     <Resource Include="src\assets\searchbar_icon.png" />
   </ItemGroup>
 

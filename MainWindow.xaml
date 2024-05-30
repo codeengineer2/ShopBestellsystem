@@ -45,6 +45,8 @@
 
             <MenuItem x:Name="menuItemContact" Style="{StaticResource MenuBar}" Header="C O N T A C T" Tag="/src/assets/menu_icon_contact.png" Click="menuItemContact_Click"/>
 
+            <MenuItem x:Name="menuItemInsights" Style="{StaticResource MenuBar}" Header="I N S I G H T S" Tag="/src/assets/menu_icon_insights.png" Click="menuItemInsights_Click"/>
+
             <MenuItem x:Name="menuItemBasket" Style="{StaticResource MenuBar}" Header="B A S K E T" Tag="/src/assets/menu_icon_basket.png" Click="menuItemBasket_Click"/>
 
             <MenuItem x:Name="menuItemExit" Style="{StaticResource MenuBar}" Header="E X I T" Tag="/src/assets/menu_icon_exit.png" Click="menuItemExit_Click"/>

@@ -26,8 +26,6 @@ namespace Shop_bestellsystem
     /// Interaktionslogik für Statistik_userdauer.xaml
     /// </summary>
     public partial class Statistik_userdauer : Window
-
-
     {
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }

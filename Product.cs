@@ -32,7 +32,6 @@ namespace Shop_bestellsystem
         {
             ProductTemplate template = new ProductTemplate
             {
-                Name = this.name,
                 Width = 300,
                 Height = 150,
                 Margin = new Thickness(50, 30, 0, 0)
