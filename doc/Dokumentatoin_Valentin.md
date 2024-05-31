@@ -36,5 +36,13 @@
 ### Anschließend habe ich noch ein weiteres Custom Component hinzugefügt nämlich für die Suchbar.
 ### Als letztes habe ich dieses 2 Custom Components noch designt.
 
-## Tag 6 - 17.05.2024
-### 
+## Tag 6 - 29.05.2024
+### Heute habe ich eine Produkt-Klasse erstellt für die Produkte in der Datenbank Tabelle Produkte.
+### Anschließend habe ich diese Klasse mit einer Visiualize und Devisualize ausgestattet dadurch kann später einfach jedes Produkt gezeichnet und wieder gelöscht werden.
+### Als nächstes habe ich eine ProduktListe-Klasse hinzugefügt in der alle Produkte geladen und gespeichert werden sowie Methoden für alle Produkt Objekte.
+### Zu guter Letzt habe ich noch eine Verbindung zur Datenbank aufgestellt..
+
+## Tag 7 - 31.05.2024
+### Heute habe ich implementiert das alle Daten von der Datenbank richtig in den richtigen Datentyp umgewandelt werden und richtig in die Produkt-Klasse geführt werden.
+### Anschließend habe ich dann noch einen Code-Block geschrieben der den BLOB von der Datenbank in ein Byte[] umwandelt und somit angzeigt werden kann.
+### Als nächstes habe ich nun Properties bei dem ProductTemplate hinzugefügt damit kann man nun diese Werte von jedem Produkt problemlos in das Template einfügen.

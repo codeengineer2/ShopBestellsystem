@@ -19,9 +19,7 @@
 
         <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1" Style="{StaticResource ProductScrollBar}">
             <WrapPanel x:Name="wrapper">
-                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0"/>
-                
-
+                <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0" Description="Hallo" Price="18.23" DeliveryTime="8"/>
             </WrapPanel>
         </ScrollViewer>
     </Grid>

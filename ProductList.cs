@@ -1,4 +1,5 @@
 ﻿using Aspose.Pdf.Plugins;
+using DocumentFormat.OpenXml.Vml;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,16 @@ namespace Shop_bestellsystem
                 {
                     while (reader.Read())
                     {
-                        Product product = new Product(reader.GetInt32("ID"), reader.GetString("name"), reader.GetString("description"), reader.GetDouble("price"), 3, reader.GetInt32("quantity"));
+                        byte[] imageData = reader["picture"] as byte[];
+                        Product product = new Product(
+                            reader.GetInt32("ID"),
+                            reader.GetString("name"),
+                            reader.GetString("description"),
+                            reader.GetDouble("price"),
+                            reader.GetInt32("quantity"),
+                            reader.GetInt32("deliveryTime"),
+                            imageData
+                        );
                         products.Add(product);
                     }
                 }

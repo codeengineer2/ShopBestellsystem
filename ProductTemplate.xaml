@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Shop_bestellsystem"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="300">
+    
     <Border Background="Aquamarine" CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
@@ -19,18 +20,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="/src/assets/product_tasche.png" Grid.Row="0" Grid.Column="0" Margin="10,-10,10,-10"/>
-            <TextBlock Text="Hhm auf den ersten Blick eine gewöhnliche Tasche jedoch weiß keiner das Sie eigentlich aus der Lernecke gestohlen wurde." Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" />
-            <TextBlock Text="(-34%)    30.69 €" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
-            <TextBlock Text="Availible in  17h" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
-
+            <Image x:Name="ProductImage" Grid.Row="0" Grid.Column="0" Margin="10,-10,10,-10"/>
+            <TextBlock x:Name="boxDescription" Text="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" />
+            <TextBlock x:Name="boxPrice" Text="{Binding Price, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat={}{0:F2} €}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
+            <TextBlock x:Name="boxDeliveryTime" Text="{Binding DeliveryTime, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat='Availible in {0} h'}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
             <Button Content="Add to Cart" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ProductTemplate}"/>
-
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="90,3,30,3"></TextBox>
-                
-            
-            
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="90,3,30,3"/>
         </Grid>
     </Border>
-    
+
 </UserControl>
