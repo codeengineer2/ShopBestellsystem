@@ -38,6 +38,13 @@ namespace Shop_bestellsystem
             set { SetValue(DeliveryTimeProperty, value); }
         }
 
+        public static readonly DependencyProperty QuantityProperty = DependencyProperty.Register("Quantity", typeof(int), typeof(ProductTemplate), new PropertyMetadata(0));
+        public int Quantity
+        {
+            get { return (int)GetValue(QuantityProperty); }
+            set { SetValue(QuantityProperty, value); }
+        }
+
         public BitmapImage ImageSource
         {
             get { return (BitmapImage)GetValue(ImageSourceProperty); }

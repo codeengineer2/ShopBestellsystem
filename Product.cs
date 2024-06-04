@@ -14,22 +14,24 @@ namespace Shop_bestellsystem
     public class Product
     {
         private int id;
-        private string name;
+        public string Name;
         private string description;
         private double price;
         private int quantity;
         private int deliveryTime;
         private byte[] imageData;
+       
 
         public Product(int id, string name, string description, double price, int quantity, int deliveryTime, byte[] imageData)
         {
             this.id = id;
-            this.name = name;
+            this.Name = name;
             this.description = description;
             this.price = price;
             this.quantity = quantity;
             this.deliveryTime = deliveryTime;
             this.imageData = imageData;
+            
         }
 
         public void Visualize(WrapPanel wrapper)
@@ -42,12 +44,12 @@ namespace Shop_bestellsystem
                 Description = this.description,
                 Price = this.price,
                 DeliveryTime = this.deliveryTime,
+                Quantity = this.quantity,
                 ImageSource = LoadImage(this.imageData)
             };
-
             wrapper.Children.Add(template);
         }
-
+      
         public void Devisualize(WrapPanel wrapper)
         {
             ProductTemplate templateToRemove = null;
@@ -65,6 +67,25 @@ namespace Shop_bestellsystem
                 wrapper.Children.Remove(templateToRemove);
             }
         }
+
+        public void ReworkVisualization(WrapPanel wrapper)
+        {
+            bool templateExists = false;
+            foreach (UIElement element in wrapper.Children)
+            {
+                if (element is ProductTemplate template && template.Description == this.description)
+                {
+                    templateExists = true;
+                    break;
+                }
+            }
+
+            if (!templateExists)
+            {
+                Visualize(wrapper);
+            }
+        }
+
 
         private BitmapImage LoadImage(byte[] imageData)
         {

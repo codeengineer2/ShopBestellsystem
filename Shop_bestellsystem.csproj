@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\assets\arrow_down.png" />
+    <None Remove="src\assets\arrow_up.png" />
     <None Remove="src\assets\bestellbackpic.png" />
     <None Remove="src\assets\close_window.png" />
     <None Remove="src\assets\close_window_new.png" />
@@ -33,6 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="src\assets\arrow_down.png" />
+    <Resource Include="src\assets\arrow_up.png" />
     <Resource Include="src\assets\menu_icon_insights.png" />
     <Resource Include="src\assets\searchbar_icon.png" />
   </ItemGroup>

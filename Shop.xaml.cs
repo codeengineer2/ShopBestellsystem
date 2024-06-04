@@ -22,12 +22,26 @@ namespace Shop_bestellsystem
     {
         public string searchPrompt;
         ProductList productList;
+
         public Shop(ProductList productList)
         {
             InitializeComponent();
             this.productList = productList;
             this.productList.Visualize(wrapper);
-            searchPrompt = miniSearchBar.Content;
+        }
+        private void CustomControl_TextChanged(object sender, string e)
+        {
+            // Hier können Sie den Text verwenden, wie Sie möchten
+            // Zum Beispiel setzen Sie ihn in eine Variable
+            this.searchPrompt = e;
+            if (searchPrompt.Contains("$")){
+                this.productList.Reset(searchPrompt, wrapper);
+            }
+            else
+            {
+                this.productList.Filter(searchPrompt, wrapper);
+            }
+     
         }
     }
 }

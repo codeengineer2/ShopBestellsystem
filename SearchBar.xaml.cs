@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Vml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class SearchBar : UserControl
     {
+        public event EventHandler<string> TextChanged;
         public string Content;
         public SearchBar()
         {
@@ -28,7 +30,13 @@ namespace Shop_bestellsystem
 
         private void Searching(object sender, MouseButtonEventArgs e)
         {
-            this.Content = searchContent.Text;
+            string text = searchContent.Text;
+            TextChanged?.Invoke(this, text);
+        }
+
+        private void SearchContent_GotFocus(object sender, RoutedEventArgs e)
+        {
+            searchContent.Text = "";
         }
     }
 }

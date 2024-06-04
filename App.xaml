@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="/src/styles/MenuBarStyle.xaml"/>
                 <ResourceDictionary Source="/src/styles/ProductTemplateStyle.xaml"/>
                 <ResourceDictionary Source="/src/styles/ScrollBarStyle.xaml"/>
+                <ResourceDictionary Source="/src/styles/SpinBoxStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

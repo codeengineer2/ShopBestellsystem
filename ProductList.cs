@@ -18,8 +18,8 @@ namespace Shop_bestellsystem
     public class ProductList
     {
         private List<Product> products = new List<Product>();
-        public MySqlConnection Connection { get; set; }
-        public string connectionString;
+        private MySqlConnection Connection { get; set; }
+        private string connectionString;
 
         public ProductList()
         {
@@ -68,6 +68,21 @@ namespace Shop_bestellsystem
             }
         }
 
+        public void Filter(string prompt, WrapPanel wrapper)
+        {
+            foreach (Product product in products)
+            {
+                if (product.Name.Contains(prompt))
+                {
+                    product.ReworkVisualization(wrapper);
+                }
+                else
+                {
+                    product.Devisualize(wrapper);
+                }
+            }
+        }
+
         public void Visualize(WrapPanel wrapper)
         {
             foreach(Product p in products)
@@ -76,9 +91,15 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Reset(WrapPanel wrapper)
+        public void Reset(string prompt, WrapPanel wrapper)
         {
-            Visualize(wrapper);
+            if(prompt == "$all" || prompt == "$All" || prompt == "$")
+            {
+                foreach(Product product in products)
+                {
+                    product.ReworkVisualization(wrapper);
+                }
+            }
         }
     }
 }

@@ -10,9 +10,9 @@
     <Border Background="Aquamarine" CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -20,12 +20,14 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image x:Name="ProductImage" Grid.Row="0" Grid.Column="0" Margin="10,-10,10,-10"/>
+            <Image x:Name="ProductImage" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10"/>
             <TextBlock x:Name="boxDescription" Text="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" TextWrapping="Wrap" />
             <TextBlock x:Name="boxPrice" Text="{Binding Price, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat={}{0:F2} €}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
             <TextBlock x:Name="boxDeliveryTime" Text="{Binding DeliveryTime, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat='Availible in {0} h'}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
             <Button Content="Add to Cart" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ProductTemplate}"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="90,3,30,3"/>
+
+            <local:SpinBox  Grid.Row="2" Grid.Column="1" Margin="90,3,10,3" Quantity="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}}"/>
+            <!-- 70,3,70,3 -->
         </Grid>
     </Border>
 
