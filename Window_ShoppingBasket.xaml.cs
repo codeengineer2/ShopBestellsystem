@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +22,18 @@ namespace Shop_bestellsystem
     public partial class Window_ShoppingBasket : Window
     {
         ShoppingBasket shop;
+        List<ShoppingBasket> basketlist = new List<ShoppingBasket>();
+
         public Window_ShoppingBasket()
         {
             InitializeComponent();
+            shop = new ShoppingBasket();
+            DataContext = shop;
+            shop.AddProduct();
+
             
+            cartListView.ItemsSource = shop.BasketList;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,8 +46,8 @@ namespace Shop_bestellsystem
             string country1 = country.Text;
             string mail1 = mail.Text;
             string tel1 = tel.Text;
+            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1,country1,mail1,tel1 );
 
-            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1);
             shop.testing();
             this.Close();
             

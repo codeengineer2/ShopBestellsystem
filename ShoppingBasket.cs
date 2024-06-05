@@ -9,6 +9,8 @@ using System.IO;
 using Aspose.Pdf.Text;
 using Aspose.Pdf.Plugins;
 using System.Windows;
+using System.Windows.Controls;
+using System.Collections.ObjectModel;
 
 
 
@@ -16,21 +18,23 @@ namespace Shop_bestellsystem
 {
     public class ShoppingBasket
     {
-        public int artnum;
-        public int anz;
-        public string productname;
-        public double singleprice;
-        public int deliverytime;
-        public double fullprice;
-        public double deliverycost;
-        public string street;
-        public string firstname;
-        public string lastname;
-        public string city;
-        public int plz;
-        public string country;
-        public string mail;
-        public string tel;
+        private int artnum;
+        private int anz;
+        private string productname;
+        private double singleprice;
+        private int deliverytime;
+        private double fullprice;
+        private double deliverycost;
+        private string street;
+        private string firstname;
+        private string lastname;
+        private string city;
+        private int plz;
+        private string country;
+        private string mail;
+        private string tel;
+        
+        public ObservableCollection<Product> BasketList = new ObservableCollection<Product>();
         
         public int Artnum { get; set; }
         public int Anz { get; set; }
@@ -149,7 +153,7 @@ namespace Shop_bestellsystem
             {
                 if (value.Length > 0 && value.Length <= 18)
                 {
-                    lastname = value;
+                    tel = value;
                 }
             }
         }
@@ -174,7 +178,23 @@ namespace Shop_bestellsystem
         }
         public ShoppingBasket()
         {
+        }
 
+        public void AddProduct()
+        {
+            BasketList.Add(new Product(1, "Birne", "Birne", 0.8, 20, 12, null));
+            BasketList.Add(new Product(2, "Apfel", "Apfel", 0.2, 20, 12, null));
+        }
+        public void AddListView(ListView listView1)
+        {
+            AddProduct();
+            /*foreach (var item in BasketList)
+            {
+                //var ls = new ListViewItem();
+                //ls.Content = $"{item.Item1}, {item.Item2}";
+                listView1.Items.Add(item);
+
+            }*/
         }
 
         public void testing()
@@ -182,20 +202,23 @@ namespace Shop_bestellsystem
             string message = $"Street: {Street}\nFirstname: {Firstname}\nLastname: {Lastname} \nE-mail: {Mail}\nTelefonnummer: {Tel}\nCity: {City}\nPlz: {Plz}\nCountry: {Country}";
             MessageBox.Show(message);
         }
-
+        
         public void SerializetoPdf()
         {
             Document document = new Document();
-            // add a page
-            Page page = document.Pages.Add();
+            // Fügt eine Seite hinzu
+            Aspose.Pdf.Page page = document.Pages.Add();
 
-            // Define the text with placeholders replaced by actual values
+
+            DateTime date = DateTime.Today; 
+            TimeSpan dayslater = new TimeSpan(Deliverytime, 0, 0, 0); 
+            DateTime result = date.Add(dayslater); 
 
 
             string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street},\n{Plz} {City}\n{Country}\n";
-            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Now}    \nLieferdatum: 24.05.2024   \nE-Mail: maxmusterman \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
+            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}    \nLieferdatum: {result}  \n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
             string positions = "\nPositionen:";
 
 
@@ -216,23 +239,23 @@ namespace Shop_bestellsystem
             rightCell.Paragraphs[0].Margin = new MarginInfo { Left = 10 };
 
             page.Paragraphs.Add(table);
-            // Add text fragments to the page
+            
             page.Paragraphs.Add(new TextFragment(""));
             page.Paragraphs.Add(new TextFragment(""));
 
             
-            //page.Paragraphs.Add(new TextFragment(header));
-            //page.Paragraphs.Add(new TextFragment(customerInfo));
+           
             page.Paragraphs.Add(new TextFragment(billingInfo));
             page.Paragraphs.Add(new TextFragment(positions));
 
-            // Save the PDF document
+            // Speichern
             string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
             string filePath = Path.Combine(downloadsPath, "output.pdf");
 
 
             document.Save(filePath);
         }
+       
 
     }
 }

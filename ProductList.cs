@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml.Linq;
+using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 
 namespace Shop_bestellsystem
 {
@@ -73,13 +74,45 @@ namespace Shop_bestellsystem
         {
             foreach (Product product in products)
             {
-                if (product.Name.Contains(prompt))
+                if(prompt.Length > product.Name.Length)
+                {
+					product.Devisualize(wrapper);
+				}
+                else if (product.Name.ToLower() == prompt.ToLower())
                 {
                     product.ReworkVisualization(wrapper, buttonClickHandler);
                 }
                 else
                 {
-                    product.Devisualize(wrapper);
+                    if(prompt.Length >= (product.Name.Length/2))
+                    {
+						bool checker = false;
+						for (int i = 0; i < prompt.Length; i++)
+						{
+							if (prompt[i] == product.Name[i])
+							{
+								checker = true;
+							}
+							else
+							{
+								checker = false;
+								break;
+							}
+						}
+                        if (checker)
+                        {
+							product.ReworkVisualization(wrapper, buttonClickHandler);
+						}
+						else
+                        {
+							product.Devisualize(wrapper);
+						}
+                    }
+                    else
+                    {
+                        product.Devisualize(wrapper);
+                    }
+                    
                 }
             }
         }
@@ -92,14 +125,11 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Reset(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+        public void Reset(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
-            if(prompt == "$all" || prompt == "$All" || prompt == "$")
+            foreach(Product product in products)
             {
-                foreach(Product product in products)
-                {
-                    product.ReworkVisualization(wrapper, buttonClickHandler);
-				}
+                product.ReworkVisualization(wrapper, buttonClickHandler);
 			}
 		}
 

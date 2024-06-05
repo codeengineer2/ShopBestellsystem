@@ -31,11 +31,11 @@ namespace Shop_bestellsystem
             this.productList = productList;
             this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
         }
-        private void CustomControl_TextChanged(object sender, string e)
+        private void SearchBar_ButtonClicked(object sender, string e)
         {
             this.searchPrompt = e;
-            if (searchPrompt.Contains("$")){
-                this.productList.Reset(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
+            if (searchPrompt == "$"){
+                this.productList.Reset(wrapper, ProductTemplate_ButtonClicked);
             }
             else
             {
@@ -56,5 +56,7 @@ namespace Shop_bestellsystem
 				MessageBox.Show($"Value {product.Name} {number} added to the list.");
 			}
         }
+
+        
     }
 }
