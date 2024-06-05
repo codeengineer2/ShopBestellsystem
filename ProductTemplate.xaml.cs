@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,13 @@ namespace Shop_bestellsystem
 {
     public partial class ProductTemplate : UserControl
     {
+        public static readonly DependencyProperty AliasProperty = DependencyProperty.Register("Alias", typeof(string), typeof(ProductTemplate), new PropertyMetadata(string.Empty));
+        public string Alias
+        {
+            get { return (string)GetValue(AliasProperty); }
+            set { SetValue(AliasProperty, value); }
+        }
+
         public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(ProductTemplate), new PropertyMetadata(string.Empty));
         public string Description
         {
@@ -61,11 +69,17 @@ namespace Shop_bestellsystem
             }
         }
 
+        public event RoutedEventHandler ButtonClicked;
+
         public ProductTemplate()
         {
             InitializeComponent();
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int quantitySpinBox = spinBox.Number;
+            ButtonClicked?.Invoke(this, new RoutedEventArgs());
+        }
     }
 }

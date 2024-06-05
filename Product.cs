@@ -31,6 +31,7 @@ namespace Shop_bestellsystem
             this.quantity = quantity;
             this.deliveryTime = deliveryTime;
             this.imageData = imageData;
+           
             
         }
 
@@ -46,8 +47,10 @@ namespace Shop_bestellsystem
                 DeliveryTime = this.deliveryTime,
                 Quantity = this.quantity,
                 ImageSource = LoadImage(this.imageData)
+                
             };
             wrapper.Children.Add(template);
+     
         }
       
         public void Devisualize(WrapPanel wrapper)
@@ -97,8 +100,8 @@ namespace Shop_bestellsystem
             BitmapImage bitmap = new BitmapImage();
             using (MemoryStream ms = new MemoryStream(imageData))
             {
-                bitmap.BeginInit();
-                bitmap.StreamSource = ms;
+                bitmap.BeginInit();                bitmap.StreamSource = ms;
+
                 bitmap.CacheOption = BitmapCacheOption.OnLoad;
                 bitmap.EndInit();
             }

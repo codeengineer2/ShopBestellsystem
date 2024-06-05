@@ -29,31 +29,31 @@ namespace Shop_bestellsystem
 
         private int minNumber = 0;
         private int maxNumber = 0;
-        private int number = 0;
+        public int Number = 0;
 
         public SpinBox()
         {
             InitializeComponent();
             this.minNumber = 1;
-            this.number = this.minNumber;
+            this.Number = this.minNumber;
             this.maxNumber = this.Quantity;
         }
 
         private void ArrowUp_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(number != maxNumber)
+            if(Number != maxNumber)
             {
-                number += 1;
-                UpdateContent(number);
+                Number += 1;
+                UpdateContent(Number);
             }
         }
 
         private void ArrowDown_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (number != minNumber)
+            if (Number != minNumber)
             {
-                number -= 1;
-                UpdateContent(number);
+                Number -= 1;
+                UpdateContent(Number);
             }
         }
 
