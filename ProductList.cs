@@ -1,5 +1,6 @@
 ﻿using Aspose.Pdf.Plugins;
 using DocumentFormat.OpenXml.Vml;
+using DocumentFormat.OpenXml.Wordprocessing;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -98,8 +99,21 @@ namespace Shop_bestellsystem
                 foreach(Product product in products)
                 {
                     product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
+			}
+		}
+
+        public Product FindProductByAlias(string alias)
+        {
+            foreach(Product product in products)
+            {
+                if (product.Name == alias)
+                {
+                    return product;
                 }
             }
+            return null;
         }
-    }
+
+	}
 }

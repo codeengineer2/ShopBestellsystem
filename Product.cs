@@ -40,6 +40,7 @@ namespace Shop_bestellsystem
 				Height = 150,
 				Margin = new Thickness(50, 30, 0, 0),
 				Description = this.description,
+                Alias = this.Name,
 				Price = this.price,
 				DeliveryTime = this.deliveryTime,
 				Quantity = this.quantity,
@@ -99,8 +100,8 @@ namespace Shop_bestellsystem
             BitmapImage bitmap = new BitmapImage();
             using (MemoryStream ms = new MemoryStream(imageData))
             {
-                bitmap.BeginInit();                bitmap.StreamSource = ms;
-
+                bitmap.BeginInit();
+                bitmap.StreamSource = ms;
                 bitmap.CacheOption = BitmapCacheOption.OnLoad;
                 bitmap.EndInit();
             }

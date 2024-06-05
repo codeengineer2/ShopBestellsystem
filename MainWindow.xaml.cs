@@ -17,14 +17,30 @@ namespace Shop_bestellsystem
     public partial class MainWindow : Window
     {
         ProductList productList = new ProductList();
-        public MainWindow()
+		List<(Product, int)> basketList = new List<(Product, int)>();
+
+		public MainWindow()
         {
             InitializeComponent();
-			Main.Content = new Shop(productList);
-			
+			Main.Content = new Shop(productList, basketList);
 		}
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+		private void GetActualBasket()
+		{
+			if (Main.Content is Shop shopPage)
+			{
+				this.basketList = shopPage.basketList;
+				int number = basketList.Count;
+				MessageBox.Show($"{number} The current page is a Shop page.");
+			}
+			else
+			{
+				MessageBox.Show("The current page is not a Shop page.");
+			}
+		}
+
+
+		private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -67,6 +83,7 @@ namespace Shop_bestellsystem
 
 		private void menuItemBasket_Click(object sender, RoutedEventArgs e)
 		{
+			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
 
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
@@ -81,6 +98,7 @@ namespace Shop_bestellsystem
 
         private void menuItemShop_Click(object sender, RoutedEventArgs e)
         {
+			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
 
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
@@ -88,11 +106,12 @@ namespace Shop_bestellsystem
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
 
-			Main.Content = new Shop(productList);
+			Main.Content = new Shop(productList, basketList);
 		}
 
 		private void menuItemAbout_Click(object sender, RoutedEventArgs e)
 		{
+			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
 
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
@@ -105,6 +124,7 @@ namespace Shop_bestellsystem
 
 		private void menuItemContact_Click(object sender, RoutedEventArgs e)
 		{
+			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
 
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
@@ -117,7 +137,8 @@ namespace Shop_bestellsystem
 
 		private void menuItemInsights_Click(object sender, RoutedEventArgs e)
 		{
-            var Statistik = new Statistik_Userzahlen();
+			GetActualBasket();
+			var Statistik = new Statistik_Userzahlen();
             var Statistik_userdauer = new Statistik_userdauer();
             Statistik.ShowDialog();
             Statistik_userdauer.ShowDialog();
