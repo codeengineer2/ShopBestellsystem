@@ -40,7 +40,6 @@ namespace Shop_bestellsystem
         public void Rechnungdownload(object sender, RoutedEventArgs e)
         {
             
-            // initialize document object
             
             shop.SerializetoPdf();
         }
