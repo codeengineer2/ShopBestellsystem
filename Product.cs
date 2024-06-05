@@ -14,12 +14,48 @@ namespace Shop_bestellsystem
     public class Product
     {
         private int id;
-        public string Name;
+        private string name;
         private string description;
         private double price;
         private int quantity;
         private int deliveryTime;
         private byte[] imageData;
+
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
+        public double Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+        public int Quantity
+        {
+            get { return quantity; }
+            set { quantity = value; }
+        }
+
+        public int DeliveryTime
+        {
+            get { return deliveryTime; }
+            set { deliveryTime = value; }
+        }
 
         public Product(int id, string name, string description, double price, int quantity, int deliveryTime, byte[] imageData)
         {
