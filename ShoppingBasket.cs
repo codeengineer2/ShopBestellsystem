@@ -210,18 +210,15 @@ namespace Shop_bestellsystem
             Aspose.Pdf.Page page = document.Pages.Add();
 
 
-            DateTime date = DateTime.Today; 
-            TimeSpan dayslater = new TimeSpan(Deliverytime, 0, 0, 0); 
-            DateTime result = date.Add(dayslater); 
 
 
             string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street},\n{Plz} {City}\n{Country}\n";
-            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}    \nLieferdatum: {result}  \n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
+            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}\n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
             string positions = "\nPositionen:";
 
-
+            AddProduct();
 
             // Erstellen Sie eine Tabelle mit zwei Spalten und einer Zeile
             Table table = new Table();
@@ -247,7 +244,35 @@ namespace Shop_bestellsystem
            
             page.Paragraphs.Add(new TextFragment(billingInfo));
             page.Paragraphs.Add(new TextFragment(positions));
+            
+            
+            
+            
+            Table productTable = new Table();
+            productTable.ColumnWidths = "10% 40% 10% 20% 20%"; // Anpassung der Spaltenbreiten
 
+            Row headerRow = productTable.Rows.Add();
+            headerRow.Cells.Add("Artikelnummer");
+            headerRow.Cells.Add("Anzahl");
+            headerRow.Cells.Add("Produkt");
+            headerRow.Cells.Add("Preis");
+            headerRow.Cells.Add("Lieferzeit");
+
+            // Beispielhaftes Hinzufügen von Produktpositionen
+
+            foreach (Product item in BasketList)
+            {
+                Row productRow = productTable.Rows.Add();
+                productRow.Cells.Add($"{item.ID}");
+                productRow.Cells.Add($"{item.Quantity}");
+                productRow.Cells.Add($"{item.Name}");
+                productRow.Cells.Add($"{item.Price}");
+                productRow.Cells.Add($"{item.DeliveryTime}"); 
+            }
+
+            // Fügen Sie die Produkttabelle zur Seite hinzu
+            page.Paragraphs.Add(productTable);
+            // Speichern Sie das aktualisierte Dokument
             // Speichern
             string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
             string filePath = Path.Combine(downloadsPath, "output.pdf");
