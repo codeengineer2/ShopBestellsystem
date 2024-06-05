@@ -22,6 +22,7 @@ namespace Shop_bestellsystem
     {
         public string searchPrompt;
         ProductList productList;
+        List<(string, int)> basketList = new List<(string, int)>();
 
         public Shop(ProductList productList)
         {
@@ -31,8 +32,6 @@ namespace Shop_bestellsystem
         }
         private void CustomControl_TextChanged(object sender, string e)
         {
-            // Hier können Sie den Text verwenden, wie Sie möchten
-            // Zum Beispiel setzen Sie ihn in eine Variable
             this.searchPrompt = e;
             if (searchPrompt.Contains("$")){
                 this.productList.Reset(searchPrompt, wrapper);
@@ -41,7 +40,17 @@ namespace Shop_bestellsystem
             {
                 this.productList.Filter(searchPrompt, wrapper);
             }
-     
+        }
+
+        private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (sender is ProductTemplate productTemplate)
+            {
+                string name = productTemplate.Alias;
+                int number = productTemplate.spinBox.Number;
+                basketList.Add((name, number));
+                MessageBox.Show($"Value {basketList} added to the list.");
+            }
         }
 
         

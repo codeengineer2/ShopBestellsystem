@@ -46,3 +46,5 @@
 ### Heute habe ich implementiert das alle Daten von der Datenbank richtig in den richtigen Datentyp umgewandelt werden und richtig in die Produkt-Klasse geführt werden.
 ### Anschließend habe ich dann noch einen Code-Block geschrieben der den BLOB von der Datenbank in ein Byte[] umwandelt und somit angzeigt werden kann.
 ### Als nächstes habe ich nun Properties bei dem ProductTemplate hinzugefügt damit kann man nun diese Werte von jedem Produkt problemlos in das Template einfügen.
+
+# Spinbox, Connection Spinbox zu ProductTemplate und Shop.xaml somit Übergabe für Max geschafft.
