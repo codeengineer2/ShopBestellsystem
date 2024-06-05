@@ -13,7 +13,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml.Linq;
-using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 
 namespace Shop_bestellsystem
 {
@@ -74,45 +73,13 @@ namespace Shop_bestellsystem
         {
             foreach (Product product in products)
             {
-                if(prompt.Length > product.Name.Length)
-                {
-					product.Devisualize(wrapper);
-				}
-                else if (product.Name.ToLower() == prompt.ToLower())
+                if (product.Name.Contains(prompt))
                 {
                     product.ReworkVisualization(wrapper, buttonClickHandler);
                 }
                 else
                 {
-                    if(prompt.Length >= (product.Name.Length/2))
-                    {
-						bool checker = false;
-						for (int i = 0; i < prompt.Length; i++)
-						{
-							if (prompt[i] == product.Name[i])
-							{
-								checker = true;
-							}
-							else
-							{
-								checker = false;
-								break;
-							}
-						}
-                        if (checker)
-                        {
-							product.ReworkVisualization(wrapper, buttonClickHandler);
-						}
-						else
-                        {
-							product.Devisualize(wrapper);
-						}
-                    }
-                    else
-                    {
-                        product.Devisualize(wrapper);
-                    }
-                    
+                    product.Devisualize(wrapper);
                 }
             }
         }
@@ -125,11 +92,14 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Reset(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+        public void Reset(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
-            foreach(Product product in products)
+            if(prompt == "$all" || prompt == "$All" || prompt == "$")
             {
-                product.ReworkVisualization(wrapper, buttonClickHandler);
+                foreach(Product product in products)
+                {
+                    product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
 			}
 		}
 

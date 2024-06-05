@@ -52,6 +52,7 @@ namespace Shop_bestellsystem
             connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
 
             Connection = new MySqlConnection(connectionString);
+
             // Daten für das Diagramm abrufen
             List<double> userdauer = Getuserdauer();
             List<double> avguserdauer = Getavguserdauer();
@@ -72,6 +73,13 @@ namespace Shop_bestellsystem
 
 
                     }
+
+
+
+
+
+
+
                 };
 
 

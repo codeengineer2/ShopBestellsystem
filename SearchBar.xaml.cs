@@ -21,7 +21,8 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class SearchBar : UserControl
     {
-        public event EventHandler<string> ButtonClicked;
+        public event EventHandler<string> TextChanged;
+        public string Content;
         public SearchBar()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Shop_bestellsystem
         private void Searching(object sender, MouseButtonEventArgs e)
         {
             string text = searchContent.Text;
-			ButtonClicked?.Invoke(this, text);
+            TextChanged?.Invoke(this, text);
         }
 
         private void SearchContent_GotFocus(object sender, RoutedEventArgs e)

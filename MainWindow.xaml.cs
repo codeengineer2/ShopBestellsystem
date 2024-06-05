@@ -84,13 +84,13 @@ namespace Shop_bestellsystem
 		{
 			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
-			
+
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
-			shop = new ShoppingBasket();
-            var basketWindow = new Window_ShoppingBasket();
+
+			var basketWindow = new Window_ShoppingBasket();
 			basketWindow.ShowDialog();
             
 		}
@@ -139,7 +139,6 @@ namespace Shop_bestellsystem
 			GetActualBasket();
 			var Statistik = new Statistik_Userzahlen();
             var Statistik_userdauer = new Statistik_userdauer();
-
             Statistik.ShowDialog();
             Statistik_userdauer.ShowDialog();
         }
