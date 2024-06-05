@@ -28,17 +28,17 @@ namespace Shop_bestellsystem
         {
             InitializeComponent();
             this.productList = productList;
-            this.productList.Visualize(wrapper);
+            this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
         }
         private void CustomControl_TextChanged(object sender, string e)
         {
             this.searchPrompt = e;
             if (searchPrompt.Contains("$")){
-                this.productList.Reset(searchPrompt, wrapper);
+                this.productList.Reset(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
             }
             else
             {
-                this.productList.Filter(searchPrompt, wrapper);
+                this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
             }
         }
 

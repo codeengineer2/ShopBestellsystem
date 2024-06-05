@@ -69,9 +69,9 @@ namespace Shop_bestellsystem
             }
         }
 
-        public event RoutedEventHandler ButtonClicked;
+		public event RoutedEventHandler ButtonClicked;
 
-        public ProductTemplate()
+		public ProductTemplate()
         {
             InitializeComponent();
         }
