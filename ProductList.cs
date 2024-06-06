@@ -1,5 +1,6 @@
 ﻿using Aspose.Pdf.Plugins;
 using DocumentFormat.OpenXml.Vml;
+using DocumentFormat.OpenXml.Wordprocessing;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -68,13 +69,13 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Filter(string prompt, WrapPanel wrapper)
+        public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
             foreach (Product product in products)
             {
                 if (product.Name.Contains(prompt))
                 {
-                    product.ReworkVisualization(wrapper);
+                    product.ReworkVisualization(wrapper, buttonClickHandler);
                 }
                 else
                 {
@@ -83,23 +84,36 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Visualize(WrapPanel wrapper)
+        public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
             foreach(Product p in products)
             {
-                p.Visualize(wrapper);
+                p.Visualize(wrapper, buttonClickHandler);
             }
         }
 
-        public void Reset(string prompt, WrapPanel wrapper)
-        {
+        public void Reset(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+		{
             if(prompt == "$all" || prompt == "$All" || prompt == "$")
             {
                 foreach(Product product in products)
                 {
-                    product.ReworkVisualization(wrapper);
+                    product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
+			}
+		}
+
+        public Product FindProductByAlias(string alias)
+        {
+            foreach(Product product in products)
+            {
+                if (product.Name == alias)
+                {
+                    return product;
                 }
             }
+            return null;
         }
-    }
+
+	}
 }

@@ -22,23 +22,24 @@ namespace Shop_bestellsystem
     {
         public string searchPrompt;
         ProductList productList;
-        List<(string, int)> basketList = new List<(string, int)>();
+        public List<(Product, int)> basketList;
 
-        public Shop(ProductList productList)
+        public Shop(ProductList productList, List<(Product, int)> basketList)
         {
             InitializeComponent();
+            this.basketList = basketList;
             this.productList = productList;
-            this.productList.Visualize(wrapper);
+            this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
         }
         private void CustomControl_TextChanged(object sender, string e)
         {
             this.searchPrompt = e;
             if (searchPrompt.Contains("$")){
-                this.productList.Reset(searchPrompt, wrapper);
+                this.productList.Reset(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
             }
             else
             {
-                this.productList.Filter(searchPrompt, wrapper);
+                this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
             }
         }
 
@@ -46,13 +47,14 @@ namespace Shop_bestellsystem
         {
             if (sender is ProductTemplate productTemplate)
             {
-                string name = productTemplate.Alias;
+                string alias = productTemplate.Alias;
                 int number = productTemplate.spinBox.Number;
-                basketList.Add((name, number));
-                MessageBox.Show($"Value {basketList} added to the list.");
-            }
-        }
 
-        
+                Product product = productList.FindProductByAlias(alias);
+
+				basketList.Add((product, number));
+				MessageBox.Show($"Value {product.Name} {number} added to the list.");
+			}
+        }
     }
 }

@@ -66,29 +66,30 @@ namespace Shop_bestellsystem
             this.quantity = quantity;
             this.deliveryTime = deliveryTime;
             this.imageData = imageData;
-           
-            
         }
 
-        public void Visualize(WrapPanel wrapper)
-        {
-            ProductTemplate template = new ProductTemplate
-            {
-                Width = 300,
-                Height = 150,
-                Margin = new Thickness(50, 30, 0, 0),
-                Description = this.description,
-                Price = this.price,
-                DeliveryTime = this.deliveryTime,
-                Quantity = this.quantity,
-                ImageSource = LoadImage(this.imageData)
-                
-            };
-            wrapper.Children.Add(template);
-     
-        }
-      
-        public void Devisualize(WrapPanel wrapper)
+		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+		{
+			ProductTemplate template = new ProductTemplate
+			{
+				Width = 300,
+				Height = 150,
+				Margin = new Thickness(50, 30, 0, 0),
+				Description = this.description,
+                Alias = this.Name,
+				Price = this.price,
+				DeliveryTime = this.deliveryTime,
+				Quantity = this.quantity,
+				ImageSource = LoadImage(this.imageData)
+			};
+			template.ButtonClicked += buttonClickHandler;
+
+			wrapper.Children.Add(template);
+		}
+
+
+
+		public void Devisualize(WrapPanel wrapper)
         {
             ProductTemplate templateToRemove = null;
             foreach (UIElement element in wrapper.Children)
@@ -106,7 +107,7 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void ReworkVisualization(WrapPanel wrapper)
+        public void ReworkVisualization(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
             bool templateExists = false;
             foreach (UIElement element in wrapper.Children)
@@ -120,7 +121,7 @@ namespace Shop_bestellsystem
 
             if (!templateExists)
             {
-                Visualize(wrapper);
+                Visualize(wrapper, buttonClickHandler);
             }
         }
 
@@ -135,8 +136,8 @@ namespace Shop_bestellsystem
             BitmapImage bitmap = new BitmapImage();
             using (MemoryStream ms = new MemoryStream(imageData))
             {
-                bitmap.BeginInit();                bitmap.StreamSource = ms;
-
+                bitmap.BeginInit();
+                bitmap.StreamSource = ms;
                 bitmap.CacheOption = BitmapCacheOption.OnLoad;
                 bitmap.EndInit();
             }
