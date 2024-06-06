@@ -13,6 +13,7 @@ using System.Collections;
 using QuestPDF;
 using DocumentFormat.OpenXml.CustomProperties;
 using System.Configuration;
+using System.Windows.Media;
 
 
 
@@ -63,8 +64,9 @@ namespace Shop_bestellsystem
 
             Labels = new[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
             Formatter = value => value.ToString("N");
+			//this.Background = new SolidColorBrush(Colors.Black);
 
-            DataContext = this;
+			DataContext = this;
         }
 
         public List<double> GetData()

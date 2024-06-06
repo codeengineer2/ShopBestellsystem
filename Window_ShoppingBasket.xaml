@@ -20,16 +20,17 @@
 
             </Grid.RowDefinitions>
             <TextBlock Text="Warenkorb" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-            <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
+            <ListView Grid.Row="1" x:Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding Artikelnummer}" Width="100" x:Name="artnum"/>
-                        <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Anzahl}" Width="60" x:Name="quantity"/>
+                        <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding ID}" Width="100" x:Name="artnum"/>
+                        <GridViewColumn Header="Anzahl" DisplayMemberBinding="{Binding Quantity}" Width="60" x:Name="quantity"/>
                         <GridViewColumn Header="Produkt" DisplayMemberBinding="{Binding Name}" Width="220" x:Name="name"/>
-                        <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Preis}" Width="115" x:Name="price"/>
-                        <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding Lieferzeit}" Width="80" x:Name="deliverytime"/>
+                        <GridViewColumn Header="Preis" DisplayMemberBinding="{Binding Price}" Width="115" x:Name="price"/>
+                        <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding DeliveryTime}" Width="80" x:Name="deliverytime"/>
 
-
+                        
+                        
                     </GridView>
                 </ListView.View>
             </ListView>

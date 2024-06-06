@@ -31,19 +31,19 @@ namespace Shop_bestellsystem
             this.productList = productList;
             this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
         }
-        private void CustomControl_TextChanged(object sender, string e)
-        {
-            this.searchPrompt = e;
-            if (searchPrompt.Contains("$")){
-                this.productList.Reset(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
-            }
-            else
-            {
-                this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
-            }
-        }
+		private void SearchBar_ButtonClicked(object sender, string e)
+		{
+			this.searchPrompt = e;
+			if (searchPrompt == "$"){ 
+				this.productList.Reset(wrapper, ProductTemplate_ButtonClicked);
+			}
+			else
+			{
+				this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
+			}
+		}
 
-        private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
+		private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
         {
             if (sender is ProductTemplate productTemplate)
             {
@@ -56,5 +56,7 @@ namespace Shop_bestellsystem
 				MessageBox.Show($"Value {product.Name} {number} added to the list.");
 			}
         }
+
+
     }
 }
