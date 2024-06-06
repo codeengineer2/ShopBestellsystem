@@ -7,7 +7,7 @@
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 
         mc:Ignorable="d"
-        Title="Statistik_userdauer" Height="450" Width="800" WindowState="Maximized">
+        Title="Statistik_userdauer" Height="450" Width="800">
     <Grid>
 
         <lvc:CartesianChart Name="UserChart" Series="{Binding SeriesCollection}" LegendLocation="Right">

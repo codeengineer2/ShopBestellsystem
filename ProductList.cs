@@ -13,7 +13,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Xml.Linq;
-using static Google.Protobuf.Reflection.UninterpretedOption.Types;
 
 namespace Shop_bestellsystem
 {
@@ -126,11 +125,14 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Reset(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+        public void Reset(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
-            foreach(Product product in products)
+            if(prompt == "$all" || prompt == "$All" || prompt == "$")
             {
-                product.ReworkVisualization(wrapper, buttonClickHandler);
+                foreach(Product product in products)
+                {
+                    product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
 			}
 		}
 

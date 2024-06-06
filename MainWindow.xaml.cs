@@ -17,9 +17,8 @@ namespace Shop_bestellsystem
     public partial class MainWindow : Window
     {
         ProductList productList = new ProductList();
-		List<(Product, int)> basketList = new List<(Product, int)>();
-
-		public MainWindow()
+		ShoppingBasket shop;
+        public MainWindow()
         {
             InitializeComponent();
 			Main.Content = new Shop(productList, basketList);
@@ -85,12 +84,13 @@ namespace Shop_bestellsystem
 		{
 			GetActualBasket();
 			ResetMenuItemsBackgroundColors();
-			
+
 			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
-            var basketWindow = new Window_ShoppingBasket();
+
+			var basketWindow = new Window_ShoppingBasket();
 			basketWindow.ShowDialog();
             
 		}
@@ -139,7 +139,6 @@ namespace Shop_bestellsystem
 			GetActualBasket();
 			var Statistik = new Statistik_Userzahlen();
             var Statistik_userdauer = new Statistik_userdauer();
-
             Statistik.ShowDialog();
             Statistik_userdauer.ShowDialog();
         }
