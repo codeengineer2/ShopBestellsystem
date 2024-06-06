@@ -69,22 +69,55 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
-        {
-            foreach (Product product in products)
-            {
-                if (product.Name.Contains(prompt))
-                {
-                    product.ReworkVisualization(wrapper, buttonClickHandler);
-                }
-                else
-                {
-                    product.Devisualize(wrapper);
-                }
-            }
-        }
+		public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+		{
+			string correctPrompt = prompt.ToLower();
 
-        public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+			foreach (Product product in products)
+			{
+				string productName = product.Name.ToLower();
+
+				if (correctPrompt.Length > productName.Length)
+				{
+					product.Devisualize(wrapper);
+				}
+				else if (productName == correctPrompt)
+				{
+					product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
+				else
+				{
+					if (correctPrompt.Length >= (productName.Length / 2))
+					{
+						bool checker = true;
+						for (int i = 0; i < correctPrompt.Length; i++)
+						{
+							if (correctPrompt[i] != productName[i])
+							{
+								checker = false;
+								break;
+							}
+						}
+
+						if (checker)
+						{
+							product.ReworkVisualization(wrapper, buttonClickHandler);
+						}
+						else
+						{
+							product.Devisualize(wrapper);
+						}
+					}
+					else
+					{
+						product.Devisualize(wrapper);
+					}
+				}
+			}
+		}
+
+
+		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
             foreach(Product p in products)
             {

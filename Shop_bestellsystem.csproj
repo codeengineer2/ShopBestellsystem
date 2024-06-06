@@ -14,7 +14,12 @@
     <None Remove="src\assets\bestellbackpic.png" />
     <None Remove="src\assets\close_window.png" />
     <None Remove="src\assets\close_window_new.png" />
+    <None Remove="src\assets\company_goal_delivery.png" />
+    <None Remove="src\assets\company_goal_experience.png" />
+    <None Remove="src\assets\company_goal_quality.png" />
     <None Remove="src\assets\copyright.png" />
+    <None Remove="src\assets\dummy_man.png" />
+    <None Remove="src\assets\dummy_woman.png" />
     <None Remove="src\assets\maximize_window.png" />
     <None Remove="src\assets\menu_icon_about.png" />
     <None Remove="src\assets\menu_icon_basket.png" />
@@ -37,6 +42,11 @@
   <ItemGroup>
     <Resource Include="src\assets\arrow_down.png" />
     <Resource Include="src\assets\arrow_up.png" />
+    <Resource Include="src\assets\company_goal_delivery.png" />
+    <Resource Include="src\assets\company_goal_experience.png" />
+    <Resource Include="src\assets\company_goal_quality.png" />
+    <Resource Include="src\assets\dummy_man.png" />
+    <Resource Include="src\assets\dummy_woman.png" />
     <Resource Include="src\assets\menu_icon_insights.png" />
     <Resource Include="src\assets\searchbar_icon.png" />
   </ItemGroup>
