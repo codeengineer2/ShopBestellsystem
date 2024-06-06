@@ -40,11 +40,24 @@
 ### Heute habe ich eine Produkt-Klasse erstellt für die Produkte in der Datenbank Tabelle Produkte.
 ### Anschließend habe ich diese Klasse mit einer Visiualize und Devisualize ausgestattet dadurch kann später einfach jedes Produkt gezeichnet und wieder gelöscht werden.
 ### Als nächstes habe ich eine ProduktListe-Klasse hinzugefügt in der alle Produkte geladen und gespeichert werden sowie Methoden für alle Produkt Objekte.
-### Zu guter Letzt habe ich noch eine Verbindung zur Datenbank aufgestellt..
+### Zu guter Letzt habe ich noch eine Verbindung zur Datenbank aufgestellt.
 
 ## Tag 7 - 31.05.2024
 ### Heute habe ich implementiert das alle Daten von der Datenbank richtig in den richtigen Datentyp umgewandelt werden und richtig in die Produkt-Klasse geführt werden.
 ### Anschließend habe ich dann noch einen Code-Block geschrieben der den BLOB von der Datenbank in ein Byte[] umwandelt und somit angzeigt werden kann.
 ### Als nächstes habe ich nun Properties bei dem ProductTemplate hinzugefügt damit kann man nun diese Werte von jedem Produkt problemlos in das Template einfügen.
 
-# Spinbox, Connection Spinbox zu ProductTemplate und Shop.xaml somit Übergabe für Max geschafft.
+## Tag 8 - 04.06.2024
+### Heute habe ich eine SpinBox erstellt sowie diese gleich dem ProductTemplate hinzugefügt.
+### Als nächstes habe ich noch einen kleine Suchfunktion hinzugefügt die es ermöglicht durch die Searchbar Produkte zu suchen.
+
+## Tag 9 - 05.06.2024
+### Heute habe ich es geschafft der Produkt-Klasse ein Event hinzuzufügen für den Addbutton.
+### Dadurch ist nun möglich das wenn man auf den Addbutton klickt, die aktuelle Nummer aus der SpinBox sowie der aktuelle Produktname zu laden und dadurch kann dann das richtige Produkt in der Liste gefunden werden und dieses dann mit der Nummer zurückgeben werden.
+### Anschließend habe ich eine Warenkorb-Liste erstellt welche die ausgewählten Produkte sowie die Menge davon beinhalten soll.
+### Danach habe ich gemacht das sich diese Warenkorb-Liste richtig aktualisiert wird sowie richtig an Max übergeben wird.
+### Als letztes habe ich nun noch einen kleinen Suchalgorithmus der Searchbar hinzugefügt.
+
+## Tag 10 - 06.06.2024
+### Heute habe ich das About Fenster designed.
+### Sowie den ersten (großen) Git-MergeConflict bei mir und dem Remote-Repository gelöst allerdings muss Max seine 1 stündige Arbeit nochmal neu einpflegen (kopieren). :(

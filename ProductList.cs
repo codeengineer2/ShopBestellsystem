@@ -70,54 +70,55 @@ namespace Shop_bestellsystem
             }
         }
 
-        public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
-        {
-            foreach (Product product in products)
-            {
-                if(prompt.Length > product.Name.Length)
-                {
+		public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+		{
+			string correctPrompt = prompt.ToLower();
+
+			foreach (Product product in products)
+			{
+				string productName = product.Name.ToLower();
+
+				if (correctPrompt.Length > productName.Length)
+				{
 					product.Devisualize(wrapper);
 				}
-                else if (product.Name.ToLower() == prompt.ToLower())
-                {
-                    product.ReworkVisualization(wrapper, buttonClickHandler);
-                }
-                else
-                {
-                    if(prompt.Length >= (product.Name.Length/2))
-                    {
-						bool checker = false;
-						for (int i = 0; i < prompt.Length; i++)
+				else if (productName == correctPrompt)
+				{
+					product.ReworkVisualization(wrapper, buttonClickHandler);
+				}
+				else
+				{
+					if (correctPrompt.Length >= (productName.Length / 2))
+					{
+						bool checker = true;
+						for (int i = 0; i < correctPrompt.Length; i++)
 						{
-							if (prompt[i] == product.Name[i])
-							{
-								checker = true;
-							}
-							else
+							if (correctPrompt[i] != productName[i])
 							{
 								checker = false;
 								break;
 							}
 						}
-                        if (checker)
-                        {
+
+						if (checker)
+						{
 							product.ReworkVisualization(wrapper, buttonClickHandler);
 						}
 						else
-                        {
+						{
 							product.Devisualize(wrapper);
 						}
-                    }
-                    else
-                    {
-                        product.Devisualize(wrapper);
-                    }
-                    
-                }
-            }
-        }
+					}
+					else
+					{
+						product.Devisualize(wrapper);
+					}
+				}
+			}
+		}
 
-        public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
+
+		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
             foreach(Product p in products)
             {
