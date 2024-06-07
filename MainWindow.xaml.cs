@@ -16,12 +16,13 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        ProductList productList = new ProductList();
-		List<(Product, int)> basketList = new List<(Product, int)>();
+		private ProductList productList = new ProductList();
+		private List<(Product, int)> basketList = new List<(Product, int)>();
 			
 		public MainWindow()
         {
             InitializeComponent();
+			Loggerclass.logger.Information("MainWindow initialized.");
 			Main.Content = new Shop(productList, basketList);
 		}
 
@@ -30,15 +31,13 @@ namespace Shop_bestellsystem
 			if (Main.Content is Shop shopPage)
 			{
 				this.basketList = shopPage.basketList;
-				int number = basketList.Count;
-				MessageBox.Show($"{number} The current page is a Shop page.");
+				Loggerclass.logger.Information($"The current page is a Shop page. Basket items count: {basketList.Count}");
 			}
 			else
 			{
-				MessageBox.Show("The current page is not a Shop page.");
+				Loggerclass.logger.Information("The current page is not a Shop page.");
 			}
 		}
-
 
 		private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -50,27 +49,44 @@ namespace Shop_bestellsystem
 				}
 			}catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-            }
+				Loggerclass.logger.Error(ex, "An error occurred while dragging the window.");
+			}
             
         }
 
 		private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-            WindowState = WindowState.Minimized;
+			try
+			{
+				Loggerclass.logger.Information("Window minimized.");
+				WindowState = WindowState.Minimized;
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred while minimizing the window.");
+			}
 		}
 
-        /*
+		/*
          
 		private void MaximizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-            if (WindowState == WindowState.Maximized) 
-            {
-                WindowState = WindowState.Normal;
-            }
-            else
-            {
-				WindowState = WindowState.Maximized;
+			try
+			{
+				if (WindowState == WindowState.Maximized) 
+				{
+					Loggerclass.logger.Information("Window restored from maximized state.");
+					WindowState = WindowState.Normal;
+				}
+				else
+				{
+					Loggerclass.logger.Information("Window maximized.");
+					WindowState = WindowState.Maximized;
+				}
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred while changing window state.");
 			}
 		}
 
@@ -78,88 +94,146 @@ namespace Shop_bestellsystem
 
 		private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-            this.Close();
+			Loggerclass.logger.Information("Application closed.");
+			this.Close();
 		}
 
 		private void menuItemBasket_Click(object sender, RoutedEventArgs e)
 		{
-			GetActualBasket();
-			ResetMenuItemsBackgroundColors();
+			try
+			{
+				Loggerclass.logger.Information("Basket menu item clicked.");
+				GetActualBasket();
+				ResetMenuItemsBackgroundColors();
 
-			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
-			MenuItem clickedMenuItem = (MenuItem)sender;
+				SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+				MenuItem clickedMenuItem = (MenuItem)sender;
+				clickedMenuItem.Background = menuItemBackgroundColor;
 
-			clickedMenuItem.Background = menuItemBackgroundColor;
-			
-			var basketWindow = new Window_ShoppingBasket(this.basketList);
-			basketWindow.ShowDialog();
-            
+				var basketWindow = new Window_ShoppingBasket(this.basketList);
+				basketWindow.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemBasket_Click.");
+			}
 		}
 
-        private void menuItemShop_Click(object sender, RoutedEventArgs e)
+		private void menuItemShop_Click(object sender, RoutedEventArgs e)
         {
-			GetActualBasket();
-			ResetMenuItemsBackgroundColors();
+			try
+			{
+				Loggerclass.logger.Information("Basket menu item clicked.");
+				GetActualBasket();
+				ResetMenuItemsBackgroundColors();
 
-			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
-			MenuItem clickedMenuItem = (MenuItem)sender;
+				SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+				MenuItem clickedMenuItem = (MenuItem)sender;
+				clickedMenuItem.Background = menuItemBackgroundColor;
 
-			clickedMenuItem.Background = menuItemBackgroundColor;
-
-			Main.Content = new Shop(productList, basketList);
+				var basketWindow = new Window_ShoppingBasket(this.basketList);
+				basketWindow.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemBasket_Click.");
+			}
 		}
 
 		private void menuItemAbout_Click(object sender, RoutedEventArgs e)
 		{
-			GetActualBasket();
-			ResetMenuItemsBackgroundColors();
+			try
+			{
+				Loggerclass.logger.Information("About menu item clicked.");
+				GetActualBasket();
+				ResetMenuItemsBackgroundColors();
 
-			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
-			MenuItem clickedMenuItem = (MenuItem)sender;
+				SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+				MenuItem clickedMenuItem = (MenuItem)sender;
+				clickedMenuItem.Background = menuItemBackgroundColor;
 
-            clickedMenuItem.Background = menuItemBackgroundColor;
-
-			Main.Content = new About();
+				Main.Content = new About();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemAbout_Click.");
+			}
 		}
 
 		private void menuItemContact_Click(object sender, RoutedEventArgs e)
 		{
-			GetActualBasket();
-			ResetMenuItemsBackgroundColors();
+			try
+			{
+				Loggerclass.logger.Information("Contact menu item clicked.");
+				GetActualBasket();
+				ResetMenuItemsBackgroundColors();
 
-			SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
-			MenuItem clickedMenuItem = (MenuItem)sender;
+				SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
+				MenuItem clickedMenuItem = (MenuItem)sender;
+				clickedMenuItem.Background = menuItemBackgroundColor;
 
-			clickedMenuItem.Background = menuItemBackgroundColor;
-
-			Main.Content = new Contact();
-        }
+				Main.Content = new Contact();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemContact_Click.");
+			}
+		}
 
 		private void menuItemInsights_Click(object sender, RoutedEventArgs e)
 		{
-			GetActualBasket();
-			var Statistik = new Statistik_Userzahlen();
-            var Statistik_userdauer = new Statistik_userdauer();
-            Statistik.ShowDialog();
-            Statistik_userdauer.ShowDialog();
-        }
+			try
+			{
+				Loggerclass.logger.Information("Insights menu item clicked.");
+				GetActualBasket();
+				ResetMenuItemsBackgroundColors();
 
-        private void menuItemExit_Click(object sender, RoutedEventArgs e)
+				var Statistik = new Statistik_Userzahlen();
+				var Statistik_userdauer = new Statistik_userdauer();
+
+				Statistik.ShowDialog();
+				Statistik_userdauer.ShowDialog();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemInsights_Click.");
+			}
+		}
+
+		private void menuItemExit_Click(object sender, RoutedEventArgs e)
 		{
-			this.Close();
+			try
+			{
+				Loggerclass.logger.Information("Exit menu item clicked.");
+				this.Close();
+			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred in menuItemExit_Click.");
+			}
 		}
 
 		private void ResetMenuItemsBackgroundColors()
 		{
-			SolidColorBrush menuBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B8AEA6"));
-
-			foreach (var item in menu.Items)
+			try
 			{
-				if (item is MenuItem menuItem)
+				Loggerclass.logger.Information("Resetting menu items background colors.");
+
+				SolidColorBrush menuBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#B8AEA6"));
+
+				foreach (var item in menu.Items)
 				{
-					menuItem.Background = menuBackgroundColor;
+					if (item is MenuItem menuItem)
+					{
+						menuItem.Background = menuBackgroundColor;
+					}
 				}
 			}
+			catch (Exception ex)
+			{
+				Loggerclass.logger.Error(ex, "An error occurred while resetting menu items background colors.");
+			}
 		}
+
 	}
 }

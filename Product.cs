@@ -21,6 +21,7 @@ namespace Shop_bestellsystem
         private int deliveryTime;
         private byte[] imageData;
 
+
         public int ID
         {
             get { return id; }
@@ -57,6 +58,7 @@ namespace Shop_bestellsystem
             set { deliveryTime = value; }
         }
 
+
         public Product(int id, string name, string description, double price, int quantity, int deliveryTime, byte[] imageData)
         {
             this.id = id;
@@ -66,10 +68,14 @@ namespace Shop_bestellsystem
             this.quantity = quantity;
             this.deliveryTime = deliveryTime;
             this.imageData = imageData;
-        }
+
+			Loggerclass.logger.Information("New product created: {@Product}", this);
+		}
 
 		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
+			Loggerclass.logger.Debug("Visualizing product: {@Product}", this);
+
 			ProductTemplate template = new ProductTemplate
 			{
 				Width = 300,
@@ -87,11 +93,11 @@ namespace Shop_bestellsystem
 			wrapper.Children.Add(template);
 		}
 
-
-
 		public void Devisualize(WrapPanel wrapper)
         {
-            ProductTemplate templateToRemove = null;
+			Loggerclass.logger.Debug("Devisualizing product: {@Product}", this);
+
+			ProductTemplate templateToRemove = null;
             foreach (UIElement element in wrapper.Children)
             {
                 if (element is ProductTemplate template && template.Description == this.description)
@@ -100,7 +106,6 @@ namespace Shop_bestellsystem
                     break;
                 }
             }
-
             if (templateToRemove != null)
             {
                 wrapper.Children.Remove(templateToRemove);
@@ -109,7 +114,9 @@ namespace Shop_bestellsystem
 
         public void ReworkVisualization(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
-            bool templateExists = false;
+			Loggerclass.logger.Debug("Reworking visualization for product: {@Product}", this);
+
+			bool templateExists = false;
             foreach (UIElement element in wrapper.Children)
             {
                 if (element is ProductTemplate template && template.Description == this.description)
@@ -118,21 +125,20 @@ namespace Shop_bestellsystem
                     break;
                 }
             }
-
             if (!templateExists)
             {
                 Visualize(wrapper, buttonClickHandler);
             }
         }
 
-
         private BitmapImage LoadImage(byte[] imageData)
         {
-            if (imageData == null || imageData.Length == 0)
+			Loggerclass.logger.Debug("Loading image for product: {@Product}", this);
+
+			if (imageData == null || imageData.Length == 0)
             {
                 return null;
             }
-
             BitmapImage bitmap = new BitmapImage();
             using (MemoryStream ms = new MemoryStream(imageData))
             {
