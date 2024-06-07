@@ -17,6 +17,9 @@
     <None Remove="src\assets\company_goal_delivery.png" />
     <None Remove="src\assets\company_goal_experience.png" />
     <None Remove="src\assets\company_goal_quality.png" />
+    <None Remove="src\assets\contact_means_email.png" />
+    <None Remove="src\assets\contact_means_location.png" />
+    <None Remove="src\assets\contact_means_phone.png" />
     <None Remove="src\assets\copyright.png" />
     <None Remove="src\assets\dummy_man.png" />
     <None Remove="src\assets\dummy_woman.png" />
@@ -45,6 +48,9 @@
     <Resource Include="src\assets\company_goal_delivery.png" />
     <Resource Include="src\assets\company_goal_experience.png" />
     <Resource Include="src\assets\company_goal_quality.png" />
+    <Resource Include="src\assets\contact_means_email.png" />
+    <Resource Include="src\assets\contact_means_location.png" />
+    <Resource Include="src\assets\contact_means_phone.png" />
     <Resource Include="src\assets\dummy_man.png" />
     <Resource Include="src\assets\dummy_woman.png" />
     <Resource Include="src\assets\menu_icon_insights.png" />

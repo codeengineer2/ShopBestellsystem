@@ -5,19 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Shop_bestellsystem"
              mc:Ignorable="d" 
-             d:DesignHeight="20" d:DesignWidth="200">
-    
-    <Border CornerRadius="10" Background="DimGray">
-        <Grid>
+             d:DesignHeight="100" d:DesignWidth="200">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80*"/>
-                <ColumnDefinition Width="20*"/>
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
 
-            <TextBox x:Name="searchContent" Grid.Column="0" Text="Bitte text eingeben" FontSize="22" GotFocus="SearchContent_GotFocus"/>
-            <Image x:Name="searchButton" Grid.Column="1" Source="/src/assets/searchbar_icon.png" Cursor="Hand" MouseDown="Searching"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
 
-        </Grid>
-    </Border>
+
+        <TextBox x:Name="searchContent" Grid.Row="0" Grid.Column="0" Text="" FontSize="22" GotFocus="SearchContent_GotFocus" TextChanged="searchContent_TextChanged"/>
+        <Border CornerRadius="0,10,10,0" Grid.Row="0" Grid.Column="1" Background="DimGray">
+            <Image x:Name="searchButton" Grid.Row="0" Grid.Column="1" Source="/src/assets/searchbar_icon.png" Cursor="Hand" MouseDown="Searching"/>
+        </Border>
+
+        <StackPanel x:Name="selectionBar" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" Orientation="Vertical"/>
+    </Grid>
+
 </UserControl>

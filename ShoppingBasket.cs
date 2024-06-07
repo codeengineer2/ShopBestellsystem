@@ -9,6 +9,9 @@ using System.IO;
 using Aspose.Pdf.Text;
 using Aspose.Pdf.Plugins;
 using System.Windows;
+using System.Collections.ObjectModel;
+using System.Windows.Controls;
+using MySqlX.XDevAPI.Common;
 
 
 
@@ -150,7 +153,7 @@ namespace Shop_bestellsystem
             {
                 if (value.Length > 0 && value.Length <= 18)
                 {
-                    lastname = value;
+                    tel = value;
                 }
             }
         }
@@ -173,12 +176,28 @@ namespace Shop_bestellsystem
             Deliverycost = deliverycost;
             Fullprice = fullprice;
         }
-        public ShoppingBasket()
-        {
+		public ShoppingBasket()
+		{
+		}
 
-        }
+		public void AddProduct()
+		{
+			BasketList.Add(new Product(1, "Birne", "Birne", 0.8, 20, 12, null));
+			BasketList.Add(new Product(2, "Apfel", "Apfel", 0.2, 20, 12, null));
+		}
+		public void AddListView(ListView listView1)
+		{
+			AddProduct();
+			/*foreach (var item in BasketList)
+            {
+                //var ls = new ListViewItem();
+                //ls.Content = $"{item.Item1}, {item.Item2}";
+                listView1.Items.Add(item);
 
-        public void testing()
+            }*/
+		}
+
+		public void testing()
         {
             string message = $"Street: {Street}\nFirstname: {Firstname}\nLastname: {Lastname} \nE-mail: {Mail}\nTelefonnummer: {Tel}\nCity: {City}\nPlz: {Plz}\nCountry: {Country}";
             MessageBox.Show(message);
@@ -186,13 +205,13 @@ namespace Shop_bestellsystem
 
         public void SerializetoPdf()
         {
-            Document document = new Document();
-            // add a page
-            Page page = document.Pages.Add();
+			Document document = new Document();
+			// Fügt eine Seite hinzu
+			Aspose.Pdf.Page page = document.Pages.Add();
 
 
 
-            string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
+			string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street},\n{Plz} {City}\n{Country}\n";
             string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}\n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
@@ -216,11 +235,13 @@ namespace Shop_bestellsystem
             rightCell.Paragraphs[0].Margin = new MarginInfo { Left = 10 };
 
             page.Paragraphs.Add(table);
+      
             // Add text fragments to the page
             page.Paragraphs.Add(new TextFragment(""));
             page.Paragraphs.Add(new TextFragment(""));
 
-            
+
+
             //page.Paragraphs.Add(new TextFragment(header));
             //page.Paragraphs.Add(new TextFragment(customerInfo));
             page.Paragraphs.Add(new TextFragment(billingInfo));
@@ -261,6 +282,7 @@ namespace Shop_bestellsystem
 
             document.Save(filePath);
         }
+
 
     }
 }

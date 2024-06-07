@@ -20,7 +20,7 @@
 
             </Grid.RowDefinitions>
             <TextBlock Text="Warenkorb" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-            <ListView Grid.Row="1" Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
+            <ListView Grid.Row="1" x:Name="cartListView" Margin="10" HorizontalContentAlignment="Stretch">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Artikelnummer" DisplayMemberBinding="{Binding ID}" Width="110" x:Name="artnum"/>

@@ -17,9 +17,9 @@ namespace Shop_bestellsystem
     public partial class MainWindow : Window
     {
         ProductList productList = new ProductList();
-        public List<(Product, int)> basketList;
-
-        public MainWindow()
+		List<(Product, int)> basketList = new List<(Product, int)>();
+			
+		public MainWindow()
         {
             InitializeComponent();
 			Main.Content = new Shop(productList, basketList);

@@ -30,20 +30,39 @@ namespace Shop_bestellsystem
             this.basketList = basketList;
             this.productList = productList;
             this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
-        }
-        private void CustomControl_TextChanged(object sender, string e)
-        {
-            this.searchPrompt = e;
-            if (searchPrompt.Contains("$")){
-                this.productList.Reset(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
-            }
-            else
-            {
-                this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
-            }
-        }
+			LoadSearchBar();
+		}
 
-        private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
+        private void LoadSearchBar()
+        {
+
+			SearchBar searchBar = new SearchBar
+			{
+				Name = "miniSearchBar",
+				Margin = new Thickness(222, -280, 222, 0),
+				Height = 150,
+				ProductListKey = this.productList,
+			};
+			searchBar.ButtonClicked += SearchBar_ButtonClicked;
+
+			grid.Children.Add(searchBar);
+			Grid.SetRow(searchBar, 0);
+			Grid.SetRowSpan(searchBar, 2);
+		}
+
+		private void SearchBar_ButtonClicked(object sender, string e)
+		{
+			this.searchPrompt = e;
+			if (searchPrompt == "$"){ 
+				this.productList.Reset(wrapper, ProductTemplate_ButtonClicked);
+			}
+			else
+			{
+				this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
+			}
+		}
+
+		private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
         {
             if (sender is ProductTemplate productTemplate)
             {
@@ -52,22 +71,11 @@ namespace Shop_bestellsystem
 
                 Product product = productList.FindProductByAlias(alias);
 
-                if (product != null)
-                {
-                    if (basketList == null)
-                    {
-                        basketList = new List<(Product, int)>();
-                    }
-
-                    basketList.Add((product, number));
-                    MessageBox.Show($"Value {product.Name} {number} added to the list.");
-                }
-                else
-                {
-                    MessageBox.Show($"Product with alias {alias} not found.");
-                }
-            }
+				basketList.Add((product, number));
+				MessageBox.Show($"Value {product.Name} {number} added to the list.");
+			}
         }
+
 
     }
 }
