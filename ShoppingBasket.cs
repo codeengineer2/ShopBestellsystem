@@ -19,25 +19,24 @@ namespace Shop_bestellsystem
 {
     public class ShoppingBasket
     {
-		private int artnum;
-		private int anz;
-		private string productname;
-		private double singleprice;
-		private int deliverytime;
-		private double fullprice;
-		private double deliverycost;
-		private string street;
-		private string firstname;
-		private string lastname;
-		private string city;
-		private int plz;
-		private string country;
-		private string mail;
-		private string tel;
-
-		public ObservableCollection<Product> BasketList = new ObservableCollection<Product>();
-
-		public int Artnum { get; set; }
+        List<(Product produkt, int number)> basketList;
+        public int artnum;
+        public int anz;
+        public string productname;
+        public double singleprice;
+        public int deliverytime;
+        public double fullprice;
+        public double deliverycost;
+        public string street;
+        public string firstname;
+        public string lastname;
+        public string city;
+        public int plz;
+        public string country;
+        public string mail;
+        public string tel;
+        
+        public int Artnum { get; set; }
         public int Anz { get; set; }
 
         public string Productname { get; set; }
@@ -211,18 +210,14 @@ namespace Shop_bestellsystem
 			Aspose.Pdf.Page page = document.Pages.Add();
 
 
-			DateTime date = DateTime.Today;
-			TimeSpan dayslater = new TimeSpan(Deliverytime, 0, 0, 0);
-			DateTime result = date.Add(dayslater);
-
 
 			string header = "MV Krypto Sales&Marketing GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street},\n{Plz} {City}\n{Country}\n";
-			string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}    \nLieferdatum: {result}  \n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
-			string positions = "\nPositionen:";
+            string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}\n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
+            string positions = "\nPositionen:";
 
-
+            //AddProduct();
 
             // Erstellen Sie eine Tabelle mit zwei Spalten und einer Zeile
             Table table = new Table();
@@ -251,9 +246,37 @@ namespace Shop_bestellsystem
             //page.Paragraphs.Add(new TextFragment(customerInfo));
             page.Paragraphs.Add(new TextFragment(billingInfo));
             page.Paragraphs.Add(new TextFragment(positions));
+            
+            
+            
+            
+            Table productTable = new Table();
+            productTable.ColumnWidths = "10% 40% 10% 20% 20%"; // Anpassung der Spaltenbreiten
 
-			// Speichern
-			string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
+            Row headerRow = productTable.Rows.Add();
+            headerRow.Cells.Add("Artikelnummer");
+            headerRow.Cells.Add("Anzahl");
+            headerRow.Cells.Add("Produkt");
+            headerRow.Cells.Add("Preis");
+            headerRow.Cells.Add("Lieferzeit");
+
+            // Beispielhaftes Hinzufügen von Produktpositionen
+
+            foreach (var item in basketList)
+            {
+                Row productRow = productTable.Rows.Add();
+                productRow.Cells.Add($"{item.produkt.ID}");
+                productRow.Cells.Add($"{item.produkt.Quantity}");
+                productRow.Cells.Add($"{item.produkt.Name}");
+                productRow.Cells.Add($"{item.produkt.Price}");
+                productRow.Cells.Add($"{item.produkt.DeliveryTime}"); 
+            }
+
+            // Fügen Sie die Produkttabelle zur Seite hinzu
+            page.Paragraphs.Add(productTable);
+            // Speichern Sie das aktualisierte Dokument
+            // Speichern
+            string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
             string filePath = Path.Combine(downloadsPath, "output.pdf");
 
 

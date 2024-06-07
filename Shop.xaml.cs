@@ -22,7 +22,7 @@ namespace Shop_bestellsystem
     {
         public string searchPrompt;
         ProductList productList;
-        public List<(Product, int)> basketList;
+        public List<(Product liste, int number)> basketList;
 
         public Shop(ProductList productList, List<(Product, int)> basketList)
         {

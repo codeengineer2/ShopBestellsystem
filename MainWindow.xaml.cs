@@ -90,8 +90,8 @@ namespace Shop_bestellsystem
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
-
-			var basketWindow = new Window_ShoppingBasket();
+			
+			var basketWindow = new Window_ShoppingBasket(this.basketList);
 			basketWindow.ShowDialog();
             
 		}
