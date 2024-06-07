@@ -66,3 +66,4 @@
 ### Heute habe ich die SearchBar so umgebaut so das man jetzt Suchvorschläge bekommt und auch danach suchen kann.
 ### Anschließend habe ich die Kontakt Seite designed.
 ### Danach habe ich noch überall kleine Design technische verfeinerungen vorgenommen.
+### Als letztes habe ich noch alles fürs Logging hinzugefügt.
