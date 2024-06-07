@@ -30,7 +30,26 @@ namespace Shop_bestellsystem
             this.basketList = basketList;
             this.productList = productList;
             this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
-        }
+			LoadSearchBar();
+		}
+
+        private void LoadSearchBar()
+        {
+
+			SearchBar searchBar = new SearchBar
+			{
+				Name = "miniSearchBar",
+				Margin = new Thickness(222, -280, 222, 0),
+				Height = 150,
+				ProductListKey = this.productList,
+			};
+			searchBar.ButtonClicked += SearchBar_ButtonClicked;
+
+			grid.Children.Add(searchBar);
+			Grid.SetRow(searchBar, 0);
+			Grid.SetRowSpan(searchBar, 2);
+		}
+
 		private void SearchBar_ButtonClicked(object sender, string e)
 		{
 			this.searchPrompt = e;

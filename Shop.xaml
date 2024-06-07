@@ -8,13 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Shop">
 
-    <Grid Background="#E5E2E0">
+    <Grid x:Name="grid" Background="#E5E2E0">
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
             <RowDefinition Height="87*"/>
         </Grid.RowDefinitions>
-
-        <local:SearchBar x:Name="miniSearchBar" Grid.Row="0" Margin="222,19,222,19" ButtonClicked="SearchBar_ButtonClicked"/>
 
 
         <ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1" Style="{StaticResource ProductScrollBar}">
@@ -23,5 +21,6 @@
                 <local:ProductTemplate Width="300" Height="150" Margin="50,30,0,0" Alias="Buch" Description="hallo" Price="28.22" DeliveryTime="3" ButtonClicked="ProductTemplate_ButtonClicked"/>
             </WrapPanel>
         </ScrollViewer>
+
     </Grid>
 </Page>

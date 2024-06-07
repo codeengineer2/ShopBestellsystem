@@ -18,7 +18,7 @@ namespace Shop_bestellsystem
     {
         ProductList productList = new ProductList();
 		List<(Product, int)> basketList = new List<(Product, int)>();
-
+			
 		public MainWindow()
         {
             InitializeComponent();

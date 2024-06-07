@@ -2,11 +2,13 @@
 using DocumentFormat.OpenXml.Vml;
 using DocumentFormat.OpenXml.Wordprocessing;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -145,6 +147,61 @@ namespace Shop_bestellsystem
             }
             return null;
         }
+
+		public string GetProductNameByIndex(int idx)
+		{
+			if (idx >= 0 && idx < products.Count)
+			{
+				return products[idx].Name;
+			}
+			else
+			{
+				return "";
+			}
+		}
+
+		public List<Product> GetHighestSamePrompts(string actualSearchPrompt)
+		{
+			string correctPrompt = actualSearchPrompt.ToLower();
+			List<Product> highestProducts = new List<Product>();
+
+			if (correctPrompt.Length == 0)
+			{
+				return highestProducts;
+			}
+
+			foreach (Product product in products)
+			{
+				if (highestProducts.Count == 3)
+				{
+					return highestProducts;
+				}
+				string productName = product.Name.ToLower();
+
+				if (productName.Length < correctPrompt.Length)
+				{
+					continue;
+				}
+
+				bool checker = true;
+				for (int i = 0; i < correctPrompt.Length; i++)
+				{
+					if (productName[i] != correctPrompt[i])
+					{
+						checker = false;
+						break;
+					}
+				}
+				if (checker)
+				{
+					highestProducts.Add(product);
+				}
+			}
+
+			return highestProducts;
+		}
+
+
 
 	}
 }
