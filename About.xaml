@@ -22,10 +22,10 @@
         </Grid.ColumnDefinitions>
 
     
-        <TextBlock Grid.Row="0" Grid.Column="0" Margin="30,20,10,0" FontSize="22" FontWeight="Bold" Text="About Us" Foreground="#E5E2E0"/>
+        <TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Margin="30,50,10,0" FontSize="22" FontWeight="Bold" Text="About Us" Foreground="#E5E2E0"/>
         
         
-        <TextBlock Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" FontSize="14" Foreground="#E5E2E0" Margin="30,20,20,80" TextWrapping="Wrap" Text="Welcome to our store! You can browse products in the shop window, add your desired quantity to the shopping cart, and when ready, proceed to the basket tab to enter your personal data and download a PDF of the proof of purchase. If you encounter any issues, please reach out to us via the contact tab for assistance. Also, don't forget to explore the Insights tab for interesting statistics about our user base.                 Enjoy your shopping experience!"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" FontSize="14" Foreground="#E5E2E0" Margin="30,60,10,60" TextWrapping="Wrap" Text="Welcome to our store! You can browse products in the shop window, add your desired quantity to the shopping cart, and when ready, proceed to the basket tab to enter your personal data and download a PDF of the proof of purchase. If you encounter any issues, please reach out to us via the contact tab for assistance. Also, don't forget to explore the Insights tab for interesting statistics about our user base.         Enjoy your shopping experience!"/>
 
         <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Text="Our Team" Foreground="#E5E2E0"/>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="10,0,10,20">

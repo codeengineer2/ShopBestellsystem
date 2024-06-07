@@ -61,3 +61,8 @@
 ## Tag 10 - 06.06.2024
 ### Heute habe ich das About Fenster designed.
 ### Sowie den ersten (großen) Git-MergeConflict bei mir und dem Remote-Repository gelöst allerdings muss Max seine 1 stündige Arbeit nochmal neu einpflegen (kopieren). :(
+
+## Tag 11 - 07.06.2024
+### Heute habe ich die SearchBar so umgebaut so das man jetzt Suchvorschläge bekommt und auch danach suchen kann.
+### Anschließend habe ich die Kontakt Seite designed.
+### Danach habe ich noch überall kleine Design technische verfeinerungen vorgenommen.

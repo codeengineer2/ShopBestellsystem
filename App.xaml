@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="/src/styles/ProductTemplateStyle.xaml"/>
                 <ResourceDictionary Source="/src/styles/ScrollBarStyle.xaml"/>
                 <ResourceDictionary Source="/src/styles/SpinBoxStyle.xaml"/>
+                <ResourceDictionary Source="/src/styles/SelectionBarItemStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
