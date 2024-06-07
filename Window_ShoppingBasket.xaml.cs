@@ -22,10 +22,9 @@ namespace Shop_bestellsystem
     public partial class Window_ShoppingBasket : Window
     {
         ShoppingBasket shop;
-        public List<(Product, int)> basketList;
-        public List<Product> productListe;
-        public int quantitys;
-
+        public List<(Product product, int quant)> basketList;
+        public List<Product> productListe = new List<Product>();
+        
         public Window_ShoppingBasket(List<(Product, int)> basketList)
         {
             InitializeComponent();
@@ -40,17 +39,28 @@ namespace Shop_bestellsystem
                 
                 foreach (var item in basketList)
                 {
-                    this.productListe = basketList.Select(i => i.Item1).ToList();
-                    this.quantitys = Convert.ToInt32(basketList.Select(i => i.Item2));
+                    Product product = item.Item1;
+                    product.Quantity = item.Item2;
+                    
+                    productListe.Add(product);            
                     cartListView.ItemsSource = productListe;
                     
-
                     
-                   
+                    
 
-                    MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
+
+
+
+
+                        MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
                 }
             }
+            shop = new ShoppingBasket(productListe);
+            double deliverycosts = shop.deliverprice();
+            double gesprice = shop.gespreis();
+            deliverycost.Text = $"Lieferkosten: {deliverycosts} €";
+            fullprice.Text = $"Gesamtpreis: {gesprice} €";
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

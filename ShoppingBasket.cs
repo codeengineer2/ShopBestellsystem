@@ -20,6 +20,9 @@ namespace Shop_bestellsystem
     public class ShoppingBasket
     {
         List<(Product produkt, int number)> basketList;
+        public List<Product> productListe;
+
+
         public int artnum;
         public int anz;
         public string productname;
@@ -55,6 +58,10 @@ namespace Shop_bestellsystem
                 if (value.Length > 0 && value.Length <= 20)
                 {
                     street = value;
+                }
+                else
+                {
+                    MessageBox.Show("Bitte eine Gültige Adresse eingeben!");
                 }
             }
         }
@@ -176,26 +183,34 @@ namespace Shop_bestellsystem
             Deliverycost = deliverycost;
             Fullprice = fullprice;
         }
-		public ShoppingBasket()
+		public ShoppingBasket(List<Product> productListe)
 		{
-		}
+            this.productListe = productListe;
 
-		public void AddProduct()
-		{
-			BasketList.Add(new Product(1, "Birne", "Birne", 0.8, 20, 12, null));
-			BasketList.Add(new Product(2, "Apfel", "Apfel", 0.2, 20, 12, null));
-		}
-		public void AddListView(ListView listView1)
-		{
-			AddProduct();
-			/*foreach (var item in BasketList)
+        }
+
+        public double deliverprice()
+        {
+            double singleprice = 0;
+            foreach (Product item in productListe)
             {
-                //var ls = new ListViewItem();
-                //ls.Content = $"{item.Item1}, {item.Item2}";
-                listView1.Items.Add(item);
-
-            }*/
-		}
+                singleprice += item.Quantity * item.Price;
+            }
+            deliverycost += singleprice*0.09;
+            return Math.Round(deliverycost, 2);
+        }
+        public double gespreis()
+        {
+            double singleprice = 0;
+            foreach (Product item in productListe)
+            {
+                singleprice += item.Quantity * item.Price;
+            }
+            fullprice += singleprice;
+            fullprice += deliverprice();
+            return Math.Round(fullprice, 2);
+        }
+		
 
 		public void testing()
         {

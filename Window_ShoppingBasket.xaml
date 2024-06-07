@@ -28,14 +28,14 @@
                         <GridViewColumn Header="Beschreibung" DisplayMemberBinding="{Binding Description}" Width="320" x:Name="name"/>
                         <GridViewColumn Header="Preis (pro Stück)" DisplayMemberBinding="{Binding Price}" Width="105" x:Name="price"/>
                         <GridViewColumn Header="Lieferzeit" DisplayMemberBinding="{Binding DeliveryTime}" Width="100" x:Name="deliverytime"/>
-                        <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Quantity}" Width="80"/>
+                        <GridViewColumn Header="Menge" DisplayMemberBinding="{Binding Quantity}" Width="80" />
 
 
                     </GridView>
                 </ListView.View>
             </ListView>
-            <TextBlock Grid.Row="2" Text="Lieferkosten: {deliverycost}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="deliverycost"/>
-            <TextBlock Grid.Row="3" Text="Gesamtpreis: {preis}" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="fullprice"/>
+            <TextBlock Grid.Row="2" Text="" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="deliverycost"/>
+            <TextBlock Grid.Row="3" Text="" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="fullprice"/>
             <TextBlock Grid.Row="5" Text="Lieferadresse:" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontWeight="Bold"/>
 
         </Grid>
