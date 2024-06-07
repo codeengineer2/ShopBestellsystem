@@ -17,7 +17,8 @@ namespace Shop_bestellsystem
     public partial class MainWindow : Window
     {
         ProductList productList = new ProductList();
-		ShoppingBasket shop;
+        public List<(Product, int)> basketList;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -89,8 +90,8 @@ namespace Shop_bestellsystem
 			MenuItem clickedMenuItem = (MenuItem)sender;
 
 			clickedMenuItem.Background = menuItemBackgroundColor;
-
-			var basketWindow = new Window_ShoppingBasket();
+			
+			var basketWindow = new Window_ShoppingBasket(this.basketList);
 			basketWindow.ShowDialog();
             
 		}

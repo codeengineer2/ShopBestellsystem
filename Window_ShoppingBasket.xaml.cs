@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,35 @@ namespace Shop_bestellsystem
     public partial class Window_ShoppingBasket : Window
     {
         ShoppingBasket shop;
-        public Window_ShoppingBasket()
+        public List<(Product, int)> basketList;
+        public List<Product> productListe;
+        public int quantitys;
+
+        public Window_ShoppingBasket(List<(Product, int)> basketList)
         {
             InitializeComponent();
-            
+            this.basketList = basketList;
+
+            if (basketList == null || basketList.Count == 0)
+            {
+                MessageBox.Show("The basketList is empty or null.");
+            }
+            else
+            {
+                
+                foreach (var item in basketList)
+                {
+                    this.productListe = basketList.Select(i => i.Item1).ToList();
+                    this.quantitys = Convert.ToInt32(basketList.Select(i => i.Item2));
+                    cartListView.ItemsSource = productListe;
+                    
+
+                    
+                   
+
+                    MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,13 +66,9 @@ namespace Shop_bestellsystem
             shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1);
             shop.testing();
             this.Close();
-            
+
             var Window_OrderConfirmation = new Window_OrderConfirmation(shop);
             Window_OrderConfirmation.ShowDialog();
-
-            
         }
-
-        
     }
 }

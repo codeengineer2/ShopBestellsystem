@@ -22,7 +22,7 @@ namespace Shop_bestellsystem
     {
         public string searchPrompt;
         ProductList productList;
-        public List<(Product, int)> basketList;
+        public List<(Product liste, int number)> basketList;
 
         public Shop(ProductList productList, List<(Product, int)> basketList)
         {
@@ -52,9 +52,22 @@ namespace Shop_bestellsystem
 
                 Product product = productList.FindProductByAlias(alias);
 
-				basketList.Add((product, number));
-				MessageBox.Show($"Value {product.Name} {number} added to the list.");
-			}
+                if (product != null)
+                {
+                    if (basketList == null)
+                    {
+                        basketList = new List<(Product, int)>();
+                    }
+
+                    basketList.Add((product, number));
+                    MessageBox.Show($"Value {product.Name} {number} added to the list.");
+                }
+                else
+                {
+                    MessageBox.Show($"Product with alias {alias} not found.");
+                }
+            }
         }
+
     }
 }

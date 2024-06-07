@@ -16,6 +16,7 @@ namespace Shop_bestellsystem
 {
     public class ShoppingBasket
     {
+        List<(Product produkt, int number)> basketList;
         public int artnum;
         public int anz;
         public string productname;
@@ -197,7 +198,7 @@ namespace Shop_bestellsystem
             string billingInfo = $"Rechnungs-Nr: 129012    \nRechnungsdatum:{DateTime.Today}\n \nE-mail: {Mail}\nTelefonnummer: {Tel}\n";
             string positions = "\nPositionen:";
 
-            AddProduct();
+            //AddProduct();
 
             // Erstellen Sie eine Tabelle mit zwei Spalten und einer Zeile
             Table table = new Table();
@@ -240,14 +241,14 @@ namespace Shop_bestellsystem
 
             // Beispielhaftes Hinzufügen von Produktpositionen
 
-            foreach (Product item in BasketList)
+            foreach (var item in basketList)
             {
                 Row productRow = productTable.Rows.Add();
-                productRow.Cells.Add($"{item.ID}");
-                productRow.Cells.Add($"{item.Quantity}");
-                productRow.Cells.Add($"{item.Name}");
-                productRow.Cells.Add($"{item.Price}");
-                productRow.Cells.Add($"{item.DeliveryTime}"); 
+                productRow.Cells.Add($"{item.produkt.ID}");
+                productRow.Cells.Add($"{item.produkt.Quantity}");
+                productRow.Cells.Add($"{item.produkt.Name}");
+                productRow.Cells.Add($"{item.produkt.Price}");
+                productRow.Cells.Add($"{item.produkt.DeliveryTime}"); 
             }
 
             // Fügen Sie die Produkttabelle zur Seite hinzu
