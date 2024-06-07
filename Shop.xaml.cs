@@ -39,7 +39,7 @@ namespace Shop_bestellsystem
 			SearchBar searchBar = new SearchBar
 			{
 				Name = "miniSearchBar",
-				Margin = new Thickness(222, -280, 222, 0),
+				Margin = new Thickness(270, -310, 270, 0),
 				Height = 150,
 				ProductListKey = this.productList,
 			};

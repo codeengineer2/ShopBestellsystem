@@ -58,9 +58,9 @@ namespace Shop_bestellsystem
 				{
 					Button button = new Button
 					{
-						Content = ProductListKey.GetProductNameByIndex(i),
-						Margin = new Thickness(5)
+						Content = ProductListKey.GetProductNameByIndex(i)
 					};
+					button.Style = (Style)FindResource("SelectionBarItem");
 					button.Click += Button_Click;
 
 					selectionBar.Children.Add(button);
@@ -98,9 +98,9 @@ namespace Shop_bestellsystem
 				{
 					Button button = new Button
 					{
-						Content = ProductListKey.GetProductNameByIndex(i),
-						Margin = new Thickness(5)
+						Content = ProductListKey.GetProductNameByIndex(i)
 					};
+					button.Style = (Style)FindResource("SelectionBarItem");
 					button.Click += Button_Click;
 
 					selectionBar.Children.Add(button);
@@ -115,9 +115,9 @@ namespace Shop_bestellsystem
 			{
 				Button button = new Button
 				{
-					Content = products[i].Name,
-					Margin = new Thickness(5)
+					Content = products[i].Name
 				};
+				button.Style = (Style)FindResource("SelectionBarItem");
 				button.Click += Button_Click;
 
 				selectionBar.Children.Add(button);

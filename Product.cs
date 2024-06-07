@@ -74,7 +74,7 @@ namespace Shop_bestellsystem
 			{
 				Width = 300,
 				Height = 150,
-				Margin = new Thickness(50, 30, 0, 0),
+				Margin = new Thickness(60, 50, 0, 0),
 				Description = this.description,
                 Alias = this.Name,
 				Price = this.price,

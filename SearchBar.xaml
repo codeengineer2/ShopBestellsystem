@@ -9,8 +9,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="7*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -18,13 +18,16 @@
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
 
-
-        <TextBox x:Name="searchContent" Grid.Row="0" Grid.Column="0" Text="" FontSize="22" GotFocus="SearchContent_GotFocus" TextChanged="searchContent_TextChanged"/>
-        <Border CornerRadius="0,10,10,0" Grid.Row="0" Grid.Column="1" Background="DimGray">
-            <Image x:Name="searchButton" Grid.Row="0" Grid.Column="1" Source="/src/assets/searchbar_icon.png" Cursor="Hand" MouseDown="Searching"/>
+        <Border Background="DimGray" BorderBrush="DimGray" BorderThickness="1">
+            <TextBox x:Name="searchContent" Grid.Row="0" Grid.Column="0" Text="" FontSize="20" GotFocus="SearchContent_GotFocus" TextChanged="searchContent_TextChanged"/>
         </Border>
 
-        <StackPanel x:Name="selectionBar" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" Orientation="Vertical"/>
+        <Border CornerRadius="0,10,10,0" Grid.Row="0" Grid.Column="1" Background="DimGray" MouseDown="Searching" Cursor="Hand">
+            <Image x:Name="searchButton" Grid.Row="0" Grid.Column="1" Source="/src/assets/searchbar_icon.png"/>
+        </Border>
+
+        <StackPanel x:Name="selectionBar" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" Orientation="Vertical" Background="#FEFEFD"/>
+
     </Grid>
 
 </UserControl>

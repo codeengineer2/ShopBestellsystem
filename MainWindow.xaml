@@ -27,35 +27,25 @@
         <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1" CornerRadius="0,10,0,0">
             <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
                 <Image Source="/src/assets/minimize_window.png" Width="40" Height="Auto" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown" Cursor="Hand"/>
-
                 <!-- <Image Source="/src/assets/maximize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MaximizeWindow_MouseDown"/> -->
-
                 <Image Source="/src/assets/close_window.png" Width="40" Height="Auto" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
             </StackPanel>
         </Border>
 
         <Border Background="#FF7F00" Grid.Row="0" Grid.Column="0" CornerRadius="10,0,0,0">
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Andromedar" FontFamily="/src/fonts/#Jaro" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="E M P O R I U M" FontFamily="/src/fonts/#Jaro" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
         </Border>
 
         <Menu x:Name="menu" Grid.Row="1" Grid.Column="0" Background="#B8AEA6" Style="{StaticResource MenuStyle}">
-
             <MenuItem x:Name="menuItemShop" Style="{StaticResource MenuBar}" Header="S H O P" Tag="/src/assets/menu_icon_shop.png" Click="menuItemShop_Click"/>
-
             <MenuItem x:Name="menuItemAbout" Style="{StaticResource MenuBar}" Header="A B O U T" Tag="/src/assets/menu_icon_about.png" Click="menuItemAbout_Click"/>
-
             <MenuItem x:Name="menuItemContact" Style="{StaticResource MenuBar}" Header="C O N T A C T" Tag="/src/assets/menu_icon_contact.png" Click="menuItemContact_Click"/>
-
             <MenuItem x:Name="menuItemInsights" Style="{StaticResource MenuBar}" Header="I N S I G H T S" Tag="/src/assets/menu_icon_insights.png" Click="menuItemInsights_Click"/>
-
             <MenuItem x:Name="menuItemBasket" Style="{StaticResource MenuBar}" Header="B A S K E T" Tag="/src/assets/menu_icon_basket.png" Click="menuItemBasket_Click"/>
-
             <MenuItem x:Name="menuItemExit" Style="{StaticResource MenuBar}" Header="E X I T" Tag="/src/assets/menu_icon_exit.png" Click="menuItemExit_Click"/>
-
         </Menu>
 
         <Frame Grid.Row="1" Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden"/>
-        
     </Grid>
     
 </Window>
