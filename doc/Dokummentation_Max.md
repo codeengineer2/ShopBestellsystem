@@ -42,6 +42,21 @@
 ## Tag 8 - 25.05.2024
 ### Datenbanktabelle Statistik erstellt
 ### Datenbank eingebunden und 2 Fenster erstellt mit Statistiken
+
+## Tag 9 - 05.06.2024
+### Warenkorb Dartstellung, aber nicht Funktionsfähig, nur mit Demo Daten
+
+## Tag 10 - 06.06.2024
+### Warenkorb Dartstellung, teils Funktionsfähig
+
+## Tag 11 - 07.06.2024
+### Warenkorb Dartstellung voll Funktionsfähig, Gesamptpreis und Lieferkosten berechnet und dargestellt
+### PDF fast Fertig mit Produkt Darstellung als Tabelle und Kundendaten
+### Fehlererkennung fertig (in den Properties z.B. plz muss für Österreich 4 - Stellig sein)
+## Tag 12 - 08.06.2024
+### PDF fertig designt und entwickelt
+### Logging fertig
+
 				
 
 
