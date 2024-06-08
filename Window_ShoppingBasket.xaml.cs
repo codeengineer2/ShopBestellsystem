@@ -52,11 +52,12 @@ namespace Shop_bestellsystem
 
 
 
-                        MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
+                MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
                 }
             }
             shop = new ShoppingBasket(productListe);
-            double deliverycosts = shop.deliverprice();
+
+            double deliverycosts = shop.deliveryprice();
             double gesprice = shop.gespreis();
             deliverycost.Text = $"Lieferkosten: {deliverycosts} €";
             fullprice.Text = $"Gesamtpreis: {gesprice} €";
@@ -65,22 +66,29 @@ namespace Shop_bestellsystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             string street1 = street.Text;
             string firstname1 = firstname.Text;
             string lastname1 = lastname.Text;
             string city1 = city.Text;
-            int plz1 = Convert.ToInt32(plz.Text);
+            string plz1 = plz.Text;
             string country1 = country.Text;
             string mail1 = mail.Text;
 			string tel1 = tel.Text;
-	        shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1 );
+            
+	        shop = new ShoppingBasket(street, firstname, lastname, city, plz, country, mail, tel);
+            if (shop.korrektinput == true)
+            {
+                shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1, productListe);
 
-            shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1);
-            shop.testing();
-            this.Close();
+                shop.testing();
+                this.Close();
 
-            var Window_OrderConfirmation = new Window_OrderConfirmation(shop);
-            Window_OrderConfirmation.ShowDialog();
+                var Window_OrderConfirmation = new Window_OrderConfirmation(shop);
+                Window_OrderConfirmation.ShowDialog();
+            }
+            
+           
         }
     }
 }
