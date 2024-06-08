@@ -368,15 +368,16 @@ namespace Shop_bestellsystem
 
             page.Paragraphs.Add(new TextFragment(""));
             page.Paragraphs.Add(new TextFragment(""));
-            //string projectPath = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory()).FullName).FullName;
-            //string imagePath = Path.Combine(projectPath, "src", "assets", "e-commerce-1606962_1280.png");
-            string imagePath = "C:\\Users\\maxim\\OneDrive - HTL-Rankweil\\HTL Rankweil\\2.Klasse\\POS1\\C#\\Shop_bestellsystem\\src\\assets\\e-commerce-1606962_1280.png";
+            string relativePath = @"src\assets\e-commerce-1606962_1280.png";
+
+            string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            string fullPath = Path.Combine(projectPath, relativePath);
 
 
-            Loggerclass.logger.Information($"Image Path erstellt {imagePath}");
+            Loggerclass.logger.Information($"Image Path erstellt {fullPath}");
             Aspose.Pdf.Image image = new Aspose.Pdf.Image
             {
-                File = imagePath
+                File = fullPath
             };
 
            
