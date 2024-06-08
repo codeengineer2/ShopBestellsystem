@@ -23,7 +23,7 @@
             <Image x:Name="ProductImage" Grid.Row="0" Grid.Column="0" Margin="10,10,10,10"/>
             <TextBlock x:Name="boxDescription" Text="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}}" Grid.Row="0" Grid.Column="1" Margin="10,10,10,10" TextWrapping="Wrap" />
             <TextBlock x:Name="boxPrice" Text="{Binding Price, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat={}{0:F2} €}" Grid.Row="1" Grid.Column="1" Margin="40,5,30,5" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
-            <TextBlock x:Name="boxDeliveryTime" Text="{Binding DeliveryTime, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat='Availible in {0} h'}" Grid.Row="1" Grid.Column="0" Margin="15,5,10,5" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
+            <TextBlock x:Name="boxDeliveryTime" Text="{Binding DeliveryTime, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}, StringFormat='Availible in {0} d'}" Grid.Row="1" Grid.Column="0" Margin="15,5,10,5" FontSize="20" FontFamily="/src/fonts/#Jaro"/>
             <Button x:Name="addBtn" Content="Add to Cart" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ProductTemplate}" Margin="70,5,80,7" Click="Button_Click"/>
 
             <local:SpinBox x:Name="spinBox" Grid.Row="2" Grid.Column="1" Margin="90,5,15,7" Quantity="{Binding Description, RelativeSource={RelativeSource AncestorType={x:Type local:ProductTemplate}}}"/>

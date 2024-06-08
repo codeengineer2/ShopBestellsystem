@@ -33,10 +33,11 @@ namespace Shop_bestellsystem
             if (basketList == null || basketList.Count == 0)
             {
                 MessageBox.Show("The basketList is empty or null.");
+                Loggerclass.logger.Warning("basketList ist Leer (is null)");
             }
             else
             {
-                
+                Loggerclass.logger.Information($"In der basketList sind Werte enthalten");
                 foreach (var item in basketList)
                 {
                     Product product = item.Item1;
@@ -44,24 +45,25 @@ namespace Shop_bestellsystem
                     
                     productListe.Add(product);            
                     cartListView.ItemsSource = productListe;
+                    Loggerclass.logger.Information($"Zeile an Inhalten in die ListView hinzugefüt");
+
+
+
+
+
+
+
                     
-                    
-                    
-
-
-
-
-
-                MessageBox.Show($"Product: {item.Item1}, Price: {item.Item1.Price}, Quantity: {item.Item2}");
                 }
             }
+            Loggerclass.logger.Information($"Hinzufügen der Inhalte in ListView abgeschlossen!");
             shop = new ShoppingBasket(productListe);
 
             double deliverycosts = shop.deliveryprice();
             double gesprice = shop.gespreis();
             deliverycost.Text = $"Lieferkosten: {deliverycosts} €";
             fullprice.Text = $"Gesamtpreis: {gesprice} €";
-
+            lieferdatum.Text = $"Lieferdatum: {shop.lieferdatum()}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -74,14 +76,16 @@ namespace Shop_bestellsystem
             string plz1 = plz.Text;
             string country1 = country.Text;
             string mail1 = mail.Text;
-			string tel1 = tel.Text;
+			
             
-	        shop = new ShoppingBasket(street, firstname, lastname, city, plz, country, mail, tel);
+	        shop = new ShoppingBasket(street, firstname, lastname, city, plz, country, mail);
             if (shop.korrektinput == true)
             {
-                shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, tel1, productListe);
+                Loggerclass.logger.Information($"Alle Eingaben sind Richtig (mail, vorname, usw.) ");
+                Loggerclass.logger.Information($"Alle Überprüfungen in den Properties sind Wahr!");
+                shop = new ShoppingBasket(street1, firstname1, lastname1, city1, plz1, country1, mail1, productListe);
 
-                shop.testing();
+               
                 this.Close();
 
                 var Window_OrderConfirmation = new Window_OrderConfirmation(shop);
