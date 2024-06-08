@@ -1,0 +1,28 @@
+﻿<Window x:Class="Shop_bestellsystem.UserAgreementWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shop_bestellsystem"
+        mc:Ignorable="d"
+        Title="UserAgreementWindow" Height="450" Width="1000">
+    <Grid>
+        <TextBlock  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20" FontWeight="Heavy">Nutzungsbedingungen und AGB Agreements</TextBlock>
+        <ListBox Width="800" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,70,0,0">
+            <ListBoxItem>AGB:</ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+
+            <ListBoxItem>§1: Alle Inhalte und Dargestellten Produkte können weder gekauft noch beansprucht werden.</ListBoxItem>
+            <ListBoxItem>§2: Kein Vorgang (wie z.B. Bestellbuttons, Rechnung) in der Anwendung bestätigt einen Zahlungspflichtigen Kauf.</ListBoxItem>
+            <ListBoxItem>§3: Keiner der abgebildeten Inhalte in der Kategorie \"Shop\" darf als Produkt oder Gutschrift angesehen werden.</ListBoxItem>
+            <ListBoxItem>§4: Durch die Nutzung der Anwendung wird kein Rechtsgeschäft mit den Entwicklern oder Betreibern der Anwendung eingegangen.</ListBoxItem>
+            <ListBoxItem>§5: Die "Rechnung" stellt nur eine unverbindliche Information dar und begründet keine Zahlungs- oder Lieferverpflichtungen.</ListBoxItem>
+
+
+
+        </ListBox>
+    </Grid>
+</Window>

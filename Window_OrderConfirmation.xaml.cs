@@ -35,7 +35,33 @@ namespace Shop_bestellsystem
                 MessageBox.Show($"Fehler beim Initialisieren der Window_OrderConfirmation: {ex.Message}");
             }
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
+        }
+
+        private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        
+
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
 
         public void Rechnungdownload(object sender, RoutedEventArgs e)
         {

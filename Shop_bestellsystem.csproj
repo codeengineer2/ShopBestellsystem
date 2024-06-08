@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="src\assets\accept.png" />
     <None Remove="src\assets\arrow_down.png" />
     <None Remove="src\assets\arrow_up.png" />
     <None Remove="src\assets\bestellbackpic.png" />
@@ -43,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="src\assets\accept.png" />
     <Resource Include="src\assets\arrow_down.png" />
     <Resource Include="src\assets\arrow_up.png" />
     <Resource Include="src\assets\company_goal_delivery.png" />

@@ -5,55 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
         Title="Window_OrderConfirmation" Height="400" Width="600">
-    
-        
-    
-    
 
-
-    <Grid>
-
-
+    <Grid Background="#E5E2E0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="7*"/>
-            <RowDefinition Height="3*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
-        <Rectangle Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="4" Fill="#90000000"/>
 
-        <TextBlock FontSize="40" Foreground="White"   Text="Bestellbestätigung" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1">
+            <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/src/assets/minimize_window.png" Width="40" Height="Auto" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown" Cursor="Hand"/>
+               
+                <Image Source="/src/assets/close_window.png" Width="40" Height="Auto" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
+            </StackPanel>
+        </Border>
 
-        <Button Grid.Column="1" Grid.Row="2" Width="150" Height="50" Content="Rechnung downloaden" Click="Rechnungdownload">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="15" Background="GhostWhite">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-    
+        <Border Background="#FF7F00" Grid.Row="0" Grid.Column="0">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Order Window" FontFamily="/src/fonts/#Jaro" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
+        </Border>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,20,0,0">
+            <Image Source="/src/assets/accept.png" Width="160" Height="160" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" />
+
+            <TextBlock FontSize="24" Text="Success!" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0"/>
+
+            <TextBlock FontSize="24" Text="Your order was placed correctly." TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,17"/>
+
+            <Button Grid.Column="1" Grid.Row="2" Width="190" Height="60" Background="Beige" Content="Rechnung downloaden" Click="Rechnungdownload" FontSize="16" FontWeight="Bold" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="#d8b892">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
 
 
-    
+
+
 
 
     </Grid>
-      
-    <Window.Background>
-        <ImageBrush ImageSource="/src/assets/bestellbackpic.png" Stretch="UniformToFill"/>
 
-    </Window.Background>
-    
-    
-    
-    
-   
+
 </Window>
