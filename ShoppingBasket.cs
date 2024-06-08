@@ -366,16 +366,16 @@ namespace Shop_bestellsystem
                 Row productRow = productTable.Rows.Add();
                 productRow.Cells.Add($"{item.ID}");
                 productRow.Cells.Add($"{item.Name}");
-                productRow.Cells.Add($"{item.Price}");
+                productRow.Cells.Add($"{item.Price}€");
                 productRow.Cells.Add($"{item.Quantity}");
-                productRow.Cells.Add($"{item.DeliveryTime}"); 
+                productRow.Cells.Add($"{item.DeliveryTime} Tage"); 
             }
 
             // Fügen Sie die Produkttabelle zur Seite hinzu
             page.Paragraphs.Add(productTable);
             page.Paragraphs.Add(new TextFragment(""));
-            page.Paragraphs.Add(new TextFragment($"Lieferkosten: {deliveryprice()}"));
-            page.Paragraphs.Add(new TextFragment($"Gesamtpreis : {gespreis()}"));
+            page.Paragraphs.Add(new TextFragment($"Lieferkosten: {deliveryprice()}€"));
+            page.Paragraphs.Add(new TextFragment($"Gesamtpreis : {gespreis()}€"));
             // Speichern Sie das aktualisierte Dokument
             // Speichern
 
