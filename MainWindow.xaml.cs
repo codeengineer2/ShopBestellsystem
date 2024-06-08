@@ -104,11 +104,6 @@ namespace Shop_bestellsystem
 			{
 				Loggerclass.logger.Information("Basket menu item clicked.");
 				GetActualBasket();
-				ResetMenuItemsBackgroundColors();
-
-				SolidColorBrush menuItemBackgroundColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#9A8F88"));
-				MenuItem clickedMenuItem = (MenuItem)sender;
-				clickedMenuItem.Background = menuItemBackgroundColor;
 
 				var basketWindow = new Window_ShoppingBasket(this.basketList);
 				basketWindow.ShowDialog();
@@ -123,7 +118,7 @@ namespace Shop_bestellsystem
         {
 			try
 			{
-				Loggerclass.logger.Information("Basket menu item clicked.");
+				Loggerclass.logger.Information("Shop menu item clicked.");
 				GetActualBasket();
 				ResetMenuItemsBackgroundColors();
 
@@ -131,8 +126,7 @@ namespace Shop_bestellsystem
 				MenuItem clickedMenuItem = (MenuItem)sender;
 				clickedMenuItem.Background = menuItemBackgroundColor;
 
-				var basketWindow = new Window_ShoppingBasket(this.basketList);
-				basketWindow.ShowDialog();
+				Main.Content = new Shop(this.productList, this.basketList);
 			}
 			catch (Exception ex)
 			{
@@ -186,7 +180,6 @@ namespace Shop_bestellsystem
 			{
 				Loggerclass.logger.Information("Insights menu item clicked.");
 				GetActualBasket();
-				ResetMenuItemsBackgroundColors();
 
 				var Statistik = new Statistik_Userzahlen();
 				var Statistik_userdauer = new Statistik_userdauer();
