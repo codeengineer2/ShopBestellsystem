@@ -66,8 +66,9 @@ namespace Shop_bestellsystem
             if (control != null && e.NewValue is BitmapImage newImage)
             {
                 control.ProductImage.Source = newImage;
+                Loggerclass.logger.Debug("Image source changed for ProductTemplate: {ImageSource}", newImage.UriSource);
             }
-        }
+		}
 
 		public event RoutedEventHandler ButtonClicked;
 
@@ -79,7 +80,8 @@ namespace Shop_bestellsystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int quantitySpinBox = spinBox.Number;
-            ButtonClicked?.Invoke(this, new RoutedEventArgs());
+			Loggerclass.logger.Information("Button clicked in ProductTemplate. Quantity selected: {Quantity}", quantitySpinBox);
+			ButtonClicked?.Invoke(this, new RoutedEventArgs());
         }
     }
 }

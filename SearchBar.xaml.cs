@@ -39,6 +39,8 @@ namespace Shop_bestellsystem
 
 		private void Searching(object sender, MouseButtonEventArgs e)
 		{
+			Loggerclass.logger.Information("Search button clicked in SearchBar.");
+
 			selectionBar.Children.Clear();
 			string text = searchContent.Text;
 			ButtonClicked?.Invoke(this, text.Trim());
@@ -46,6 +48,8 @@ namespace Shop_bestellsystem
 
 		private void SearchContent_GotFocus(object sender, RoutedEventArgs e)
 		{
+			Loggerclass.logger.Debug("Search content got focus in SearchBar.");
+
 			selectionBar.Children.Clear();
 			if (searchContent.Text.Length > 0)
 			{
@@ -71,6 +75,8 @@ namespace Shop_bestellsystem
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+			Loggerclass.logger.Debug("Button clicked in SearchBar.");
+
 			Button clickedButton = sender as Button;
 
 			if (clickedButton != null)
@@ -81,6 +87,8 @@ namespace Shop_bestellsystem
 
 		private void searchContent_TextChanged(object sender, TextChangedEventArgs e)
 		{
+			Loggerclass.logger.Debug("Search content changed in SearchBar.");
+
 			selectionBar.Children.Clear();
 			string searchText = searchContent.Text.Trim();
 			if (searchText.Length > 0)
@@ -106,11 +114,12 @@ namespace Shop_bestellsystem
 					selectionBar.Children.Add(button);
 				}
 			}
-			
 		}
 
 		private void UpdateSearchSelection(List<Product> products)
-		{		
+		{
+			Loggerclass.logger.Debug("Updating search selection in SearchBar.");
+
 			for (int i = 0; i < products.Count; i++)
 			{
 				Button button = new Button

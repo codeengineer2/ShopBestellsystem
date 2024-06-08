@@ -45,8 +45,10 @@ namespace Shop_bestellsystem
             {
                 Number += 1;
                 UpdateContent(Number);
-            }
-        }
+
+				Loggerclass.logger.Information("Arrow up clicked in SpinBox. New number: {Number}", Number);
+			}
+		}
 
         private void ArrowDown_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -54,12 +56,16 @@ namespace Shop_bestellsystem
             {
                 Number -= 1;
                 UpdateContent(Number);
-            }
-        }
+
+				Loggerclass.logger.Information("Arrow down clicked in SpinBox. New number: {Number}", Number);
+			}
+		}
 
         private void UpdateContent(int number)
         {
             Content.Text = number.ToString();
-        }
-    }
+
+			Loggerclass.logger.Debug("Content updated in SpinBox. New content: {Number}", number);
+		}
+	}
 }

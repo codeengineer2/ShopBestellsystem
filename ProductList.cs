@@ -27,22 +27,22 @@ namespace Shop_bestellsystem
 
         public ProductList()
         {
-            string server = "193.203.168.53";
+			Loggerclass.logger.Information("Initializing product list.");
+
+			string server = "193.203.168.53";
             string database = "u964104866_Shop";
             string UID = "u964104866_MVdevelopment";
             string password = ConfigurationManager.AppSettings["Password"];
             string port = "3306";
 
             connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
-
             Connection = new MySqlConnection(connectionString);
 
             try
             {
                 Connection.Open();
                 string query = "SELECT * FROM Products;";
-
-                MySqlCommand command = new MySqlCommand(query, Connection);
+				MySqlCommand command = new MySqlCommand(query, Connection);
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
@@ -64,8 +64,8 @@ namespace Shop_bestellsystem
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message + connectionString);
-            }
+				Loggerclass.logger.Error(ex, "Error while initializing product list: {Message}", ex.Message);
+			}
             finally
             {
                 Connection.Close();
@@ -74,12 +74,13 @@ namespace Shop_bestellsystem
 
 		public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
+			Loggerclass.logger.Debug("Filtering products with prompt: {Prompt}", prompt);
+
 			string correctPrompt = prompt.ToLower();
 
 			foreach (Product product in products)
 			{
 				string productName = product.Name.ToLower();
-
 				if (correctPrompt.Length > productName.Length)
 				{
 					product.Devisualize(wrapper);
@@ -119,10 +120,11 @@ namespace Shop_bestellsystem
 			}
 		}
 
-
 		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
         {
-            foreach(Product p in products)
+			Loggerclass.logger.Information("Visualizing all products.");
+
+			foreach (Product p in products)
             {
                 p.Visualize(wrapper, buttonClickHandler);
             }
@@ -130,7 +132,9 @@ namespace Shop_bestellsystem
 
 		public void Reset(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
-			foreach(Product product in products)
+			Loggerclass.logger.Information("Resetting product visualization.");
+
+			foreach (Product product in products)
 			{
 				product.ReworkVisualization(wrapper, buttonClickHandler);
 			}
@@ -138,7 +142,9 @@ namespace Shop_bestellsystem
 
 		public Product FindProductByAlias(string alias)
         {
-            foreach(Product product in products)
+			Loggerclass.logger.Debug("Searching product by alias: {Alias}", alias);
+
+			foreach (Product product in products)
             {
                 if (product.Name == alias)
                 {
@@ -150,6 +156,8 @@ namespace Shop_bestellsystem
 
 		public string GetProductNameByIndex(int idx)
 		{
+			Loggerclass.logger.Debug("Getting product name by index: {Index}", idx);
+
 			if (idx >= 0 && idx < products.Count)
 			{
 				return products[idx].Name;
@@ -162,6 +170,8 @@ namespace Shop_bestellsystem
 
 		public List<Product> GetHighestSamePrompts(string actualSearchPrompt)
 		{
+			Loggerclass.logger.Debug("Getting products with highest same prompts for: {Prompt}", actualSearchPrompt);
+
 			string correctPrompt = actualSearchPrompt.ToLower();
 			List<Product> highestProducts = new List<Product>();
 
@@ -176,6 +186,7 @@ namespace Shop_bestellsystem
 				{
 					return highestProducts;
 				}
+
 				string productName = product.Name.ToLower();
 
 				if (productName.Length < correctPrompt.Length)
@@ -197,11 +208,7 @@ namespace Shop_bestellsystem
 					highestProducts.Add(product);
 				}
 			}
-
 			return highestProducts;
 		}
-
-
-
 	}
 }

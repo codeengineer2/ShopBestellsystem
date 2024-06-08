@@ -35,6 +35,7 @@ namespace Shop_bestellsystem
 
         private void LoadSearchBar()
         {
+			Loggerclass.logger.Information("Loading search bar in Shop page.");
 
 			SearchBar searchBar = new SearchBar
 			{
@@ -52,19 +53,27 @@ namespace Shop_bestellsystem
 
 		private void SearchBar_ButtonClicked(object sender, string e)
 		{
+			Loggerclass.logger.Information("Search bar button clicked in Shop page. Prompt: {Prompt}", e);
+
 			this.searchPrompt = e;
 			if (searchPrompt == "$"){ 
 				this.productList.Reset(wrapper, ProductTemplate_ButtonClicked);
+
+				Loggerclass.logger.Information("Resetting product list in Shop page.");
 			}
 			else
 			{
 				this.productList.Filter(searchPrompt, wrapper, ProductTemplate_ButtonClicked);
+
+				Loggerclass.logger.Information("Filtering product list in Shop page with prompt: {Prompt}", searchPrompt);
 			}
 		}
 
 		private void ProductTemplate_ButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (sender is ProductTemplate productTemplate)
+			Loggerclass.logger.Information("Product template button clicked in Shop page.");
+
+			if (sender is ProductTemplate productTemplate)
             {
                 string alias = productTemplate.Alias;
                 int number = productTemplate.spinBox.Number;
@@ -72,10 +81,8 @@ namespace Shop_bestellsystem
                 Product product = productList.FindProductByAlias(alias);
 
 				basketList.Add((product, number));
-				MessageBox.Show($"Value {product.Name} {number} added to the list.");
+				Loggerclass.logger.Information("Product added to basket: {ProductName}, Quantity: {Quantity}", product.Name, number);
 			}
-        }
-
-
+		}
     }
 }
