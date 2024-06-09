@@ -84,7 +84,7 @@ namespace Shop_bestellsystem
                         userCounts.Add(Convert.ToDouble(reader["jahre"]));
                     }
                 }
-                MessageBox.Show($"{userCounts}");
+                
             }
             catch (MySqlException ex)
             {
