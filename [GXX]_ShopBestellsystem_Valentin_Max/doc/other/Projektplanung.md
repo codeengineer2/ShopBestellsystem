@@ -10,7 +10,7 @@
 
 
 ## Nice-to-haves
-- [ ] mit Datenbank (sqlite)
+- [ ] mit Datenbank (Msql)
 - [ ] Rechnung  als PDF erzeugen.
 - [ ] Bestellhistorie 
 - [ ] ...
@@ -38,13 +38,13 @@ Die Umsetzung erfolgt in folgenden Schritten:
 
 ## Wer macht was?
 - **Maximilian:** Liste: Rechnung.
-- **Valentin:** Liste: Artikel und Artikelliste.
+- **Valentin:** Liste: Artikel und Artikelliste, Logging.
 - **Valentin:** Mainwindow (Produktauswahl).
-- **Maximilian:** Warenkorb mit Bestellfunktion, Bestellbestätigung. 
+- **Maximilian:** Warenkorb mit Bestellfunktion, Bestellbestätigung, Window Agreements. 
 - **Maximilian:** Datenbank,Statistik, Logging.
 
 ## Milestoneso
 - **Milestone 1 (11.Mai):** MainWindow und Bestellwindow  fertig, Basisfunktinalität implementiert.(Demoversion)
 - **Milestone 2 (25. Mai):** Bestellbestätigung und Rechnung und Datenbankenkommunikation.
 - **Milestone 3 (1. Juni):** Logging und Testen der Endversion und  Bugfixing.
-- **Projektabschluss (5.Juni):** Projekt abgeschlossen und an Lehrer übergeben
+- **Projektabschluss (9.Juni):** Projekt abgeschlossen und an Lehrer übergeben
