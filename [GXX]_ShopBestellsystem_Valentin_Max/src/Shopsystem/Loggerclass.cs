@@ -11,6 +11,6 @@ namespace Shop_bestellsystem
 {
 	public static class Loggerclass
 	{
-		public static Logger logger { get; private set; } = new LoggerConfiguration().WriteTo.File("/logs/log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7).CreateLogger();
+		public static Logger logger { get; private set; } = new LoggerConfiguration().WriteTo.File("/logging/log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7).CreateLogger();
 	}
 }
