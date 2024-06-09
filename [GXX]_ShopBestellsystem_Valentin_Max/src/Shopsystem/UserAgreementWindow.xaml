@@ -5,14 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="UserAgreementWindow" Height="450" Width="1100" WindowStyle="None">
-    <Grid>
+        AllowsTransparency="True"
+Background="Transparent"
+ResizeMode="NoResize"
+WindowStyle="None"
+MouseDown="Window_MouseDown"
+WindowStartupLocation="CenterScreen"
+Title="Window_OrderConfirmation" Height="400" Width="1100">
+    <Grid Background="#E8E8E8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1093*"/>
-            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="329,20,0,0" FontSize="20" FontWeight="Heavy">Nutzungsbedingungen und AGB Agreements</TextBlock>
-        <ListBox Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,70,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FF7F00">
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="20" FontWeight="Heavy">Terms and Conditions (T&amp;C)</TextBlock>
+        </Border>
+        <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1">
+            <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/assets/minimize_window.png" Width="40" Height="Auto" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown" Cursor="Hand"/>
+
+                <Image Source="/assets/close_window.png" Width="40" Height="Auto" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
+            </StackPanel>
+        </Border>
+        <ListBox Grid.Row="1" Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,20,0,0" Grid.Column="0" Grid.ColumnSpan="2">
             <ListBoxItem>AGB:</ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
@@ -34,7 +54,7 @@
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
-            <ListBoxItem>Nutzungsbedingungen:"</ListBoxItem>
+            <ListBoxItem >Nutzungsbedingungen:</ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
@@ -43,9 +63,9 @@
             <ListBoxItem>3: Personenbezogene Daten wie (Name, Adresse etc.) werden nicht an externe Anbieter weitergeleitetet</ListBoxItem>
             <ListBoxItem>4: Bei Downloaden der Rechnung werden ihre Daten automatisch in die Rechnung Reinkopiert und Lokal auf ihren Rechner Heruntergeladen"</ListBoxItem>
             <ListBoxItem>5: Mit dem Bestätigen der Agreements Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs</ListBoxItem>
-
+        
         </ListBox>
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="60,0,0,80" Width="980" Height="40">
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="60,5,0,80" Width="980" Height="40">
             <CheckBox  VerticalAlignment="Top" Margin="0,2.5,0,0" x:Name="agb">
                 <TextBlock>Ich habe die Allgemeinen Geschäftsbedingungen gelesen.</TextBlock>
             </CheckBox>
@@ -53,11 +73,39 @@
                 <TextBlock>Ich habe die Nutzungsbedingungen gelesen.</TextBlock>
             </CheckBox>
         </StackPanel>
-        <StackPanel Width="980" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Margin="60,0,0,0">
-            <Button Width="150" Height="20" Click="agree_Click">I agree</Button>
-            <Button Width="150" Height="20" Margin="50,0,0,0" Click="decline_Click">I decline</Button>
-        </StackPanel>
+        <Button Grid.Column="0" Grid.Row="1" Width="150" Height="25" Content="I agree" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="agree_Click" Margin="50,2,40,11" FontSize="17" Cursor="Hand">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="15" Background="LightBlue">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
+        <Button Grid.Row="1" Grid.Column="0" Content="I decline" Click="decline_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,2,0,11"  Width="150" Height="25" FontSize="17" Cursor="Hand">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="15" Background="LightBlue">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Green"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Green"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
     </Grid>
 </Window>

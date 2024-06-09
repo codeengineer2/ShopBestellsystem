@@ -368,7 +368,7 @@ namespace Shop_bestellsystem
 
             page.Paragraphs.Add(new TextFragment(""));
             page.Paragraphs.Add(new TextFragment(""));
-            string relativePath = @"src\assets\e-commerce-1606962_1280.png";
+            string relativePath = @"assets\e-commerce-1606962_1280.png";
 
             string projectPath = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
             string fullPath = Path.Combine(projectPath, relativePath);
@@ -417,7 +417,9 @@ namespace Shop_bestellsystem
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
+            secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment("Nutzungsbedingungen:"));
+            secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment("1: Jegliche kommerzielle und nicht-kommerzielle Veröffentlichung der Anwendung ist ohne ausdrückliche Zustimmung aller Betreiber und Entwickler untersagt."));
             secondPage.Paragraphs.Add(new TextFragment(""));

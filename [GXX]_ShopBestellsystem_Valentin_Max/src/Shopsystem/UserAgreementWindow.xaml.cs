@@ -19,7 +19,7 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class UserAgreementWindow : Window
     {
-       
+        public bool isvalid = false;
         public UserAgreementWindow()
         {
             Loggerclass.logger.Information("Agreements Window initialized.");
@@ -68,6 +68,34 @@ namespace Shop_bestellsystem
                
 
             }
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+            Loggerclass.logger.Fatal("Projekt beendet -- Da X gedrückt wurde und somit die UserAgreements nicht Akzeptiert wurden");
+            this.Close();
         }
     }
 }
