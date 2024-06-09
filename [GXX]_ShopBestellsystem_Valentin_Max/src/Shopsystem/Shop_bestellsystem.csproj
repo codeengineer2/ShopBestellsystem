@@ -1,0 +1,98 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="src\**" />
+    <EmbeddedResource Remove="src\**" />
+    <None Remove="src\**" />
+    <Page Remove="src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="assets\accept.png" />
+    <None Remove="assets\arrow_down.png" />
+    <None Remove="assets\arrow_up.png" />
+    <None Remove="assets\bestellbackpic.png" />
+    <None Remove="assets\close_window.png" />
+    <None Remove="assets\company_goal_delivery.png" />
+    <None Remove="assets\company_goal_experience.png" />
+    <None Remove="assets\company_goal_quality.png" />
+    <None Remove="assets\contact_means_email.png" />
+    <None Remove="assets\contact_means_location.png" />
+    <None Remove="assets\contact_means_phone.png" />
+    <None Remove="assets\copyright.png" />
+    <None Remove="assets\dummy_man.png" />
+    <None Remove="assets\dummy_woman.png" />
+    <None Remove="assets\e-commerce-1606962_1280.png" />
+    <None Remove="assets\maximize_window.png" />
+    <None Remove="assets\menu_icon_about.png" />
+    <None Remove="assets\menu_icon_basket.png" />
+    <None Remove="assets\menu_icon_contact.png" />
+    <None Remove="assets\menu_icon_exit.png" />
+    <None Remove="assets\menu_icon_insights.png" />
+    <None Remove="assets\menu_icon_shop.png" />
+    <None Remove="assets\minimize_window.png" />
+    <None Remove="assets\product_tasche.png" />
+    <None Remove="assets\searchbar_icon.png" />
+    <None Remove="fonts\jaro.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="source\secrets.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\menu_icon_contact.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspose.PDF" Version="24.5.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.2" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
+    <PackageReference Include="QuestPDF" Version="2024.3.10" />
+    <PackageReference Include="Serilog" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\accept.png" />
+    <Resource Include="assets\arrow_down.png" />
+    <Resource Include="assets\arrow_up.png" />
+    <Resource Include="assets\bestellbackpic.png" />
+    <Resource Include="assets\close_window.png" />
+    <Resource Include="assets\company_goal_delivery.png" />
+    <Resource Include="assets\company_goal_experience.png" />
+    <Resource Include="assets\company_goal_quality.png" />
+    <Resource Include="assets\contact_means_email.png" />
+    <Resource Include="assets\contact_means_location.png" />
+    <Resource Include="assets\contact_means_phone.png" />
+    <Resource Include="assets\copyright.png" />
+    <Resource Include="assets\dummy_man.png" />
+    <Resource Include="assets\dummy_woman.png" />
+    <Resource Include="assets\e-commerce-1606962_1280.png" />
+    <Resource Include="assets\maximize_window.png" />
+    <Resource Include="assets\menu_icon_about.png" />
+    <Resource Include="assets\menu_icon_basket.png" />
+    <Resource Include="assets\menu_icon_exit.png" />
+    <Resource Include="assets\menu_icon_insights.png" />
+    <Resource Include="assets\menu_icon_shop.png" />
+    <Resource Include="assets\minimize_window.png" />
+    <Resource Include="assets\product_tasche.png" />
+    <Resource Include="assets\searchbar_icon.png" />
+    <Resource Include="fonts\jaro.ttf" />
+  </ItemGroup>
+
+</Project>
