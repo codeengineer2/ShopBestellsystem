@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="logging\**" />
     <Compile Remove="src\**" />
+    <EmbeddedResource Remove="logging\**" />
     <EmbeddedResource Remove="src\**" />
+    <None Remove="logging\**" />
     <None Remove="src\**" />
+    <Page Remove="logging\**" />
     <Page Remove="src\**" />
   </ItemGroup>
 
@@ -247,7 +251,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="logging\" />
+    <Folder Include="logdateien\" />
   </ItemGroup>
 
 </Project>
