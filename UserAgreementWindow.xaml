@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="UserAgreementWindow" Height="450" Width="1100">
+        Title="UserAgreementWindow" Height="450" Width="1100" WindowStyle="None">
     <Grid>
-        <TextBlock  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20" FontWeight="Heavy">Nutzungsbedingungen und AGB Agreements</TextBlock>
-        <ListBox Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,70,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1093*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="329,20,0,0" FontSize="20" FontWeight="Heavy">Nutzungsbedingungen und AGB Agreements</TextBlock>
+        <ListBox Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,70,0,0">
             <ListBoxItem>AGB:</ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
@@ -41,7 +45,7 @@
             <ListBoxItem>5: Mit dem Bestätigen der Agreements Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs</ListBoxItem>
 
         </ListBox>
-        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,80" Width="980" Height="40">
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="60,0,0,80" Width="980" Height="40">
             <CheckBox  VerticalAlignment="Top" Margin="0,2.5,0,0" x:Name="agb">
                 <TextBlock>Ich habe die Allgemeinen Geschäftsbedingungen gelesen.</TextBlock>
             </CheckBox>
@@ -49,11 +53,11 @@
                 <TextBlock>Ich habe die Nutzungsbedingungen gelesen.</TextBlock>
             </CheckBox>
         </StackPanel>
-        <StackPanel Width="980" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+        <StackPanel Width="980" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Orientation="Horizontal" Margin="60,0,0,0">
             <Button Width="150" Height="20" Click="agree_Click">I agree</Button>
             <Button Width="150" Height="20" Margin="50,0,0,0" Click="decline_Click">I decline</Button>
         </StackPanel>
-        
-     
+
+
     </Grid>
 </Window>
