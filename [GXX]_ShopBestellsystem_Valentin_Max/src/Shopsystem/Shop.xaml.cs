@@ -20,20 +20,25 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class Shop : Page
     {
-        public string searchPrompt;
-        ProductList productList;
-        public List<(Product liste, int number)> basketList;
+		#region variables
+		private ProductList productList;
+        public List<(Product liste, int number)> BasketList;
+		private string searchPrompt;
+		#endregion
 
-        public Shop(ProductList productList, List<(Product, int)> basketList)
+		#region constructors
+		public Shop(ProductList productList, List<(Product, int)> basketList)
         {
             InitializeComponent();
-            this.basketList = basketList;
-            this.productList = productList;
+			this.productList = productList;
+			this.BasketList = basketList;
             this.productList.Visualize(wrapper, ProductTemplate_ButtonClicked);
 			LoadSearchBar();
 		}
+		#endregion
 
-        private void LoadSearchBar()
+		#region methods
+		private void LoadSearchBar()
         {
 			Loggerclass.logger.Information("Loading search bar in Shop page.");
 
@@ -78,11 +83,12 @@ namespace Shop_bestellsystem
                 string alias = productTemplate.Alias;
                 int number = productTemplate.spinBox.Number;
 
-                Product product = productList.FindProductByAlias(alias);
+                Product product = this.productList.FindProductByAlias(alias);
 
-				basketList.Add((product, number));
+				this.BasketList.Add((product, number));
 				Loggerclass.logger.Information("Product added to basket: {ProductName}, Quantity: {Quantity}", product.Name, number);
 			}
 		}
-    }
+		#endregion
+	}
 }

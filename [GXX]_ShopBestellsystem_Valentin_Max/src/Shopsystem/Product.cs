@@ -13,65 +13,72 @@ namespace Shop_bestellsystem
 {
     public class Product
     {
-        private int id;
-        private string name;
-        private string description;
-        private double price;
-        private int quantity;
-        private int deliveryTime;
+		#region variables
+		#region private
+		private int _id;
+        private string _name;
+        private string _description;
+        private double _price;
+        private int _quantity;
+        private int _deliveryTime;
         private byte[] imageData;
+        #endregion
 
-
+        #region public
         public int ID
         {
-            get { return id; }
-            set { id = value; }
+            get { return this._id; }
+            set { this._id = value; }
         }
 
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return this._name; }
+            set { this._name = value; }
         }
 
         public string Description
         {
-            get { return description; }
-            set { description = value; }
+            get { return this._description; }
+            set { this._description = value; }
         }
 
         public double Price
         {
-            get { return price; }
-            set { price = value; }
+            get { return this._price; }
+            set { this._price = value; }
         }
 
         public int Quantity
         {
-            get { return quantity; }
-            set { quantity = value; }
+            get { return this._quantity; }
+            set { this._quantity = value; }
         }
 
         public int DeliveryTime
         {
-            get { return deliveryTime; }
-            set { deliveryTime = value; }
+            get { return this._deliveryTime; }
+            set { this._deliveryTime = value; }
         }
+		#endregion
+		#endregion
 
-
-        public Product(int id, string name, string description, double price, int quantity, int deliveryTime, byte[] imageData)
+		#region constructors
+		public Product(int id, string name, string description, double price, int quantity, int deliveryTime, byte[] imageData)
         {
-            this.id = id;
+            this.ID = id;
             this.Name = name;
-            this.description = description;
-            this.price = price;
-            this.quantity = quantity;
-            this.deliveryTime = deliveryTime;
+            this.Description = description;
+            this.Price = price;
+            this.Quantity = quantity;
+            this.DeliveryTime = deliveryTime;
             this.imageData = imageData;
 
 			Loggerclass.logger.Information("New product created: {@Product}", this);
 		}
+		#endregion
 
+		#region methods
 		public void Visualize(WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
 			Loggerclass.logger.Debug("Visualizing product: {@Product}", this);
@@ -81,11 +88,11 @@ namespace Shop_bestellsystem
 				Width = 300,
 				Height = 150,
 				Margin = new Thickness(60, 50, 0, 0),
-				Description = this.description,
+				Description = this.Description,
                 Alias = this.Name,
-				Price = this.price,
-				DeliveryTime = this.deliveryTime,
-				Quantity = this.quantity,
+				Price = this.Price,
+				DeliveryTime = this.DeliveryTime,
+				Quantity = this.Quantity,
 				ImageSource = LoadImage(this.imageData)
 			};
 			template.ButtonClicked += buttonClickHandler;
@@ -100,7 +107,7 @@ namespace Shop_bestellsystem
 			ProductTemplate templateToRemove = null;
             foreach (UIElement element in wrapper.Children)
             {
-                if (element is ProductTemplate template && template.Description == this.description)
+                if (element is ProductTemplate template && template.Alias == this.Name)
                 {
                     templateToRemove = template;
                     break;
@@ -119,7 +126,7 @@ namespace Shop_bestellsystem
 			bool templateExists = false;
             foreach (UIElement element in wrapper.Children)
             {
-                if (element is ProductTemplate template && template.Description == this.description)
+                if (element is ProductTemplate template && template.Alias == this.Name)
                 {
                     templateExists = true;
                     break;
@@ -139,6 +146,7 @@ namespace Shop_bestellsystem
             {
                 return null;
             }
+
             BitmapImage bitmap = new BitmapImage();
             using (MemoryStream ms = new MemoryStream(imageData))
             {
@@ -149,5 +157,6 @@ namespace Shop_bestellsystem
             }
             return bitmap;
         }
-    }
+		#endregion
+	}
 }

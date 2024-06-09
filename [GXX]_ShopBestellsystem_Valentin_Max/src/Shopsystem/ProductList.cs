@@ -21,11 +21,14 @@ namespace Shop_bestellsystem
 {
     public class ProductList
     {
-        private List<Product> products = new List<Product>();
-        private MySqlConnection Connection { get; set; }
-        private string connectionString;
+		#region variables
+		private List<Product> products = new List<Product>();
+		private MySqlConnection connection;
+		private string connectionString;
+		#endregion
 
-        public ProductList()
+		#region constructors
+		public ProductList()
         {
 			Loggerclass.logger.Information("Initializing product list.");
 
@@ -35,14 +38,14 @@ namespace Shop_bestellsystem
             string password = ConfigurationManager.AppSettings["Password"];
             string port = "3306";
 
-            connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
-            Connection = new MySqlConnection(connectionString);
+            this.connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
+            this.connection = new MySqlConnection(this.connectionString);
 
             try
             {
-                Connection.Open();
+                this.connection.Open();
                 string query = "SELECT * FROM Products;";
-				MySqlCommand command = new MySqlCommand(query, Connection);
+				MySqlCommand command = new MySqlCommand(query, this.connection);
 
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
@@ -58,7 +61,7 @@ namespace Shop_bestellsystem
                             reader.GetInt32("deliveryTime"),
                             imageData
                         );
-                        products.Add(product);
+                        this.products.Add(product);
                     }
                 }
             }
@@ -68,19 +71,22 @@ namespace Shop_bestellsystem
 			}
             finally
             {
-                Connection.Close();
+                this.connection.Close();
             }
         }
+		#endregion
 
+		#region methods
 		public void Filter(string prompt, WrapPanel wrapper, RoutedEventHandler buttonClickHandler)
 		{
 			Loggerclass.logger.Debug("Filtering products with prompt: {Prompt}", prompt);
 
 			string correctPrompt = prompt.ToLower();
 
-			foreach (Product product in products)
+			foreach (Product product in this.products)
 			{
 				string productName = product.Name.ToLower();
+
 				if (correctPrompt.Length > productName.Length)
 				{
 					product.Devisualize(wrapper);
@@ -124,7 +130,7 @@ namespace Shop_bestellsystem
         {
 			Loggerclass.logger.Information("Visualizing all products.");
 
-			foreach (Product p in products)
+			foreach (Product p in this.products)
             {
                 p.Visualize(wrapper, buttonClickHandler);
             }
@@ -134,7 +140,7 @@ namespace Shop_bestellsystem
 		{
 			Loggerclass.logger.Information("Resetting product visualization.");
 
-			foreach (Product product in products)
+			foreach (Product product in this.products)
 			{
 				product.ReworkVisualization(wrapper, buttonClickHandler);
 			}
@@ -144,7 +150,7 @@ namespace Shop_bestellsystem
         {
 			Loggerclass.logger.Debug("Searching product by alias: {Alias}", alias);
 
-			foreach (Product product in products)
+			foreach (Product product in this.products)
             {
                 if (product.Name == alias)
                 {
@@ -158,29 +164,26 @@ namespace Shop_bestellsystem
 		{
 			Loggerclass.logger.Debug("Getting product name by index: {Index}", idx);
 
-			if (idx >= 0 && idx < products.Count)
+			if (idx >= 0 && idx < this.products.Count)
 			{
-				return products[idx].Name;
+				return this.products[idx].Name;
 			}
-			else
-			{
-				return "";
-			}
+			return null;
 		}
 
 		public List<Product> GetHighestSamePrompts(string actualSearchPrompt)
 		{
 			Loggerclass.logger.Debug("Getting products with highest same prompts for: {Prompt}", actualSearchPrompt);
 
-			string correctPrompt = actualSearchPrompt.ToLower();
 			List<Product> highestProducts = new List<Product>();
+			string correctPrompt = actualSearchPrompt.ToLower();
 
 			if (correctPrompt.Length == 0)
 			{
 				return highestProducts;
 			}
 
-			foreach (Product product in products)
+			foreach (Product product in this.products)
 			{
 				if (highestProducts.Count == 3)
 				{
@@ -188,11 +191,6 @@ namespace Shop_bestellsystem
 				}
 
 				string productName = product.Name.ToLower();
-
-				if (productName.Length < correctPrompt.Length)
-				{
-					continue;
-				}
 
 				bool checker = true;
 				for (int i = 0; i < correctPrompt.Length; i++)
@@ -203,6 +201,7 @@ namespace Shop_bestellsystem
 						break;
 					}
 				}
+
 				if (checker)
 				{
 					highestProducts.Add(product);
@@ -210,5 +209,6 @@ namespace Shop_bestellsystem
 			}
 			return highestProducts;
 		}
+		#endregion
 	}
 }

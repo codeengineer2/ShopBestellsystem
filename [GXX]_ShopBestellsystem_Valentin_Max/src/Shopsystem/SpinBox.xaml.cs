@@ -20,7 +20,8 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class SpinBox : UserControl
     {
-        public static readonly DependencyProperty QuantityProperty = DependencyProperty.Register("Quantity", typeof(int), typeof(SpinBox), new PropertyMetadata(0));
+		#region variables
+		public static readonly DependencyProperty QuantityProperty = DependencyProperty.Register("Quantity", typeof(int), typeof(SpinBox), new PropertyMetadata(0));
         public int Quantity
         {
             get { return (int)GetValue(QuantityProperty); }
@@ -30,7 +31,9 @@ namespace Shop_bestellsystem
         private int minNumber = 0;
         private int maxNumber = 0;
         public int Number = 0;
+        #endregion
 
+        #region constructors
         public SpinBox()
         {
             InitializeComponent();
@@ -38,26 +41,28 @@ namespace Shop_bestellsystem
             this.Number = this.minNumber;
             this.maxNumber = this.Quantity;
         }
+		#endregion
 
-        private void ArrowUp_MouseDown(object sender, MouseButtonEventArgs e)
+		#region methods
+		private void ArrowUp_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(Number != maxNumber)
+            if(this.Number != this.maxNumber)
             {
-                Number += 1;
+                this.Number += 1;
                 UpdateContent(Number);
 
-				Loggerclass.logger.Information("Arrow up clicked in SpinBox. New number: {Number}", Number);
+				Loggerclass.logger.Information("Arrow up clicked in SpinBox. New number: {Number}", this.Number);
 			}
 		}
 
         private void ArrowDown_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (Number != minNumber)
+            if (this.Number != this.minNumber)
             {
-                Number -= 1;
-                UpdateContent(Number);
+                this.Number -= 1;
+                UpdateContent(this.Number);
 
-				Loggerclass.logger.Information("Arrow down clicked in SpinBox. New number: {Number}", Number);
+				Loggerclass.logger.Information("Arrow down clicked in SpinBox. New number: {Number}", this.Number);
 			}
 		}
 
@@ -67,5 +72,6 @@ namespace Shop_bestellsystem
 
 			Loggerclass.logger.Debug("Content updated in SpinBox. New content: {Number}", number);
 		}
+		#endregion
 	}
 }

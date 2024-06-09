@@ -16,23 +16,33 @@ namespace Shop_bestellsystem
     /// </summary>
     public partial class MainWindow : Window
     {
+		#region variables
 		private ProductList productList = new ProductList();
 		private List<(Product, int)> basketList = new List<(Product, int)>();
-			
+		#endregion
+
+		#region constructors
 		public MainWindow()
         {
             var useragreements = new UserAgreementWindow();
             useragreements.ShowDialog();
+			if (!useragreements.isvalid)
+			{
+				this.Close();
+			}
+
             InitializeComponent();
             Loggerclass.logger.Information("MainWindow initialized.");
-			Main.Content = new Shop(productList, basketList);
+			Main.Content = new Shop(this.productList, this.basketList);
 		}
-		
+		#endregion
+
+		#region methods
 		private void GetActualBasket()
 		{
 			if (Main.Content is Shop shopPage)
 			{
-				this.basketList = shopPage.basketList;
+				this.basketList = shopPage.BasketList;
 				Loggerclass.logger.Information($"The current page is a Shop page. Basket items count: {basketList.Count}");
 			}
 			else
@@ -229,6 +239,6 @@ namespace Shop_bestellsystem
 				Loggerclass.logger.Error(ex, "An error occurred while resetting menu items background colors.");
 			}
 		}
-
+		#endregion
 	}
 }

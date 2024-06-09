@@ -21,22 +21,27 @@ namespace Shop_bestellsystem
 	/// </summary>
 	public partial class SearchBar : UserControl
 	{
+		#region variables
+		private List<Product> products;
 		public event EventHandler<string> ButtonClicked;
-		private List<Product> products = null;
-
+		
 		public static readonly DependencyProperty ProductListProperty = DependencyProperty.Register("ProductList", typeof(ProductList), typeof(SearchBar), new PropertyMetadata(null));
 		public ProductList ProductListKey
 		{
 			get { return (ProductList)GetValue(ProductListProperty); }
 			set { SetValue(ProductListProperty, value); }
 		}
+		#endregion
 
+		#region constructors
 		public SearchBar()
 		{
 			InitializeComponent();
 			searchContent.TextChanged += searchContent_TextChanged;
 		}
+		#endregion
 
+		#region methods
 		private void Searching(object sender, MouseButtonEventArgs e)
 		{
 			Loggerclass.logger.Information("Search button clicked in SearchBar.");
@@ -53,8 +58,8 @@ namespace Shop_bestellsystem
 			selectionBar.Children.Clear();
 			if (searchContent.Text.Length > 0)
 			{
-				products = ProductListKey.GetHighestSamePrompts(searchContent.Text.Trim());
-				UpdateSearchSelection(products);
+				this.products = ProductListKey.GetHighestSamePrompts(searchContent.Text.Trim());
+				UpdateSearchSelection(this.products);
 			}
 			else
 			{
@@ -78,7 +83,6 @@ namespace Shop_bestellsystem
 			Loggerclass.logger.Debug("Button clicked in SearchBar.");
 
 			Button clickedButton = sender as Button;
-
 			if (clickedButton != null)
 			{
 				searchContent.Text = clickedButton.Content.ToString();
@@ -93,11 +97,11 @@ namespace Shop_bestellsystem
 			string searchText = searchContent.Text.Trim();
 			if (searchText.Length > 0)
 			{
-				products = ProductListKey.GetHighestSamePrompts(searchText);
+				this.products = ProductListKey.GetHighestSamePrompts(searchText);
 
-				if (products != null)
+				if (this.products != null)
 				{
-					UpdateSearchSelection(products);
+					UpdateSearchSelection(this.products);
 				}
 			}
 			else
@@ -132,5 +136,6 @@ namespace Shop_bestellsystem
 				selectionBar.Children.Add(button);
 			}
 		}
+		#endregion
 	}
 }

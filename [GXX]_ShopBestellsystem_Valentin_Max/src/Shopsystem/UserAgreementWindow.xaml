@@ -11,7 +11,7 @@ ResizeMode="NoResize"
 WindowStyle="None"
 MouseDown="Window_MouseDown"
 WindowStartupLocation="CenterScreen"
-Title="Window_OrderConfirmation" Height="400" Width="1100">
+Title="Window_OrderConfirmation" Height="400" Width="1000">
     <Grid Background="#E8E8E8">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="45*"/>
@@ -32,7 +32,7 @@ Title="Window_OrderConfirmation" Height="400" Width="1100">
                 <Image Source="/assets/close_window.png" Width="40" Height="Auto" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
             </StackPanel>
         </Border>
-        <ListBox Grid.Row="1" Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,20,0,0" Grid.Column="0" Grid.ColumnSpan="2">
+        <ListBox Grid.Row="1" Width="850" Height="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="60,40,0,0" Grid.Column="0" Grid.ColumnSpan="2">
             <ListBoxItem>AGB:</ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
@@ -65,15 +65,15 @@ Title="Window_OrderConfirmation" Height="400" Width="1100">
             <ListBoxItem>5: Mit dem Bestätigen der Agreements Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs</ListBoxItem>
         
         </ListBox>
-        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="60,5,0,80" Width="980" Height="40">
-            <CheckBox  VerticalAlignment="Top" Margin="0,2.5,0,0" x:Name="agb">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Margin="60,255,0,60" Width="980" Height="50">
+            <CheckBox  VerticalAlignment="Top" Margin="0,0,0,0" x:Name="agb">
                 <TextBlock>Ich habe die Allgemeinen Geschäftsbedingungen gelesen.</TextBlock>
             </CheckBox>
-            <CheckBox  VerticalAlignment="Bottom" Margin="0,5,0,0" x:Name="useragreement">
+            <CheckBox  VerticalAlignment="Bottom" Margin="0,7,0,0" x:Name="useragreement">
                 <TextBlock>Ich habe die Nutzungsbedingungen gelesen.</TextBlock>
             </CheckBox>
         </StackPanel>
-        <Button Grid.Column="0" Grid.Row="1" Width="150" Height="25" Content="I agree" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="agree_Click" Margin="50,2,40,11" FontSize="17" Cursor="Hand">
+        <Button Grid.Column="0" Grid.Row="1" Width="150" Height="25" Content="I agree" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="agree_Click" Margin="50,2,40,20" FontSize="17" Cursor="Hand">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="15" Background="LightBlue">
@@ -83,7 +83,7 @@ Title="Window_OrderConfirmation" Height="400" Width="1100">
             </Button.Template>
         </Button>
 
-        <Button Grid.Row="1" Grid.Column="0" Content="I decline" Click="decline_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,2,0,11"  Width="150" Height="25" FontSize="17" Cursor="Hand">
+        <Button Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Content="I decline" Click="decline_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="50,1,550,20"  Width="150" Height="25" FontSize="17" Cursor="Hand">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Template">
