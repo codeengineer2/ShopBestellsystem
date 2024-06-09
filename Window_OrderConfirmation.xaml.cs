@@ -33,6 +33,7 @@ namespace Shop_bestellsystem
             catch (Exception ex)
             {
                 MessageBox.Show($"Fehler beim Initialisieren der Window_OrderConfirmation: {ex.Message}");
+                Loggerclass.logger.Fatal($"Fehler beim Initialisieren der Window_OrderConfirmation: {ex.Message}");
             }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

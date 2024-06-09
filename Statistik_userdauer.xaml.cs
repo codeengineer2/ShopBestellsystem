@@ -39,9 +39,7 @@ namespace Shop_bestellsystem
         {
             InitializeComponent();
 
-            // Hole das <password> Element
             
-            // Datenbankverbindung herstellen
             string server = "193.203.168.53";
             string database = "u964104866_Shop";
             string UID = "u964104866_MVdevelopment";
@@ -52,11 +50,9 @@ namespace Shop_bestellsystem
             connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
 
             Connection = new MySqlConnection(connectionString);
-            // Daten für das Diagramm abrufen
             List<double> userdauer = Getuserdauer();
             List<double> avguserdauer = Getavguserdauer();
 
-            // Daten zum Diagramm hinzufügen
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -79,7 +75,6 @@ namespace Shop_bestellsystem
             Formatter = value => value.ToString("N");
 
             DataContext = this;
-            // Set the title
             this.Title = "Nutzungsdauer pro Einkaufserlebnis";
         }
         

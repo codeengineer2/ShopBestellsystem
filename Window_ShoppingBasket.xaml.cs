@@ -61,9 +61,10 @@ namespace Shop_bestellsystem
 
             double deliverycosts = shop.deliveryprice();
             double gesprice = shop.gespreis();
-            deliverycost.Text = $"Lieferkosten: {deliverycosts} €";
-            fullprice.Text = $"Gesamtpreis: {gesprice} €";
-            lieferdatum.Text = $"Lieferdatum: {shop.lieferdatum()}";
+            string deliverytimes = shop.lieferdatum();
+            deliverycost.Text = $"Delivery costs: {deliverycosts} €";
+            fullprice.Text = $"Total price: {gesprice} €";
+            deliveryTime.Text = $"Delivery time: {deliverytimes}";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -93,6 +94,36 @@ namespace Shop_bestellsystem
             }
             
            
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+      
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -21,8 +21,10 @@ namespace Shop_bestellsystem
 			
 		public MainWindow()
         {
+            var useragreements = new UserAgreementWindow();
+            useragreements.ShowDialog();
             InitializeComponent();
-			Loggerclass.logger.Information("MainWindow initialized.");
+            Loggerclass.logger.Information("MainWindow initialized.");
 			Main.Content = new Shop(productList, basketList);
 		}
 

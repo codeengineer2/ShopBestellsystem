@@ -312,7 +312,7 @@ namespace Shop_bestellsystem
             Row row = table.Rows.Add();
 
             Cell leftCell = row.Cells.Add(header);
-            leftCell.Paragraphs[0].Margin = new MarginInfo { Left = 0 }; // Abstand zum linken Rand
+            leftCell.Paragraphs[0].Margin = new MarginInfo { Left = 0 }; 
 
      
             Cell rightCell = row.Cells.Add(customerInfo);
@@ -388,6 +388,7 @@ namespace Shop_bestellsystem
             // Zugriff auf die zweite Seite des Dokuments
             Aspose.Pdf.Page secondPage = document.Pages.Add();
             Loggerclass.logger.Information($"Zweite Seite erstellt");
+            
 
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
@@ -396,40 +397,48 @@ namespace Shop_bestellsystem
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
 
-            secondPage.Paragraphs.Add(new TextFragment("§1: Alle Inhalte und Dargestellten Produkte können weder gekauft noch beansprucht werden."));
+            secondPage.Paragraphs.Add(new TextFragment("1: Alle Inhalte und Dargestellten Produkte können weder gekauft noch beansprucht werden."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§2: Kein Vorgang (wie z.B. Bestellbuttons, Rechnung) in der Anwendung bestätigt einen Zahlungspflichtigen Kauf."));
+            secondPage.Paragraphs.Add(new TextFragment("2: Kein Vorgang (wie z.B. Bestellbuttons, Rechnung) in der Anwendung bestätigt einen Zahlungspflichtigen Kauf."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§3: Keiner der abgebildeten Inhalte in der Kategorie \"Shop\" darf als Produkt oder Gutschrift angesehen werden."));
+            secondPage.Paragraphs.Add(new TextFragment("3: Keiner der abgebildeten Inhalte in der Kategorie \"Shop\" darf als Produkt oder Gutschrift angesehen werden."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§4: Durch die Nutzung der Anwendung wird kein Rechtsgeschäft mit den Entwicklern oder Betreibern der Anwendung eingegangen."));
+            secondPage.Paragraphs.Add(new TextFragment("4: Durch die Nutzung der Anwendung wird kein Rechtsgeschäft mit den Entwicklern oder Betreibern der Anwendung eingegangen."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§5: Die \"Rechnung\" stellt nur eine unverbindliche Information dar und begründet keine Zahlungs- oder Lieferverpflichtungen."));
+            secondPage.Paragraphs.Add(new TextFragment("5: Die \"Rechnung\" stellt nur eine unverbindliche Information dar und begründet keine Zahlungs- oder Lieferverpflichtungen."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§6: Die Entwickler und Betreiber haften nicht für die Korrektheit und Gültigkeit der dargestellten Inhalte, die von externen Dienstleistern stammen."));
+            secondPage.Paragraphs.Add(new TextFragment("6: Die Entwickler und Betreiber haften nicht für die Korrektheit und Gültigkeit der dargestellten Inhalte, die von externen Dienstleistern stammen."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§7: Die Firmenadresse und der Firmenname sind frei erfunden und wurden nur zu Projektzwecken verwendet, um eine vernünftige Anwendung darzustellen."));
+            secondPage.Paragraphs.Add(new TextFragment("7: Die Firmenadresse und der Firmenname sind frei erfunden und wurden nur zu Projektzwecken verwendet, um eine vernünftige Anwendung darzustellen."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§8: Die Entwickler und Betreiber behalten sich das Recht vor, die AGB jederzeit zu ändern. Änderungen werden den Nutzern rechtzeitig mitgeteilt. Die weitere Nutzung der Anwendung nach Bekanntgabe der Änderungen gilt als Zustimmung zu den neuen AGB."));
+            secondPage.Paragraphs.Add(new TextFragment("8: Die Entwickler und Betreiber behalten sich das Recht vor, die AGB jederzeit zu ändern. Änderungen werden den Nutzern rechtzeitig mitgeteilt. Die weitere Nutzung der Anwendung nach Bekanntgabe der Änderungen gilt als Zustimmung zu den neuen AGB."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§9: Gerichtsstand und anwendbares Recht: Es gilt das Recht der Republik Österreich"));
+            secondPage.Paragraphs.Add(new TextFragment("9: Gerichtsstand und anwendbares Recht: Es gilt das Recht der Republik Österreich"));
+            secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment(""));
             secondPage.Paragraphs.Add(new TextFragment("Nutzungsbedingungen:"));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§1: Jegliche kommerzielle und nicht-kommerzielle Veröffentlichung der Anwendung ist ohne ausdrückliche Zustimmung aller Betreiber und Entwickler untersagt."));
+            secondPage.Paragraphs.Add(new TextFragment("1: Jegliche kommerzielle und nicht-kommerzielle Veröffentlichung der Anwendung ist ohne ausdrückliche Zustimmung aller Betreiber und Entwickler untersagt."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§2: Weitergabe des Programms kann ohne ausdrückliche Zustimmeung aller Entwickler und Betreiber als Vertragsbruch gesehen werden."));
+            secondPage.Paragraphs.Add(new TextFragment("2: Weitergabe des Programms kann ohne ausdrückliche Zustimmeung aller Entwickler und Betreiber als Vertragsbruch gesehen werden."));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§3: Personenbezogene Daten wie(Name, Adresse usw.) werden nicht an externe Anbieter weitergeleitetet"));
+            secondPage.Paragraphs.Add(new TextFragment("3: Personenbezogene Daten wie(Name, Adresse usw.) werden nicht an externe Anbieter weitergeleitetet"));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§4: Bei Downloaden der Rechnung werden ihre Daten automatisch in die Rechnung Reinkopiert und Lokal auf ihren Rechner Heruntergeladen"));
+            secondPage.Paragraphs.Add(new TextFragment("4: Bei Downloaden der Rechnung werden ihre Daten automatisch in die Rechnung Reinkopiert und Lokal auf ihren Rechner Heruntergeladen"));
             secondPage.Paragraphs.Add(new TextFragment(""));
-            secondPage.Paragraphs.Add(new TextFragment("§5: Mit dem Erhalt der Rechnung Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs"));
+            secondPage.Paragraphs.Add(new TextFragment("5: Mit dem Erhalt der Rechnung Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs"));
 
             Loggerclass.logger.Information($"Nutzungsbedingungen sowie AGBs hinzugefügt!");
 
+            // Schriftart, die Sie verwenden möchten
+            string desiredFont = "Arial";
 
+            // Iterieren Sie durch alle Textfragmente und ändern Sie die Schriftart
+            foreach (TextFragment textFragment in secondPage.Paragraphs)
+            {
+                textFragment.TextState.Font = FontRepository.FindFont(desiredFont);
+            }
 
 
             string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");

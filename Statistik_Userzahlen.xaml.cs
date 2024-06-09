@@ -35,7 +35,6 @@ namespace Shop_bestellsystem
         {
             InitializeComponent();
 
-            // Datenbankverbindung herstellen
             
             string server = "193.203.168.53";
             string database = "u964104866_Shop";
@@ -49,10 +48,8 @@ namespace Shop_bestellsystem
 
             Connection = new MySqlConnection(connectionString);
 
-            // Daten für das Diagramm abrufen
             List<double> userCounts = GetData();
 
-            // Daten zum Diagramm hinzufügen
             SeriesCollection = new SeriesCollection
                 {
                     new LineSeries
@@ -64,7 +61,6 @@ namespace Shop_bestellsystem
 
             Labels = new[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
             Formatter = value => value.ToString("N");
-			//this.Background = new SolidColorBrush(Colors.Black);
 
 			DataContext = this;
         }
@@ -77,7 +73,6 @@ namespace Shop_bestellsystem
                 Connection.Open();
                 string query = "SELECT COUNT(*) AS jahre FROM statistik_users GROUP BY jahr";
                 
-                //string query = "SELECT SUM(jahr) FROM statistik_users WHERE jahr BETWEEN 2016 AND 2024 ORDER BY Jahr;";
                 MySqlCommand command = new MySqlCommand(query, Connection);
 
                 using (MySqlDataReader reader = command.ExecuteReader())

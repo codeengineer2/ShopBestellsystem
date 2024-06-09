@@ -5,24 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_bestellsystem"
         mc:Ignorable="d"
-        Title="UserAgreementWindow" Height="450" Width="1000">
+        Title="UserAgreementWindow" Height="450" Width="1100">
     <Grid>
         <TextBlock  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0" FontSize="20" FontWeight="Heavy">Nutzungsbedingungen und AGB Agreements</TextBlock>
-        <ListBox Width="800" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,70,0,0">
+        <ListBox Width="980" Height="200" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,70,0,0">
             <ListBoxItem>AGB:</ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
             <ListBoxItem></ListBoxItem>
 
-            <ListBoxItem>§1: Alle Inhalte und Dargestellten Produkte können weder gekauft noch beansprucht werden.</ListBoxItem>
-            <ListBoxItem>§2: Kein Vorgang (wie z.B. Bestellbuttons, Rechnung) in der Anwendung bestätigt einen Zahlungspflichtigen Kauf.</ListBoxItem>
-            <ListBoxItem>§3: Keiner der abgebildeten Inhalte in der Kategorie \"Shop\" darf als Produkt oder Gutschrift angesehen werden.</ListBoxItem>
-            <ListBoxItem>§4: Durch die Nutzung der Anwendung wird kein Rechtsgeschäft mit den Entwicklern oder Betreibern der Anwendung eingegangen.</ListBoxItem>
-            <ListBoxItem>§5: Die "Rechnung" stellt nur eine unverbindliche Information dar und begründet keine Zahlungs- oder Lieferverpflichtungen.</ListBoxItem>
-
-
+            <ListBoxItem>1: Alle Inhalte und Dargestellten Produkte können weder gekauft noch beansprucht werden.</ListBoxItem>
+            <ListBoxItem>2: Kein Vorgang (wie z.B. Bestellbuttons, Rechnung) in der Anwendung bestätigt einen Zahlungspflichtigen Kauf.</ListBoxItem>
+            <ListBoxItem>3: Keiner der abgebildeten Inhalte in der Kategorie "Shop" darf als Produkt oder Gutschrift angesehen werden.</ListBoxItem>
+            <ListBoxItem>4: Durch die Nutzung der Anwendung wird kein Rechtsgeschäft mit den Entwicklern oder Betreibern der Anwendung eingegangen.</ListBoxItem>
+            <ListBoxItem>5: Die "Rechnung" stellt nur eine unverbindliche Information dar und begründet keine Zahlungs- oder Lieferverpflichtungen.</ListBoxItem>
+            <ListBoxItem>6: Die Entwickler und Betreiber haften nicht für die Korrektheit und Gültigkeit der dargestellten Inhalte, die von externen Dienstleistern stammen.</ListBoxItem>
+            <ListBoxItem>7: Die Firmenadresse und der Firmenname sind frei erfunden und wurden nur zu Projektzwecken verwendet, um eine vernünftige Anwendung darzustellen.</ListBoxItem>
+            <ListBoxItem>8.1: Die Entwickler und Betreiber behalten sich das Recht vor, die AGB jederzeit zu ändern.</ListBoxItem>
+            <ListBoxItem>8.2:Änderungen werden den Nutzern rechtzeitig mitgeteilt. Die weitere Nutzung der Anwendung nach Bekanntgabe der Änderungen gilt als Zustimmung zu den neuen AGB.</ListBoxItem>
+            <ListBoxItem>9: Gerichtsstand und anwendbares Recht: Es gilt das Recht der Republik Österreich.</ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem>Nutzungsbedingungen:"</ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem></ListBoxItem>
+            <ListBoxItem>1: Jegliche kommerzielle und nicht-kommerzielle Veröffentlichung der Anwendung ist ohne ausdrückliche Zustimmung aller Betreiber und Entwickler untersagt.</ListBoxItem>
+            <ListBoxItem>2: Weitergabe des Programms kann ohne ausdrückliche Zustimmeung aller Entwickler und Betreiber als Vertragsbruch gesehen werden.</ListBoxItem>
+            <ListBoxItem>3: Personenbezogene Daten wie (Name, Adresse etc.) werden nicht an externe Anbieter weitergeleitetet</ListBoxItem>
+            <ListBoxItem>4: Bei Downloaden der Rechnung werden ihre Daten automatisch in die Rechnung Reinkopiert und Lokal auf ihren Rechner Heruntergeladen"</ListBoxItem>
+            <ListBoxItem>5: Mit dem Bestätigen der Agreements Akzeptieren Sie jegliche Nutzungsbedingungen und AGBs</ListBoxItem>
 
         </ListBox>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,80" Width="980" Height="40">
+            <CheckBox  VerticalAlignment="Top" Margin="0,2.5,0,0" x:Name="agb">
+                <TextBlock>Ich habe die Allgemeinen Geschäftsbedingungen gelesen.</TextBlock>
+            </CheckBox>
+            <CheckBox  VerticalAlignment="Bottom" Margin="0,5,0,0" x:Name="useragreement">
+                <TextBlock>Ich habe die Nutzungsbedingungen gelesen.</TextBlock>
+            </CheckBox>
+        </StackPanel>
+        <StackPanel Width="980" Height="40" VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Width="150" Height="20" Click="agree_Click">I agree</Button>
+            <Button Width="150" Height="20" Margin="50,0,0,0" Click="decline_Click">I decline</Button>
+        </StackPanel>
+        
+     
     </Grid>
 </Window>
