@@ -14,6 +14,7 @@ using QuestPDF;
 using DocumentFormat.OpenXml.CustomProperties;
 using System.Configuration;
 using System.Windows.Media;
+using System.Windows.Input;
 
 
 
@@ -29,13 +30,13 @@ namespace Shop_bestellsystem
         public Func<double, string> Formatter { get; set; }
         public MySqlConnection Connection { get; set; }
         public string connectionString;
-        // ...
+       
 
         public Statistik_Userzahlen()
         {
             InitializeComponent();
 
-            
+
             string server = "193.203.168.53";
             string database = "u964104866_Shop";
             string UID = "u964104866_MVdevelopment";
@@ -54,15 +55,16 @@ namespace Shop_bestellsystem
                 {
                     new LineSeries
                     {
-                        Title = "Userzahlen",
+                        Title = "User numbers",
                         Values = new ChartValues<double>(userCounts)
                     }
                 };
 
             Labels = new[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
             Formatter = value => value.ToString("N");
+            this.Background = new SolidColorBrush(Colors.AliceBlue);
 
-			DataContext = this;
+            DataContext = this;
         }
 
         public List<double> GetData()
@@ -72,7 +74,7 @@ namespace Shop_bestellsystem
             {
                 Connection.Open();
                 string query = "SELECT COUNT(*) AS jahre FROM statistik_users GROUP BY jahr";
-                
+
                 MySqlCommand command = new MySqlCommand(query, Connection);
 
                 using (MySqlDataReader reader = command.ExecuteReader())
@@ -92,11 +94,44 @@ namespace Shop_bestellsystem
             {
                 Connection.Close();
             }
-            
+
             return userCounts;
         }
 
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        
+         
+	
+
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+
+
     }
+
 
 
 }

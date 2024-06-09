@@ -32,14 +32,14 @@ namespace Shop_bestellsystem
         public Func<double, string> Formatter { get; set; }
         public MySqlConnection Connection { get; set; }
         public string connectionString;
-        // ...
+        
 
 
         public Statistik_userdauer()
         {
             InitializeComponent();
 
-            
+          
             string server = "193.203.168.53";
             string database = "u964104866_Shop";
             string UID = "u964104866_MVdevelopment";
@@ -50,9 +50,11 @@ namespace Shop_bestellsystem
             connectionString = $"Server={server};Port={port};Database={database};UserID={UID};Password={password};";
 
             Connection = new MySqlConnection(connectionString);
+            // Daten für das Diagramm abrufen
             List<double> userdauer = Getuserdauer();
             List<double> avguserdauer = Getavguserdauer();
 
+            // Daten zum Diagramm hinzufügen
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -73,11 +75,13 @@ namespace Shop_bestellsystem
 
             Labels = new[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" };
             Formatter = value => value.ToString("N");
+            this.Background = new SolidColorBrush(Colors.AliceBlue);
 
             DataContext = this;
-            this.Title = "Nutzungsdauer pro Einkaufserlebnis";
+            // Set the title
+            this.Title = "Usage time per shopping experience";
         }
-        
+
         public List<double> Getavguserdauer()
         {
             List<double> userdauer = new List<double>();
@@ -94,14 +98,14 @@ namespace Shop_bestellsystem
                 {
                     while (reader.Read())
                     {
-                        for (var i = 0; i<=8; i++)
+                        for (var i = 0; i <= 8; i++)
                         {
                             userdauer.Add(Math.Round(Convert.ToDouble(reader["userdauer"]), 2));
 
                         }
                     }
                 }
-               
+
             }
             catch (MySqlException ex)
             {
@@ -130,7 +134,7 @@ namespace Shop_bestellsystem
                 {
                     while (reader.Read())
                     {
-                        avguserdauer.Add(Math.Round(Convert.ToDouble(reader["avguserdauer"]),2));
+                        avguserdauer.Add(Math.Round(Convert.ToDouble(reader["avguserdauer"]), 2));
                     }
                 }
             }
@@ -144,6 +148,32 @@ namespace Shop_bestellsystem
             }
 
             return avguserdauer;
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.ChangedButton == MouseButton.Left)
+                {
+                    this.DragMove();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+        }
+
+        private void MinimizeWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+
+        private void CloseWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
         }
     }
 }
