@@ -40,6 +40,7 @@ namespace Shop_bestellsystem
             {
                 Loggerclass.logger.Information("Beide Agreements wurden Akzeptiert -- AGBs und UserAgreement");
                 agb.BorderBrush = Brushes.Black;
+                isvalid = true;
                 this.Close();
             }
             else

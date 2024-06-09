@@ -32,7 +32,7 @@ namespace Shop_bestellsystem
 
             if (basketList == null || basketList.Count == 0)
             {
-                MessageBox.Show("The basketList is empty or null.");
+                MessageBox.Show("Your shopping-basket is empty!");
                 Loggerclass.logger.Warning("basketList ist Leer (is null)");
             }
             else

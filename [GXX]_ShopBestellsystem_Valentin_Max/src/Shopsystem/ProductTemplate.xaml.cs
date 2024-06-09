@@ -18,7 +18,8 @@ namespace Shop_bestellsystem
 {
     public partial class ProductTemplate : UserControl
     {
-        public static readonly DependencyProperty AliasProperty = DependencyProperty.Register("Alias", typeof(string), typeof(ProductTemplate), new PropertyMetadata(string.Empty));
+		#region variables
+		public static readonly DependencyProperty AliasProperty = DependencyProperty.Register("Alias", typeof(string), typeof(ProductTemplate), new PropertyMetadata(string.Empty));
         public string Alias
         {
             get { return (string)GetValue(AliasProperty); }
@@ -71,17 +72,22 @@ namespace Shop_bestellsystem
 		}
 
 		public event RoutedEventHandler ButtonClicked;
+		#endregion
 
+		#region constructors
 		public ProductTemplate()
         {
             InitializeComponent();
         }
+		#endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+		#region methods
+		private void Button_Click(object sender, RoutedEventArgs e)
         {
             int quantitySpinBox = spinBox.Number;
 			Loggerclass.logger.Information("Button clicked in ProductTemplate. Quantity selected: {Quantity}", quantitySpinBox);
 			ButtonClicked?.Invoke(this, new RoutedEventArgs());
         }
-    }
+		#endregion
+	}
 }
