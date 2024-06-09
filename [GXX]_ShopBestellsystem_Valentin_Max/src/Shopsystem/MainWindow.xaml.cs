@@ -27,7 +27,7 @@ namespace Shop_bestellsystem
             Loggerclass.logger.Information("MainWindow initialized.");
 			Main.Content = new Shop(productList, basketList);
 		}
-
+		
 		private void GetActualBasket()
 		{
 			if (Main.Content is Shop shopPage)
