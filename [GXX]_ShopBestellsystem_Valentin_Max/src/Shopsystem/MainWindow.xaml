@@ -1,0 +1,51 @@
+﻿<Window x:Class="Shop_bestellsystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shop_bestellsystem"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
+        Height="600" Width="1000">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#B8AEA6" Grid.Row="0" Grid.Column="1" CornerRadius="0,10,0,0">
+            <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Source="/assets/minimize_window.png" Width="40" Height="Auto" Margin="0,0,10,0" MouseDown="MinimizeWindow_MouseDown" Cursor="Hand"/>
+                <!-- <Image Source="/assets/maximize_window.png" Width="50" Height="Auto" DockPanel.Dock="Left" Margin="0,0,20,0" MouseDown="MaximizeWindow_MouseDown"/> -->
+                <Image Source="/assets/close_window.png" Width="40" Height="Auto" Margin="0,0,20,0" MouseDown="CloseWindow_MouseDown" Cursor="Hand"/>
+            </StackPanel>
+        </Border>
+
+        <Border Background="#FF7F00" Grid.Row="0" Grid.Column="0" CornerRadius="10,0,0,0">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="E M P O R I U M" FontFamily="/fonts/#jaro" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"/>
+        </Border>
+
+        <Menu x:Name="menu" Grid.Row="1" Grid.Column="0" Background="#B8AEA6" Style="{StaticResource MenuStyle}">
+            <MenuItem x:Name="menuItemShop" Style="{StaticResource MenuBar}" Header="S H O P" Tag="/assets/menu_icon_shop.png" Click="menuItemShop_Click"/>
+            <MenuItem x:Name="menuItemAbout" Style="{StaticResource MenuBar}" Header="A B O U T" Tag="/assets/menu_icon_about.png" Click="menuItemAbout_Click"/>
+            <MenuItem x:Name="menuItemContact" Style="{StaticResource MenuBar}" Header="C O N T A C T" Tag="/assets/menu_icon_contact.png" Click="menuItemContact_Click"/>
+            <MenuItem x:Name="menuItemInsights" Style="{StaticResource MenuBar}" Header="I N S I G H T S" Tag="/assets/menu_icon_insights.png" Click="menuItemInsights_Click"/>
+            <MenuItem x:Name="menuItemBasket" Style="{StaticResource MenuBar}" Header="B A S K E T" Tag="/assets/menu_icon_basket.png" Click="menuItemBasket_Click"/>
+            <MenuItem x:Name="menuItemExit" Style="{StaticResource MenuBar}" Header="E X I T" Tag="/assets/menu_icon_exit.png" Click="menuItemExit_Click"/>
+        </Menu>
+
+        <Frame Grid.Row="1" Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden"/>
+    </Grid>
+    
+</Window>
