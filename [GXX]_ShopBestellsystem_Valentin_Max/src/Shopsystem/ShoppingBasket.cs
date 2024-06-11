@@ -283,7 +283,7 @@ namespace Shop_bestellsystem
             
             string formattodeliverydatum = deliverdatum.ToString("dd.MM.yyyy");
             Loggerclass.logger.Information($"Lieferdatum: {formattodeliverydatum}");
-            return formattodeliverydatum;
+            return formattodeliverydatum; 
         }
 		
 
@@ -299,7 +299,7 @@ namespace Shop_bestellsystem
 
             Random random = new Random();
             int bestellnummer = random.Next(10535, 100000);
-            string header = "MV Development Sudios GMBH & CO KG\nMain Lumber Rd\nBahamas\n\n";
+            string header = "Axis Coupon Group\nBay Streetd\n N-7148 Bahamas\n\n";
             
             string customerInfo = $"{Firstname}  {Lastname}\n{Street}\n{Plz} {City}\n{Country}\n";
             string billingInfo = $"Rechnungs-Nr: {bestellnummer}    \nRechnungsdatum: {formattoday}\nLieferdatum: {lieferdatum()}\n \nE-mail: {Mail}\n";
